@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Heart, Shield } from "lucide-react";
 import { contactData, getWhatsAppLink } from "@/data/contact";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -13,8 +13,6 @@ import {
   PhoneIcon,
   LocationIcon,
   InstagramIcon,
-  PrivacyIcon,
-  PersonalizedCareIcon,
 } from "@/components/icons";
 
 export const ContactSection: React.FC = () => {
@@ -107,7 +105,7 @@ export const ContactSection: React.FC = () => {
         <div className="mb-16 text-center max-w-3xl mx-auto space-y-3">
           <Badge
             variant="lavender"
-            icon={<PersonalizedCareIcon size={14} className="text-[#8B7FD1]" />}
+            icon={<Heart size={14} className="text-[#8B7FD1]" />}
           >
             Cada pequeño avance cuenta
           </Badge>
@@ -282,7 +280,7 @@ export const ContactSection: React.FC = () => {
 
             {/* Privacy note */}
             <div className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/80 border border-[#E8E4F7] text-xs text-[#3E3B52]">
-              <PrivacyIcon size={18} className="text-[#5B4B9E] shrink-0 mt-0.5" />
+              <Shield size={18} className="text-[#5B4B9E] shrink-0 mt-0.5" />
               <p>
                 <strong>Privacidad protegida:</strong> No solicitamos historias clínicas ni información médica confidencial por este medio. La comunicación se realiza directamente en tu aplicación de WhatsApp.
               </p>

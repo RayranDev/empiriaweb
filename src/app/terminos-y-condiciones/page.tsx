@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 import { contactData } from "@/data/contact";
-import { TermsConditionsIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones de Uso | Centro Terapéutico Empiria",
@@ -26,7 +26,7 @@ export default function TerminosYCondicionesPage() {
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <TermsConditionsIcon size={20} className="text-[#8B7FD1] shrink-0 mt-0.5" />
+          <FileText size={20} className="text-[#8B7FD1] shrink-0 mt-0.5" />
           <p>
             <strong>Naturaleza de la información:</strong> El contenido divulgado en este sitio web es exclusivamente orientativo y psicoeducativo para padres y cuidadores. No constituye consulta médica, diagnóstico fonoaudiológico ni prescripción clínica.
           </p>

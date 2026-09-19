@@ -5,7 +5,7 @@ import { ExternalLink } from "lucide-react";
 import { contactData } from "@/data/contact";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { InstagramIcon, InstagramGlyph, LittleHeartDoodle, OrganicLeaf } from "@/components/icons";
+import { InstagramGlyph, LittleHeartDoodle, OrganicLeaf } from "@/components/icons";
 
 interface InstagramTopicPreview {
   id: string;
@@ -63,7 +63,7 @@ export const InstagramFeedSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2">
-              <Badge variant="lavender" icon={<InstagramIcon size={14} className="text-[#8B7FD1]" />}>
+              <Badge variant="lavender" icon={<InstagramGlyph size={14} className="text-[#8B7FD1]" />}>
                 Contenido y Comunidad
               </Badge>
             </div>
@@ -103,7 +103,7 @@ export const InstagramFeedSection: React.FC = () => {
                   <span className="font-bold text-[#5B4B9E] uppercase tracking-wider text-[11px]">
                     {topic.tag}
                   </span>
-                  <InstagramIcon size={14} className="text-[#8B7FD1]" />
+                  <InstagramGlyph size={14} className="text-[#8B7FD1]" />
                 </div>
 
                 <h3 className="text-base font-bold text-[#2D2D3A] leading-snug">

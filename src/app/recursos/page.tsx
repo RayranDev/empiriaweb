@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { resourcesData } from "@/data/resources";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { ClockIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Recursos y Artículos | Empiria en Casa",
@@ -38,7 +37,7 @@ export default function RecursosPage() {
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="lavender">{article.category}</Badge>
                   <span className="text-xs text-[#3E3B52] flex items-center gap-1.5 font-medium">
-                    <ClockIcon size={14} className="text-[#8B7FD1]" />
+                    <Clock size={14} className="text-[#8B7FD1]" />
                     <span>{article.readTime}</span>
                   </span>
                 </div>

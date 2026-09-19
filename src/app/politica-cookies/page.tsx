@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { CookieIcon } from "@/components/icons";
+import { Cookie } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Política de Cookies | Centro Terapéutico Empiria",
@@ -25,7 +25,7 @@ export default function PoliticaCookiesPage() {
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <CookieIcon size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
+          <Cookie size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
           <p>
             En Centro Terapéutico Empiria creemos en una web limpia y respetuosa: no utilizamos cookies publicitarias de rastreo cruzado invasivas ni compartimos perfiles de navegación de menores.
           </p>

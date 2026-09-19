@@ -3,16 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, MapPin, Clock, Mail } from "lucide-react";
 import { EmpiriaLogo } from "@/components/logo/EmpiriaLogo";
 import { contactData, getWhatsAppLink } from "@/data/contact";
-import {
-  LocationIcon,
-  ClockIcon,
-  WhatsAppIcon,
-  WhatsAppGlyph,
-  EmailIcon,
-} from "@/components/icons";
+import { WhatsAppGlyph } from "@/components/icons";
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,11 +63,11 @@ export const Header: React.FC = () => {
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-6">
               <span className="inline-flex items-center gap-1.5">
-                <LocationIcon size={14} className="text-[#5B8FD4]" />
+                <MapPin size={14} className="text-[#5B8FD4]" />
                 <span>{contactData.address.neighborhood}, Bogotá</span>
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <ClockIcon size={14} className="text-[#8B7FD1]" />
+                <Clock size={14} className="text-[#8B7FD1]" />
                 <span>{contactData.schedule.weekdays}</span>
               </span>
             </div>
@@ -84,7 +78,7 @@ export const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:text-[#5B4B9E] transition-colors inline-flex items-center gap-1.5"
               >
-                <WhatsAppIcon size={14} className="text-[#25D366]" />
+                <WhatsAppGlyph size={14} className="text-[#25D366]" />
                 <span>WhatsApp: {contactData.phoneFormatted}</span>
               </a>
               <span className="text-[#C3B8E8]">|</span>
@@ -92,7 +86,7 @@ export const Header: React.FC = () => {
                 href={`mailto:${contactData.email}`}
                 className="hover:text-[#5B4B9E] transition-colors inline-flex items-center gap-1.5"
               >
-                <EmailIcon size={14} className="text-[#5B8FD4]" />
+                <Mail size={14} className="text-[#5B8FD4]" />
                 <span>{contactData.email}</span>
               </a>
             </div>
@@ -229,7 +223,7 @@ export const Header: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-[#5B4B9E] bg-[#F2EFFA] border border-[#C3B8E8]/50 hover:bg-[#E8E4F7] transition-all"
               >
-                <LocationIcon size={16} className="text-[#5B8FD4]" />
+                <MapPin size={16} className="text-[#5B8FD4]" />
                 <span>Sede y Contacto Directo</span>
               </Link>
 

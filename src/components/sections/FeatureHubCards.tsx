@@ -9,6 +9,7 @@ import {
   ArticlesIcon,
   FAQIcon,
   EmailIcon,
+  SparkleStar,
 } from "@/components/icons";
 
 export const FeatureHubCards: React.FC = () => {
@@ -46,6 +47,20 @@ export const FeatureHubCards: React.FC = () => {
   return (
     <section className="py-12 sm:py-16 bg-[#F2EFFA]/35 border-y border-[#E8E4F7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Light framing so this hub grid matches the minimal heading + subtitle
+            pattern used by every sibling section, instead of dropping in bare. */}
+        <div className="relative text-center max-w-xl mx-auto mb-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2D2D3A] tracking-tight">
+            Más formas de acompañarte
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-[#3E3B52]">
+            Recursos, respuestas y un canal directo cuando lo necesites.
+          </p>
+          <div className="hidden sm:block absolute -top-3 right-0 pointer-events-none opacity-70">
+            <SparkleStar size={18} color="#8B7FD1" />
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {hubs.map((hub, idx) => (
             <Card

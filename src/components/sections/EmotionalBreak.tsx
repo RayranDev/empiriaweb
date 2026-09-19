@@ -2,11 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { Mail } from "lucide-react";
 import { getWhatsAppLink } from "@/data/contact";
 import { Button } from "@/components/ui/Button";
 import {
   WhatsAppGlyph,
-  EmailIcon,
   OrganicLeaf,
   LittleHeartDoodle,
   SparkleStar,
@@ -61,7 +61,7 @@ export const EmotionalBreak: React.FC = () => {
                 size="md"
                 href="/contacto"
                 className="w-full sm:w-auto border-[#8B7FD1]/50 text-[#5B4B9E] bg-white shadow-xs"
-                leftIcon={<EmailIcon size={16} className="text-[#5B8FD4]" />}
+                leftIcon={<Mail size={16} className="text-[#5B8FD4]" />}
               >
                 Escríbenos
               </Button>

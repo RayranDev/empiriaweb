@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { faqData } from "@/data/faq";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -21,7 +21,7 @@ export const FAQSection: React.FC = () => {
         <div className="text-center space-y-4">
           <Badge
             variant="lavender"
-            icon={<FAQIcon size={14} className="text-[#8B7FD1]" />}
+            icon={<HelpCircle size={14} className="text-[#8B7FD1]" />}
           >
             Respuestas Claras
           </Badge>

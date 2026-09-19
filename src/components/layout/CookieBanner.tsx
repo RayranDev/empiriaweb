@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Settings } from "lucide-react";
-import { CookieIcon, PrivacyIcon } from "@/components/icons";
+import { Settings, Cookie, Shield } from "lucide-react";
 
 export const CookieBanner: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -57,7 +56,7 @@ export const CookieBanner: React.FC = () => {
         {/* Info text */}
         <div className="flex items-start gap-3.5 max-w-3xl">
           <div className="p-2.5 rounded-2xl bg-[#E8E4F7] text-[#5B4B9E] shrink-0 mt-0.5">
-            <CookieIcon size={22} className="text-[#5B4B9E]" />
+            <Cookie size={22} className="text-[#5B4B9E]" />
           </div>
           <div className="text-xs sm:text-sm text-[#3E3B52] leading-relaxed">
             <p className="font-bold text-[#2D2D3A] text-sm sm:text-base">
@@ -113,7 +112,7 @@ export const CookieBanner: React.FC = () => {
             <div className="p-3.5 rounded-xl bg-[#F2EFFA] border border-[#E8E4F7]">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#2D2D3A] flex items-center gap-1.5">
-                  <PrivacyIcon size={16} className="text-[#5B4B9E]" />
+                  <Shield size={16} className="text-[#5B4B9E]" />
                   Cookies Técnicas y Esenciales
                 </span>
                 <span className="text-[11px] font-bold text-[#5B4B9E] uppercase">Siempre activas</span>

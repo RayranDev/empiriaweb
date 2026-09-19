@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { FileCheck } from "lucide-react";
 import { contactData } from "@/data/contact";
-import { DataTreatmentIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Tratamiento de Datos Personales | Ley 1581 de 2012 | Empiria",
@@ -26,7 +26,7 @@ export default function PoliticaTratamientoDatosPage() {
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <DataTreatmentIcon size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
+          <FileCheck size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
           <p>
             <strong>Aviso de cumplimiento:</strong> Este documento consagra las directrices que rigen la recolección, almacenamiento, uso y supresión de datos personales por parte de <strong>{contactData.name}</strong>, garantizando el derecho constitucional de Hábeas Data.
           </p>

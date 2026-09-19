@@ -1,18 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import { Shield, FileCheck, FileText, Cookie, MapPin, Clock, Mail, Heart } from "lucide-react";
 import { EmpiriaLogo } from "@/components/logo/EmpiriaLogo";
 import { contactData, getWhatsAppLink } from "@/data/contact";
 import {
-  InstagramIcon,
-  WhatsAppIcon,
-  EmailIcon,
-  LocationIcon,
-  ClockIcon,
-  PersonalizedCareIcon,
-  PrivacyIcon,
-  DataTreatmentIcon,
-  TermsConditionsIcon,
-  CookieIcon,
+  InstagramGlyph,
+  WhatsAppGlyph,
   OrganicLeaf,
   LittleHeartDoodle,
 } from "@/components/icons";
@@ -41,27 +34,27 @@ export const Footer: React.FC = () => {
     {
       label: "Política de Privacidad",
       href: "/politica-de-privacidad",
-      icon: <PrivacyIcon size={14} className="text-[#8B7FD1]" />,
+      icon: <Shield size={14} className="text-[#8B7FD1]" />,
     },
     {
       label: "Tratamiento de Datos Personales",
       href: "/politica-tratamiento-datos",
-      icon: <DataTreatmentIcon size={14} className="text-[#5B8FD4]" />,
+      icon: <FileCheck size={14} className="text-[#5B8FD4]" />,
     },
     {
       label: "Autorización de Tratamiento de Datos",
       href: "/autorizacion-tratamiento-datos",
-      icon: <DataTreatmentIcon size={14} className="text-[#5B4B9E]" />,
+      icon: <FileCheck size={14} className="text-[#5B4B9E]" />,
     },
     {
       label: "Términos y Condiciones",
       href: "/terminos-y-condiciones",
-      icon: <TermsConditionsIcon size={14} className="text-[#8B7FD1]" />,
+      icon: <FileText size={14} className="text-[#8B7FD1]" />,
     },
     {
       label: "Política de Cookies",
       href: "/politica-cookies",
-      icon: <CookieIcon size={14} className="text-[#5B8FD4]" />,
+      icon: <Cookie size={14} className="text-[#5B8FD4]" />,
     },
   ];
 
@@ -89,7 +82,7 @@ export const Footer: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F2EFFA] text-[#2D2D3A] hover:bg-[#E8E4F7] hover:text-[#E1306C] transition-colors text-xs font-bold"
               aria-label="Instagram oficial de Centro Terapéutico Empiria"
             >
-              <InstagramIcon size={16} className="text-[#E1306C]" />
+              <InstagramGlyph size={16} className="text-[#E1306C]" />
               <span>{contactData.social.instagram}</span>
             </a>
 
@@ -100,7 +93,7 @@ export const Footer: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F2EFFA] text-[#2D2D3A] hover:bg-[#E8E4F7] hover:text-[#25D366] transition-colors text-xs font-bold"
               aria-label="WhatsApp oficial de Centro Terapéutico Empiria"
             >
-              <WhatsAppIcon size={16} className="text-[#25D366]" />
+              <WhatsAppGlyph size={16} className="text-[#25D366]" />
               <span>{contactData.phoneFormatted}</span>
             </a>
           </div>
@@ -115,7 +108,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="p-3.5 rounded-2xl bg-white/80 border border-[#E8E4F7] text-xs text-[#3E3B52] space-y-1">
               <p className="font-bold text-[#5B4B9E] flex items-center gap-1.5">
-                <PersonalizedCareIcon size={14} className="text-[#8B7FD1]" />
+                <Heart size={14} className="text-[#8B7FD1]" />
                 Enfoque centrado en la familia
               </p>
               <p>
@@ -169,21 +162,21 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="space-y-3 text-xs text-[#3E3B52]">
               <div className="flex items-start gap-2">
-                <LocationIcon size={15} className="text-[#5B8FD4] shrink-0 mt-0.5" />
+                <MapPin size={15} className="text-[#5B8FD4] shrink-0 mt-0.5" />
                 <span>
                   {contactData.address.street} <br />
                   {contactData.address.neighborhood}, Bogotá
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <ClockIcon size={15} className="text-[#8B7FD1] shrink-0 mt-0.5" />
+                <Clock size={15} className="text-[#8B7FD1] shrink-0 mt-0.5" />
                 <span>
                   {contactData.schedule.weekdays} <br />
                   {contactData.schedule.saturdays}
                 </span>
               </div>
               <div className="flex items-start gap-2">
-                <EmailIcon size={15} className="text-[#5B4B9E] shrink-0 mt-0.5" />
+                <Mail size={15} className="text-[#5B4B9E] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${contactData.email}`}
                   className="hover:text-[#5B4B9E] transition-colors break-all"

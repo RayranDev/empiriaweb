@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Users } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import {
@@ -45,7 +46,7 @@ export const ParentsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge
             variant="lavender"
-            icon={<FamilySupportIcon size={14} className="text-[#8B7FD1]" />}
+            icon={<Users size={14} className="text-[#8B7FD1]" />}
           >
             Acompañamiento a Cuidadores
           </Badge>

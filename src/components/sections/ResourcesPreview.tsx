@@ -2,12 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock, BookOpen } from "lucide-react";
 import { resourcesData } from "@/data/resources";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { ClockIcon, ArticlesIcon } from "@/components/icons";
 
 export const ResourcesPreview: React.FC = () => {
   return (
@@ -16,7 +15,7 @@ export const ResourcesPreview: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge
             variant="lavender"
-            icon={<ArticlesIcon size={14} className="text-[#8B7FD1]" />}
+            icon={<BookOpen size={14} className="text-[#8B7FD1]" />}
           >
             Biblioteca Educativa
           </Badge>
@@ -40,7 +39,7 @@ export const ResourcesPreview: React.FC = () => {
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="lavender">{article.category}</Badge>
                   <span className="text-xs text-[#3E3B52] flex items-center gap-1 font-medium">
-                    <ClockIcon size={14} className="text-[#8B7FD1]" />
+                    <Clock size={14} className="text-[#8B7FD1]" />
                     <span>{article.readTime}</span>
                   </span>
                 </div>

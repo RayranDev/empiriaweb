@@ -10,7 +10,7 @@ import {
   FamilySupportIcon,
   SchoolCoordinationIcon,
   HumanApproachIcon,
-  WhatsAppIcon,
+  WhatsAppGlyph,
   BotanicalBranch,
   OrganicLeaf,
   SparkleStar,
@@ -153,7 +153,7 @@ export const HeroSection: React.FC = () => {
               href={getWhatsAppLink("Hola, quisiera recibir información sobre el proceso de valoración fonoaudiológica infantil en Centro Terapéutico Empiria.")}
               isExternal
               className="w-full sm:w-auto border-2 border-[#5B8FD4]/40 hover:border-[#25D366] text-[#2D2D3A] hover:text-[#25D366] bg-white shadow-xs"
-              leftIcon={<WhatsAppIcon size={20} className="text-[#25D366]" />}
+              leftIcon={<WhatsAppGlyph size={20} className="text-[#25D366]" />}
             >
               Hablar por WhatsApp
             </Button>
