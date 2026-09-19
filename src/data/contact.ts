@@ -17,6 +17,8 @@ export interface ContactInfo {
     weekdays: string;
     saturdays: string;
     sundays: string;
+    /** Compact one-line summary for tight spaces (e.g. the header topbar). */
+    topbarSummary: string;
   };
   social: {
     instagram: string;
@@ -44,6 +46,7 @@ export const contactData: ContactInfo = {
     weekdays: "Lunes a viernes: 9:00 a.m. – 6:00 p.m.",
     saturdays: "Sábados: 9:00 a.m. – 5:00 p.m.",
     sundays: "Domingos: Cerrado",
+    topbarSummary: "Lun–Vie: 9:00 a.m.–6:00 p.m. · Sáb: 9:00 a.m.–5:00 p.m.",
   },
   social: {
     instagram: "@centrot.empiria",

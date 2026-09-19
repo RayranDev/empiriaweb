@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock size={14} className="text-[#8B7FD1]" />
-                <span>{contactData.schedule.weekdays}</span>
+                <span>{contactData.schedule.topbarSummary}</span>
               </span>
             </div>
             <div className="flex items-center gap-5 font-medium">
