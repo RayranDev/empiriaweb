@@ -8,7 +8,7 @@ import {
   Heart,
   ShieldAlert,
 } from "lucide-react";
-import { InstagramIcon } from "@/components/ui/Icons";
+import { InstagramIcon, FacebookIcon, XIcon } from "@/components/ui/Icons";
 import { EmpiriaLogo } from "@/components/logo/EmpiriaLogo";
 import { contactData, getWhatsAppLink } from "@/data/contact";
 
@@ -42,7 +42,44 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gradient-to-b from-[#F2EFFA]/60 via-[#E8E4F7]/40 to-[#E8E4F7]/80 text-[#2D2D3A] border-t border-[#E8E4F7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12">
+        {/* Brand Quote Card matching mockup */}
+        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E4F7] shadow-xs text-center flex flex-col items-center justify-center space-y-3">
+          <EmpiriaLogo size="sm" />
+          <p className="font-script text-xl sm:text-2xl font-bold text-[#5B4B9E] max-w-xl">
+            “Cada niño tiene una manera única de aprender, comunicarse y crecer.”
+          </p>
+          <div className="pt-2 flex items-center gap-4 text-[#8B7FD1]">
+            <a
+              href={contactData.social.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#E1306C] transition-colors"
+              aria-label="Instagram de Empiria"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#1877F2] transition-colors"
+              aria-label="Facebook de Empiria"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#2D2D3A] transition-colors"
+              aria-label="X (Twitter) de Empiria"
+            >
+              <XIcon className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#D4C9EE]/60">
           {/* Column 1: Brand & Emotional statement */}
           <div className="lg:col-span-2 space-y-4">

@@ -42,9 +42,7 @@ export const Header: React.FC = () => {
     { label: "Nosotros", href: "/nosotros" },
     { label: "Áreas de atención", href: "/areas-de-atencion" },
     { label: "Nuestro proceso", href: "/nuestro-proceso" },
-    { label: "Para familias", href: "/para-familias" },
     { label: "Recursos", href: "/recursos" },
-    { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
     { label: "Contacto", href: "/contacto" },
   ];
 
@@ -94,14 +92,14 @@ export const Header: React.FC = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+                    className={`px-3.5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                       isActive
                         ? "bg-[#E8E4F7] text-[#5B4B9E]"
                         : "text-[#2D2D3A] hover:text-[#5B4B9E] hover:bg-[#F2EFFA]"
@@ -113,16 +111,16 @@ export const Header: React.FC = () => {
               })}
             </nav>
 
-            {/* Header Action Button (WhatsApp primary conversion) */}
+            {/* Header Action Button (Exact match: Escríbenos por WhatsApp) */}
             <div className="hidden sm:flex items-center gap-3">
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#5B8FD4] to-[#8B7FD1] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#5B8FD4] via-[#7385D6] to-[#8B7FD1] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Hablar por WhatsApp</span>
+                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <span>Escríbenos por WhatsApp</span>
               </a>
             </div>
 

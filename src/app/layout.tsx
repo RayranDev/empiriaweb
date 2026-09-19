@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito, Inter } from "next/font/google";
+import { Nunito, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -19,6 +19,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 export const viewport: Viewport = {
@@ -183,7 +190,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es-CO" className={`${nunito.variable} ${inter.variable} h-full scroll-smooth`}>
+    <html lang="es-CO" className={`${nunito.variable} ${inter.variable} ${caveat.variable} h-full scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"

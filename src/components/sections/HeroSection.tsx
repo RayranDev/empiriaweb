@@ -1,43 +1,68 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, ArrowRight, Sparkles, Heart, Shield, CheckCircle2 } from "lucide-react";
+import { MessageCircle, ArrowRight, Heart, Users, School, Sparkles, Sprout } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { getWhatsAppLink } from "@/data/contact";
+import {
+  SparkleStar,
+  PlusSparkle,
+  SoftLeaf,
+  LeafBranch,
+  LittleHeartDoodle,
+} from "@/components/ui/OrganicDecorations";
 
 export const HeroSection: React.FC = () => {
+  const indicators = [
+    {
+      icon: <Heart className="w-4 h-4 text-[#8B7FD1]" />,
+      label: "Atención personalizada",
+    },
+    {
+      icon: <Users className="w-4 h-4 text-[#5B8FD4]" />,
+      label: "Acompañamiento a la familia",
+    },
+    {
+      icon: <School className="w-4 h-4 text-[#5B4B9E]" />,
+      label: "Articulación con el colegio",
+    },
+    {
+      icon: <Sprout className="w-4 h-4 text-[#8B7FD1]" />,
+      label: "Enfoque humano y profesional",
+    },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F2EFFA]/70 via-white to-white pt-12 pb-20 sm:pt-16 sm:pb-28">
-      {/* Decorative organic background elements */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-tr from-[#E8E4F7]/60 via-[#A8C5E8]/20 to-[#C3B8E8]/30 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-1/3 -right-24 w-80 h-80 bg-[#B4C4EA]/25 rounded-full blur-2xl -z-10 pointer-events-none animate-soft-float" />
-      <div className="absolute bottom-10 -left-20 w-72 h-72 bg-[#D4C9EE]/35 rounded-full blur-2xl -z-10 pointer-events-none" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#F2EFFA]/80 via-[#F2EFFA]/30 to-white pt-8 pb-16 sm:pt-14 sm:pb-24">
+      {/* Background ambient glowing shapes */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#E8E4F7]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#A8C5E8]/25 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Emotion, Authority, and Action */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
-            <div className="inline-flex items-center gap-2">
-              <Badge variant="lavender" icon={<Sparkles className="w-3.5 h-3.5 text-[#5B8FD4]" />}>
-                Centro Terapéutico Especializado · Modelia, Bogotá
-              </Badge>
+          {/* Left Column: Typography, Copy, CTAs & 4 Micro-indicators */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Pill badge: exact match from mockup */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D4C9EE] shadow-xs">
+              <span className="text-[11px] sm:text-xs font-extrabold tracking-[0.18em] text-[#5B8FD4] uppercase">
+                COMUNICACIÓN · APRENDIZAJE · CRECIMIENTO · FAMILIA
+              </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#2D2D3A] tracking-tight leading-[1.12]">
-              Fonoaudiología Infantil{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5B8FD4] via-[#8B7FD1] to-[#5B4B9E]">
-                en Bogotá
-              </span>
+            {/* Main Heading: 2-tone */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#2D2D3A] tracking-tight leading-[1.12]">
+              Fonoaudiología Infantil <br />
+              <span className="text-[#5B4B9E]">en Bogotá</span>
             </h1>
 
-            <p className="text-lg sm:text-xl font-medium text-[#5B4B9E] max-w-2xl mx-auto lg:mx-0 leading-snug">
+            {/* Bold Subtitle */}
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-[#2D2D3A] leading-snug max-w-2xl mx-auto lg:mx-0">
               Convertimos las dificultades de comunicación y aprendizaje en confianza, autonomía y éxito escolar.
             </p>
 
-            <p className="text-base sm:text-lg text-[#3E3B52] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            {/* Description */}
+            <p className="text-sm sm:text-base text-[#3E3B52] leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Trabajamos con población infantil en procesos de habla, lenguaje, lectoescritura y aprendizaje, con atención individual y personalizada en cada sesión.
             </p>
 
@@ -47,92 +72,97 @@ export const HeroSection: React.FC = () => {
                 variant="primary"
                 size="lg"
                 href="#proceso"
+                className="w-full sm:w-auto bg-[#5B4B9E] hover:bg-[#4E3F88] shadow-md shadow-[#5B4B9E]/20"
                 rightIcon={<ArrowRight className="w-5 h-5" />}
               >
                 Quiero conocer el proceso
               </Button>
 
               <Button
-                variant="whatsapp"
+                variant="outline"
                 size="lg"
                 href={getWhatsAppLink("Hola, quisiera recibir información sobre el proceso de valoración fonoaudiológica infantil en Centro Terapéutico Empiria.")}
                 isExternal
-                leftIcon={<MessageCircle className="w-5 h-5" />}
+                className="w-full sm:w-auto border-2 border-[#5B8FD4]/40 hover:border-[#25D366] text-[#2D2D3A] hover:text-[#25D366] bg-white shadow-xs"
+                leftIcon={<MessageCircle className="w-5 h-5 text-[#25D366] fill-[#25D366]/20" />}
               >
                 Hablar por WhatsApp
               </Button>
             </div>
 
-            {/* Trust and reassurance badges */}
-            <div className="pt-6 border-t border-[#E8E4F7] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-[#3E3B52]">
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#5B8FD4] shrink-0" />
-                <span>Sesiones 100% individuales</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <Heart className="w-4 h-4 text-[#8B7FD1] shrink-0" />
-                <span>Acompañamiento a la familia</span>
-              </div>
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <Shield className="w-4 h-4 text-[#5B4B9E] shrink-0" />
-                <span>Espacio seguro y respetuoso</span>
-              </div>
+            {/* 4 Indicators Row: matches the mockup under the buttons */}
+            <div className="pt-6 border-t border-[#E8E4F7]/90 grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+              {indicators.map((ind, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-white/70 border border-[#E8E4F7]/60"
+                >
+                  <span className="shrink-0 p-1.5 rounded-lg bg-[#F2EFFA]">
+                    {ind.icon}
+                  </span>
+                  <span className="text-xs font-semibold text-[#2D2D3A] leading-tight">
+                    {ind.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Organic Therapeutic Visual Composition */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md">
-              {/* Organic card with therapeutic illustration elements */}
-              <div className="relative rounded-3xl bg-gradient-to-br from-white via-[#F2EFFA] to-[#E8E4F7] p-8 shadow-xl border border-white/80 overflow-hidden">
-                {/* Floating soft elements */}
-                <div className="absolute -top-6 -right-6 w-28 h-28 bg-[#A8C5E8]/40 rounded-full blur-xl" />
-                <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-[#C3B8E8]/40 rounded-full blur-xl" />
-
-                {/* Central Emblem Representation */}
-                <div className="text-center space-y-5 relative z-10">
-                  <div className="inline-flex p-5 rounded-3xl bg-white/95 shadow-lg border border-[#E8E4F7] animate-soft-float">
-                    <Image
-                      src="/logo/logo.png"
-                      alt="Logo Oficial Centro Terapéutico Empiria"
-                      width={240}
-                      height={240}
-                      className="w-44 sm:w-52 h-auto object-contain"
-                      priority
-                    />
-                  </div>
-
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#5B4B9E]">
-                      Centro Terapéutico Empiria
-                    </h2>
-                    <p className="text-xs sm:text-sm text-[#3E3B52] mt-1">
-                      Un espacio seguro, profesional y humano para el desarrollo infantil.
-                    </p>
-                  </div>
-
-                  {/* Micro reassurance card */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-left shadow-sm border border-[#E8E4F7] space-y-2 text-xs">
-                    <p className="font-bold text-[#5B4B9E] flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#5B8FD4]" />
-                      Nuestro compromiso con tu familia:
-                    </p>
-                    <p className="text-[#3E3B52]">
-                      “Comprendemos que cada niño aprende y se comunica de manera única. Diseñamos un camino pensado para él o ella.”
-                    </p>
-                  </div>
+          {/* Right Column: Organic Child Photograph & Botanical Composition */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md sm:max-w-lg">
+              {/* Floating script sticker: "Pequeños avances, grandes historias" */}
+              <div className="absolute -top-6 left-4 sm:-top-8 sm:left-6 z-20 bg-white/90 backdrop-blur-xs px-4 py-2 rounded-2xl shadow-sm border border-[#E8E4F7] -rotate-3 animate-soft-float">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-script text-xl sm:text-2xl text-[#5B4B9E] font-bold">
+                    Pequeños avances, grandes historias
+                  </span>
+                  <LittleHeartDoodle className="w-4 h-4 text-[#8B7FD1]" />
                 </div>
               </div>
 
-              {/* Floating auxiliary stat pills */}
-              <div className="hidden sm:flex absolute -bottom-4 -right-4 bg-white px-4 py-2.5 rounded-2xl shadow-lg border border-[#E8E4F7] items-center gap-2 text-xs font-bold text-[#2D2D3A]">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#5B8FD4]" />
-                <span>Atención clínica + pedagógica</span>
+              {/* Decorative sparkles & pluses */}
+              <div className="absolute -top-3 right-8 z-10">
+                <PlusSparkle className="w-5 h-5" color="#5B8FD4" />
+              </div>
+              <div className="absolute top-1/3 -left-6 z-10">
+                <SparkleStar className="w-4 h-4 text-[#8B7FD1]" color="#8B7FD1" />
+              </div>
+              <div className="absolute bottom-1/4 -right-4 z-10">
+                <PlusSparkle className="w-5 h-5" color="#8B7FD1" />
               </div>
 
-              <div className="hidden sm:flex absolute -top-4 -left-4 bg-white px-4 py-2 rounded-2xl shadow-lg border border-[#E8E4F7] items-center gap-2 text-xs font-bold text-[#5B4B9E]">
-                <span className="w-2 h-2 rounded-full bg-[#8B7FD1]" />
-                <span>Sin remisión médica previa</span>
+              {/* Botanical leaves framing the image */}
+              <div className="absolute -bottom-8 -left-8 z-10 pointer-events-none">
+                <LeafBranch className="w-28 sm:w-36 h-auto text-[#8B7FD1]" />
+              </div>
+
+              <div className="absolute -top-6 -right-6 z-0 pointer-events-none opacity-80">
+                <SoftLeaf className="w-14 h-14" color="#A8C5E8" />
+              </div>
+              <div className="absolute -bottom-4 right-1/3 z-10 pointer-events-none">
+                <SoftLeaf className="w-10 h-10" color="#8B7FD1" flip />
+              </div>
+
+              {/* Main Organic Photo Container */}
+              <div className="relative rounded-[40px] sm:rounded-[56px] overflow-hidden bg-gradient-to-tr from-[#E8E4F7] via-white to-[#A8C5E8]/40 p-2 sm:p-3 shadow-xl border-2 border-white">
+                <div className="relative w-full aspect-square rounded-[36px] sm:rounded-[48px] overflow-hidden bg-[#F2EFFA]">
+                  <Image
+                    src="/images/hero/hero-child.jpg"
+                    alt="Niña sonriendo feliz en Centro Terapéutico Empiria"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 500px"
+                    className="object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                    priority
+                  />
+                </div>
+              </div>
+
+              {/* Floating speech pill: "Aquí también crecen sus palabras" */}
+              <div className="absolute -bottom-4 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-xs px-4 py-2.5 rounded-2xl shadow-md border border-[#E8E4F7] rotate-2">
+                <p className="font-script text-lg sm:text-xl text-[#5B4B9E] font-bold leading-tight">
+                  Aquí también crecen sus palabras 💜
+                </p>
               </div>
             </div>
           </div>

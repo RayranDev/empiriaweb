@@ -1,121 +1,119 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, MessageCircle, FileText, Video, ClipboardCheck, Sparkles } from "lucide-react";
-import { processSteps } from "@/data/process";
-import { Badge } from "@/components/ui/Badge";
+import { FileText, Video, ClipboardCheck, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
+import { SoftLeaf, LittleHeartDoodle } from "@/components/ui/OrganicDecorations";
 
 export const ProcessTimeline: React.FC = () => {
-  const getStepIcon = (num: number) => {
-    const props = { className: "w-5 h-5 text-white" };
-    switch (num) {
-      case 1:
-        return <FileText {...props} />;
-      case 2:
-        return <Video {...props} />;
-      case 3:
-        return <ClipboardCheck {...props} />;
-      case 4:
-        return <Sparkles {...props} />;
-      default:
-        return <Sparkles {...props} />;
-    }
-  };
+  const steps = [
+    {
+      num: "1",
+      icon: <FileText className="w-5 h-5 text-[#5B8FD4]" />,
+      numBg: "bg-[#5B8FD4]",
+      title: "Toma de datos",
+      description: "Recopilamos información básica del niño o niña y conocemos el motivo de consulta.",
+    },
+    {
+      num: "2",
+      icon: <Video className="w-5 h-5 text-[#8B7FD1]" />,
+      numBg: "bg-[#8B7FD1]",
+      title: "Reunión virtual de acercamiento",
+      description: "Explicamos nuestra metodología, resolvemos preguntas y conocemos a la profesional.",
+    },
+    {
+      num: "3",
+      icon: <ClipboardCheck className="w-5 h-5 text-[#5B4B9E]" />,
+      numBg: "bg-[#5B4B9E]",
+      title: "Valoración presencial",
+      description: "Evaluamos las habilidades comunicativas y de aprendizaje para identificar fortalezas y necesidades.",
+    },
+    {
+      num: "4",
+      icon: <Sparkles className="w-5 h-5 text-[#8B7FD1]" />,
+      numBg: "bg-[#7385D6]",
+      title: "Inicio del proceso de intervención",
+      description: "Diseñamos un plan personalizado según los resultados de la valoración.",
+    },
+  ];
 
   return (
-    <section id="proceso" className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F2EFFA]/40 to-white relative">
+    <section id="proceso" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+      {/* Decorative leaf accents */}
+      <div className="absolute top-12 left-4 pointer-events-none opacity-60">
+        <SoftLeaf className="w-10 h-10" color="#8B7FD1" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="lavender">Ruta de Atención Clara y Transparente</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
-            ¿Cómo iniciamos?
+        {/* Header */}
+        <div className="relative text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-extrabold tracking-[0.18em] text-[#8B7FD1] uppercase">
+            NUESTRO PROCESO
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight mt-1">
+            Un camino compartido
           </h2>
-          <p className="text-base sm:text-lg text-[#3E3B52] leading-relaxed">
-            Un proceso paso a paso diseñado para brindar tranquilidad a las familias desde el primer contacto hasta el desarrollo continuo de las sesiones.
+          <p className="mt-3 text-base sm:text-lg text-[#3E3B52]">
+            Te acompañamos paso a paso para que te sientas informado, seguro y tranquilo.
           </p>
+
+          {/* Floating script callout to the right */}
+          <div className="hidden md:flex items-center gap-1.5 absolute -right-20 top-4 rotate-3 bg-[#F2EFFA] px-3.5 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
+            <span className="font-script text-xl text-[#5B4B9E] font-bold">
+              Aquí también crecen confianzas
+            </span>
+            <LittleHeartDoodle className="w-3.5 h-3.5 text-[#8B7FD1]" />
+          </div>
         </div>
 
-        {/* 4 Steps Timeline Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connector line for desktop */}
-          <div className="hidden lg:block absolute top-12 left-16 right-16 h-0.5 bg-gradient-to-r from-[#5B8FD4] via-[#8B7FD1] to-[#5B4B9E] -z-0" />
+        {/* 4 Connected Milestones with Dotted Line */}
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
+          {/* Dotted path on desktop */}
+          <div className="hidden lg:block absolute top-7 left-14 right-14 border-t-2 border-dashed border-[#C3B8E8] -z-0" />
 
-          {processSteps.map((step) => (
+          {steps.map((step, idx) => (
             <div
-              key={step.stepNumber}
-              className="relative z-10 flex flex-col justify-between bg-white rounded-3xl p-6 sm:p-7 border border-[#E8E4F7] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              key={idx}
+              className="relative z-10 flex flex-col items-center text-center group"
             >
-              <div>
-                {/* Step badge with circle */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#5B8FD4] to-[#8B7FD1] flex items-center justify-center shadow-md">
-                    {getStepIcon(step.stepNumber)}
-                  </div>
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#E8E4F7] text-[#5B4B9E]">
-                    Paso {step.stepNumber}
-                  </span>
-                </div>
-
-                <span className="text-[11px] font-semibold tracking-wider text-[#8B7FD1] uppercase">
-                  {step.tagline}
+              {/* Badge with step number and icon */}
+              <div className="flex items-center gap-2 mb-5">
+                <span
+                  className={`w-9 h-9 rounded-full ${step.numBg} text-white font-black text-sm flex items-center justify-center shadow-xs`}
+                >
+                  {step.num}
                 </span>
-
-                <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#2D2D3A]">
-                  {step.title}
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm text-[#3E3B52] leading-relaxed">
-                  {step.description}
-                </p>
-
-                <div className="mt-5 pt-4 border-t border-[#F2EFFA]">
-                  <ul className="space-y-1.5 text-xs text-[#3E3B52]">
-                    {step.detailPoints.map((point, i) => (
-                      <li key={i} className="flex items-start gap-1.5">
-                        <span className="text-[#5B8FD4] font-bold">•</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8E4F7] shadow-xs flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  {step.icon}
                 </div>
               </div>
 
-              <div className="mt-6 pt-3 border-t border-[#E8E4F7] flex items-center justify-between text-[11px] text-[#3E3B52]">
-                <span className="font-semibold text-[#5B4B9E]">Modalidad: {step.modality}</span>
-                <span>{step.estimatedDuration}</span>
-              </div>
+              {/* Title */}
+              <h3 className="text-lg font-bold text-[#2D2D3A] leading-snug">
+                {step.title}
+              </h3>
+
+              {/* Description */}
+              <p className="mt-2 text-xs sm:text-sm text-[#3E3B52] leading-relaxed max-w-xs">
+                {step.description}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Action Button */}
-        <div className="mt-14 text-center space-y-4">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4">
-            <Button
-              variant="primary"
-              size="lg"
-              href={getWhatsAppLink("Hola, deseo iniciar el proceso para la valoración fonoaudiológica de mi hijo/a en Centro Terapéutico Empiria.")}
-              isExternal
-              rightIcon={<ArrowRight className="w-5 h-5" />}
-            >
-              Quiero iniciar el proceso
-            </Button>
-
-            <Button
-              variant="whatsapp"
-              size="lg"
-              href={getWhatsAppLink()}
-              isExternal
-              leftIcon={<MessageCircle className="w-5 h-5" />}
-            >
-              Hablar por WhatsApp
-            </Button>
-          </div>
-          <p className="text-xs text-[#3E3B52]">
-            Atendemos de manera particular en Modelia, Bogotá. No requieres remisión previa.
-          </p>
+        {/* Central CTA: Quiero iniciar el proceso */}
+        <div className="text-center">
+          <Button
+            variant="primary"
+            size="lg"
+            href={getWhatsAppLink("Hola, deseo iniciar el proceso fonoaudiológico en Centro Terapéutico Empiria.")}
+            isExternal
+            className="bg-[#5B4B9E] hover:bg-[#4E3F88] shadow-md shadow-[#5B4B9E]/20"
+            rightIcon={<ArrowRight className="w-5 h-5" />}
+          >
+            Quiero iniciar el proceso
+          </Button>
         </div>
       </div>
     </section>

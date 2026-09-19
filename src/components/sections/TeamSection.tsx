@@ -1,113 +1,144 @@
 "use client";
 
 import React from "react";
-import { GraduationCap, Award, Heart, CheckCircle2, ArrowRight } from "lucide-react";
-import { teamData } from "@/data/team";
-import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { PlusSparkle, SoftLeaf, SparkleStar } from "@/components/ui/OrganicDecorations";
 
 export const TeamSection: React.FC = () => {
+  const therapists = [
+    {
+      id: "johanna-gomez",
+      name: "Johanna Gómez",
+      role: "Fonoaudióloga",
+      image: "/images/team/johanna-gomez.jpg",
+      profileUrl: "/nosotros#johanna",
+    },
+    {
+      id: "lina-rodriguez",
+      name: "Lina Rodríguez",
+      role: "Fonoaudióloga",
+      specialty: "Especialista en Neuropsicología Escolar",
+      image: "/images/team/lina-rodriguez.jpg",
+      profileUrl: "/nosotros#lina",
+    },
+  ];
+
   return (
-    <section className="py-16 sm:py-24 bg-white relative">
+    <section id="nosotros" className="py-16 sm:py-24 bg-[#F2EFFA]/35 relative overflow-hidden">
+      {/* Background soft botanical accents */}
+      <div className="absolute top-10 right-10 pointer-events-none opacity-70">
+        <SoftLeaf className="w-16 h-16" color="#C3B8E8" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="lavender">Equipo Profesional</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
-            Conoce a nuestras fonoaudiólogas
-          </h2>
-          <p className="text-base sm:text-lg text-[#3E3B52] leading-relaxed">
-            Profesionales comprometidas con la infancia, cuya práctica une formación rigurosa, vocación pedagógica y calidez humana.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Left Column: Editorial Headline, Text and CTA */}
+          <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
+            <span className="text-xs font-extrabold tracking-[0.18em] text-[#8B7FD1] uppercase">
+              NUESTRO EQUIPO
+            </span>
 
-        {/* Profiles Grid */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {teamData.map((pro) => (
-            <Card
-              key={pro.id}
-              variant="default"
-              className="flex flex-col justify-between p-8 sm:p-10 bg-gradient-to-br from-white via-[#F2EFFA]/30 to-white border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-sm transition-all duration-300"
-            >
-              <div className="space-y-6">
-                {/* Header: Avatar / Initials & Titles */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#5B8FD4] to-[#8B7FD1] flex items-center justify-center text-white text-2xl font-black shadow-md border-2 border-white shrink-0">
-                    {pro.photoPlaceholder}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-extrabold text-[#2D2D3A]">
-                      {pro.name}
-                    </h3>
-                    <p className="text-base font-bold text-[#5B4B9E] mt-0.5">
-                      {pro.role}
-                    </p>
-                    {pro.specialty && (
-                      <p className="text-xs sm:text-sm font-semibold text-[#8B7FD1] mt-0.5">
-                        {pro.specialty}
-                      </p>
-                    )}
-                  </div>
-                </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2D2D3A] tracking-tight leading-tight">
+              Profesionales que creen en su potencial
+            </h2>
 
-                {/* Formación y Experiencia */}
-                <div className="space-y-2 pt-2 border-t border-[#E8E4F7] text-xs sm:text-sm text-[#3E3B52]">
-                  <div className="flex items-start gap-2.5">
-                    <GraduationCap className="w-4 h-4 text-[#5B8FD4] shrink-0 mt-0.5" />
-                    <div>
-                      {pro.education.map((edu, i) => (
-                        <p key={i} className="font-medium text-[#2D2D3A]">
-                          {edu}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
+            <p className="text-sm sm:text-base text-[#3E3B52] leading-relaxed">
+              Somos un equipo de fonoaudiólogas comprometidas con el desarrollo, la comunicación y el bienestar de cada niño y su familia.
+            </p>
 
-                  <div className="flex items-start gap-2.5 pt-1">
-                    <Award className="w-4 h-4 text-[#8B7FD1] shrink-0 mt-0.5" />
-                    <p className="font-semibold text-[#5B4B9E]">{pro.experience}</p>
-                  </div>
-                </div>
+            <div className="pt-2">
+              <Button
+                variant="primary"
+                size="md"
+                href="/nosotros"
+                className="bg-[#5B4B9E] hover:bg-[#4E3F88]"
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+              >
+                Conocer más sobre nosotras
+              </Button>
+            </div>
+          </div>
 
-                {/* Bio text (Exact statements) */}
-                <div className="space-y-3 text-xs sm:text-sm text-[#3E3B52] leading-relaxed border-t border-[#F2EFFA] pt-4">
-                  {pro.bio.map((paragraph, i) => (
-                    <p key={i} className="italic text-[#3E3B52]/90">
-                      “{paragraph}”
-                    </p>
-                  ))}
-                </div>
-
-                {/* Áreas de Interés */}
-                <div className="pt-2 border-t border-[#E8E4F7]">
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wide mb-2.5">
-                    Áreas de interés y abordaje:
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {pro.focusAreas.map((area, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-[#3E3B52]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#5B8FD4] shrink-0" />
-                        <span>{area}</span>
-                      </div>
-                    ))}
-                  </div>
+          {/* Right Column: Therapists Circular Portraits & Floating Quote */}
+          <div className="lg:col-span-8 flex flex-col sm:flex-row items-center justify-center lg:justify-end gap-6 sm:gap-8">
+            {/* Therapist 1: Johanna Gómez */}
+            <div className="text-center group flex flex-col items-center">
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-2 bg-gradient-to-tr from-[#8B7FD1] via-[#E8E4F7] to-[#5B8FD4] shadow-md group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-white border-2 border-white">
+                  <Image
+                    src={therapists[0].image}
+                    alt={therapists[0].name}
+                    fill
+                    sizes="180px"
+                    className="object-cover object-center"
+                  />
                 </div>
               </div>
+              <h3 className="mt-4 text-lg sm:text-xl font-extrabold text-[#2D2D3A]">
+                {therapists[0].name}
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-[#8B7FD1]">
+                {therapists[0].role}
+              </p>
+              <Link
+                href={therapists[0].profileUrl}
+                className="mt-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors inline-flex items-center gap-1"
+              >
+                <span>Ver perfil</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
 
-              {/* Action Button */}
-              <div className="mt-8 pt-4 border-t border-[#E8E4F7]">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  href="#nosotros"
-                  className="w-full sm:w-auto"
-                  rightIcon={<ArrowRight className="w-4 h-4" />}
-                >
-                  Conocer nuestro enfoque
-                </Button>
+            {/* Therapist 2: Lina Rodríguez */}
+            <div className="text-center group flex flex-col items-center">
+              <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-2 bg-gradient-to-tr from-[#5B8FD4] via-[#E8E4F7] to-[#8B7FD1] shadow-md group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-white border-2 border-white">
+                  <Image
+                    src={therapists[1].image}
+                    alt={therapists[1].name}
+                    fill
+                    sizes="180px"
+                    className="object-cover object-center"
+                  />
+                </div>
               </div>
-            </Card>
-          ))}
+              <h3 className="mt-4 text-lg sm:text-xl font-extrabold text-[#2D2D3A]">
+                {therapists[1].name}
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-[#8B7FD1]">
+                {therapists[1].role}
+              </p>
+              {therapists[1].specialty && (
+                <p className="text-[11px] text-[#3E3B52] font-medium max-w-[180px]">
+                  {therapists[1].specialty}
+                </p>
+              )}
+              <Link
+                href={therapists[1].profileUrl}
+                className="mt-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors inline-flex items-center gap-1"
+              >
+                <span>Ver perfil</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Floating Quote Card: Exactly from mockup */}
+            <div className="relative bg-white/95 backdrop-blur-xs p-5 sm:p-6 rounded-3xl shadow-sm border border-[#E8E4F7] max-w-xs text-left">
+              <div className="absolute -top-3 -right-2 text-[#8B7FD1]">
+                <PlusSparkle className="w-5 h-5" />
+              </div>
+              <p className="font-script text-lg sm:text-xl text-[#5B4B9E] font-bold leading-snug">
+                “Más que un proceso clínico, para nosotras esto es la construcción de un vínculo.”
+              </p>
+              <div className="mt-2 flex items-center justify-between">
+                <SoftLeaf className="w-6 h-6" color="#5B8FD4" />
+                <SparkleStar className="w-3.5 h-3.5" color="#8B7FD1" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

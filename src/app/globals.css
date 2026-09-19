@@ -16,6 +16,11 @@
 
   --font-heading: var(--font-nunito), sans-serif;
   --font-body: var(--font-inter), sans-serif;
+  --font-script: var(--font-caveat), cursive;
+}
+
+.font-script {
+  font-family: var(--font-caveat), cursive;
 }
 
 :root {
