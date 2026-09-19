@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
+@theme {
+  --color-empiria-sky: #5B8FD4;
+  --color-empiria-purple: #8B7FD1;
+  --color-empiria-deep: #5B4B9E;
+  --color-empiria-lavender: #E8E4F7;
+  --color-empiria-text: #2D2D3A;
+
+  --color-empiria-pastel-blue: #A8C5E8;
+  --color-empiria-pastel-purple: #C3B8E8;
+  --color-empiria-blue-lavender: #B4C4EA;
+  --color-empiria-soft-lilac: #D4C9EE;
+  --color-empiria-offwhite: #F2EFFA;
+  --color-empiria-dark-slate: #3E3B52;
+
+  --font-heading: var(--font-nunito), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFFFFF;
+  --foreground: #2D2D3A;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-nunito), sans-serif;
+  color: #2D2D3A;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid #5B8FD4;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Custom soft scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2EFFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C3B8E8;
+  border-radius: 9999px;
+  border: 2px solid #F2EFFA;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B7FD1;
+}
+
+/* Sutil organic float animation */
+@keyframes soft-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.animate-soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}
+
+/* Sutil pulse for WhatsApp badge */
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(91, 143, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(91, 143, 212, 0);
+  }
+}
+
+.animate-gentle-pulse {
+  animation: gentle-pulse 2.8s infinite;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
