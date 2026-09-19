@@ -1,33 +1,18 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Ubicación: Pin de mapa con orificio central.
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Location (ubicación) — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
  */
-export const LocationIcon: React.FC<IconProps> = ({
-  size = 24,
-  className = "",
-  color = "currentColor",
-  strokeWidth = 2,
-  ...props
-}) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  );
-};
+export const LocationIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/contacto/ubicacion.png"
+    width={212}
+    height={280}
+    size={size}
+    className={className}
+  />
+);

@@ -1,35 +1,18 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Enfoque humano y profesional: Hoja botánica orgánica con nervadura central.
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Human approach (enfoque humano) — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
  */
-export const HumanApproachIcon: React.FC<IconProps> = ({
-  size = 24,
-  className = "",
-  color = "currentColor",
-  strokeWidth = 2,
-  ...props
-}) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      {...props}
-    >
-      {/* Botanical leaf contour */}
-      <path d="M4 20C7 15 8.5 9 20 4c0 11.5-6 13-16 16z" />
-      {/* Central leaf vein */}
-      <path d="M4 20c4-4 8-8 12-11" />
-    </svg>
-  );
-};
+export const HumanApproachIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/valores/enfoque-humano.png"
+    width={252}
+    height={276}
+    size={size}
+    className={className}
+  />
+);

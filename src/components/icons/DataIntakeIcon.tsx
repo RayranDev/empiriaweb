@@ -1,42 +1,18 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Toma de datos: Documento con lista y viñetas ordenadas.
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Intake (toma de datos) — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
  */
-export const DataIntakeIcon: React.FC<IconProps> = ({
-  size = 24,
-  className = "",
-  color = "currentColor",
-  strokeWidth = 2,
-  ...props
-}) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      {...props}
-    >
-      {/* Sheet of paper */}
-      <rect x="5" y="3" width="14" height="18" rx="3" />
-      {/* Bullet 1 + line */}
-      <circle cx="9" cy="8" r=".75" fill={color} stroke="none" />
-      <path d="M12 8h4" />
-      {/* Bullet 2 + line */}
-      <circle cx="9" cy="12" r=".75" fill={color} stroke="none" />
-      <path d="M12 12h4" />
-      {/* Bullet 3 + line */}
-      <circle cx="9" cy="16" r=".75" fill={color} stroke="none" />
-      <path d="M12 16h4" />
-    </svg>
-  );
-};
+export const DataIntakeIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/proceso/toma-datos.png"
+    width={260}
+    height={320}
+    size={size}
+    className={className}
+  />
+);

@@ -5,7 +5,7 @@ import { ExternalLink } from "lucide-react";
 import { contactData } from "@/data/contact";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { InstagramIcon, LittleHeartDoodle, OrganicLeaf } from "@/components/icons";
+import { InstagramIcon, InstagramGlyph, LittleHeartDoodle, OrganicLeaf } from "@/components/icons";
 
 interface InstagramTopicPreview {
   id: string;
@@ -82,7 +82,7 @@ export const InstagramFeedSection: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
             >
-              <InstagramIcon size={16} className="text-white" />
+              <InstagramGlyph size={16} className="text-white" />
               <span>Seguir en Instagram</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-80" />
             </a>

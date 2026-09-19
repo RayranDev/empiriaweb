@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getWhatsAppLink } from "@/data/contact";
 import { Button } from "@/components/ui/Button";
 import {
-  WhatsAppIcon,
+  WhatsAppGlyph,
   EmailIcon,
   OrganicLeaf,
   LittleHeartDoodle,
@@ -22,17 +22,14 @@ export const EmotionalBreak: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Charming Vector Children Illustration with Floating Heart */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
-            <div className="relative w-full max-w-xs sm:max-w-sm rounded-3xl overflow-hidden bg-white/90 p-3 shadow-sm border border-[#E8E4F7]">
-              {/* Little Floating Heart above children */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 animate-soft-float">
-                <LittleHeartDoodle size={20} color="#8B7FD1" />
-              </div>
-              <Image
-                src="/images/decorative/children-playing.jpg"
-                alt="Niños interactuando y jugando en Centro Terapéutico Empiria"
-                width={360}
-                height={270}
-                className="w-full h-auto object-contain rounded-2xl"
+            <div className="relative w-full h-[300px] lg:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+              <Image 
+                src="/images/real_children_playing.jpg" 
+                alt="Niños jugando y aprendiendo felices" 
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
@@ -54,7 +51,7 @@ export const EmotionalBreak: React.FC = () => {
                 href={getWhatsAppLink("Hola, deseo conversar sobre el proceso de mi hijo/a con el equipo de Empiria.")}
                 isExternal
                 className="w-full sm:w-auto shadow-sm"
-                leftIcon={<WhatsAppIcon size={18} className="text-white" />}
+                leftIcon={<WhatsAppGlyph size={18} className="text-white" />}
               >
                 Conversemos por WhatsApp
               </Button>

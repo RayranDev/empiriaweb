@@ -1,11 +1,32 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Instagram: Icono oficial de Instagram (cámara cuadrada redondeada, lente y flash).
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Instagram — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
+ *
+ * Use this for content icons (cards, footer links, inline contact info).
+ * For a white/monochrome glyph inside a solid-colored button (e.g. the
+ * gradient "Seguir en Instagram" CTA), use `InstagramGlyph` instead.
  */
-export const InstagramIcon: React.FC<IconProps> = ({
+export const InstagramIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/contacto/instagram.png"
+    width={256}
+    height={256}
+    size={size}
+    className={className}
+  />
+);
+
+/**
+ * Monochrome Instagram glyph (rounded camera outline, lens and flash), inherits
+ * `color` via `currentColor`. Kept as hand-drawn SVG so it can render solid white
+ * inside filled colored buttons, where the full-color brand PNG would look wrong.
+ */
+export const InstagramGlyph: React.FC<IconProps> = ({
   size = 24,
   className = "",
   color = "currentColor",

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { getWhatsAppLink } from "@/data/contact";
-import { WhatsAppIcon } from "@/components/icons";
+import { WhatsAppGlyph } from "@/components/icons";
 
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -60,7 +60,7 @@ export const FloatingWhatsApp: React.FC = () => {
         aria-label="Hablar con una fonoaudióloga por WhatsApp"
         className="pointer-events-auto group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
       >
-        <WhatsAppIcon size={32} className="text-white transition-transform duration-200 group-hover:scale-110" />
+        <WhatsAppGlyph size={32} className="text-white transition-transform duration-200 group-hover:scale-110" />
         <span className="sr-only">Contactar por WhatsApp al +57 312 736 6606</span>
       </a>
     </div>

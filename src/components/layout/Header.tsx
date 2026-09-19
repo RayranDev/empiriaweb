@@ -10,6 +10,7 @@ import {
   LocationIcon,
   ClockIcon,
   WhatsAppIcon,
+  WhatsAppGlyph,
   EmailIcon,
 } from "@/components/icons";
 
@@ -134,7 +135,7 @@ export const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#5B8FD4] via-[#7385D6] to-[#8B7FD1] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
-                <WhatsAppIcon size={16} className="text-white" />
+                <WhatsAppGlyph size={16} className="text-white" />
                 <span>Escríbenos por WhatsApp</span>
               </a>
             </div>
@@ -148,7 +149,7 @@ export const Header: React.FC = () => {
                 className="sm:hidden p-2.5 rounded-full text-white bg-[#25D366] shadow-sm hover:bg-[#20ba59] transition-colors"
                 aria-label="Hablar por WhatsApp con Empiria"
               >
-                <WhatsAppIcon size={20} className="text-white" />
+                <WhatsAppGlyph size={20} className="text-white" />
               </a>
 
               <button
@@ -219,7 +220,7 @@ export const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-base font-bold text-white bg-[#25D366] shadow-md active:scale-95 transition-all"
               >
-                <WhatsAppIcon size={20} className="text-white" />
+                <WhatsAppGlyph size={20} className="text-white" />
                 <span>Hablar por WhatsApp</span>
               </a>
 

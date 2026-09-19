@@ -1,34 +1,18 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Información: Círculo con letra informativa 'i'.
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Information (información) — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
  */
-export const InfoIcon: React.FC<IconProps> = ({
-  size = 24,
-  className = "",
-  color = "currentColor",
-  strokeWidth = 2,
-  ...props
-}) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      {...props}
-    >
-      <circle cx="12" cy="12" r="9" />
-      <line x1="12" y1="8" x2="12.01" y2="8" strokeWidth={strokeWidth + 1} />
-      <line x1="12" y1="12" x2="12" y2="16" />
-    </svg>
-  );
-};
+export const InfoIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/informacion/informacion.png"
+    width={268}
+    height={276}
+    size={size}
+    className={className}
+  />
+);

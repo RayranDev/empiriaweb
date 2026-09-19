@@ -1,11 +1,32 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * WhatsApp: Icono oficial de WhatsApp (burbuja redondeada con auricular integrado).
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * WhatsApp — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
+ *
+ * Use this for content icons (cards, feature lists, inline contact info).
+ * For a white/monochrome glyph inside a solid-colored button (e.g. the
+ * green "Escríbenos por WhatsApp" CTA), use `WhatsAppGlyph` instead.
  */
-export const WhatsAppIcon: React.FC<IconProps> = ({
+export const WhatsAppIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/contacto/whatsapp.png"
+    width={260}
+    height={268}
+    size={size}
+    className={className}
+  />
+);
+
+/**
+ * Monochrome WhatsApp glyph (speech bubble with handset), inherits `color` via
+ * `currentColor`. Kept as hand-drawn SVG so it can render solid white inside
+ * filled colored buttons, where the full-color brand PNG would look wrong.
+ */
+export const WhatsAppGlyph: React.FC<IconProps> = ({
   size = 24,
   className = "",
   color = "currentColor",

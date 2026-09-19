@@ -1,33 +1,18 @@
 import React from "react";
+import { EmpiriaIcon } from "./EmpiriaIcon";
 import { IconProps } from "./types";
 
 /**
- * Horarios: Reloj analógico redondeado.
- * Lenguaje visual oficial Galería de Iconos Empiria.
+ * Hours (horarios) — official Empiria icon gallery artwork.
+ * `color` and `strokeWidth` are accepted for API compatibility but have no
+ * effect on this brand PNG (it is not redrawn or recolored).
  */
-export const ClockIcon: React.FC<IconProps> = ({
-  size = 24,
-  className = "",
-  color = "currentColor",
-  strokeWidth = 2,
-  ...props
-}) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke={color}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-      {...props}
-    >
-      <circle cx="12" cy="12" r="9" />
-      <polyline points="12 7 12 12 15 15" />
-    </svg>
-  );
-};
+export const ClockIcon: React.FC<IconProps> = ({ size = 24, className = "" }) => (
+  <EmpiriaIcon
+    src="/icons/empiria/informacion/horarios.png"
+    width={268}
+    height={272}
+    size={size}
+    className={className}
+  />
+);

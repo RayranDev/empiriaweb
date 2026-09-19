@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import {
   WhatsAppIcon,
+  WhatsAppGlyph,
   EmailIcon,
   PhoneIcon,
   LocationIcon,
@@ -293,7 +294,7 @@ export const ContactSection: React.FC = () => {
                 size="lg"
                 type="submit"
                 className="w-full sm:w-auto px-8 shadow-md"
-                leftIcon={<WhatsAppIcon size={20} className="text-white" />}
+                leftIcon={<WhatsAppGlyph size={20} className="text-white" />}
               >
                 Abrir WhatsApp y Enviar Consulta
               </Button>

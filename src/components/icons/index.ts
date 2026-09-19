@@ -34,11 +34,11 @@ export { GuidesIcon } from "./GuidesIcon";
 export { VideoIcon } from "./VideoIcon";
 
 // Contacto y comunicación
-export { WhatsAppIcon } from "./WhatsAppIcon";
+export { WhatsAppIcon, WhatsAppGlyph } from "./WhatsAppIcon";
 export { EmailIcon } from "./EmailIcon";
 export { PhoneIcon } from "./PhoneIcon";
 export { LocationIcon } from "./LocationIcon";
-export { InstagramIcon } from "./InstagramIcon";
+export { InstagramIcon, InstagramGlyph } from "./InstagramIcon";
 
 // Personas
 export { ProfessionalIcon } from "./ProfessionalIcon";

@@ -6,7 +6,7 @@ import { faqData } from "@/data/faq";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
-import { FAQIcon, WhatsAppIcon } from "@/components/icons";
+import { FAQIcon, WhatsAppGlyph } from "@/components/icons";
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>("remision-medica");
@@ -87,7 +87,7 @@ export const FAQSection: React.FC = () => {
               size="md"
               href={getWhatsAppLink("Hola, tengo una duda específica sobre la atención fonoaudiológica en Empiria.")}
               isExternal
-              leftIcon={<WhatsAppIcon size={18} className="text-white" />}
+              leftIcon={<WhatsAppGlyph size={18} className="text-white" />}
             >
               Preguntar por WhatsApp
             </Button>
