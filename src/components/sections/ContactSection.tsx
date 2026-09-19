@@ -1,432 +1,304 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import {
-  MessageCircle,
-  Mail,
-  MapPin,
-  Clock,
-  Send,
-  ShieldCheck,
-  CheckCircle2,
-  AlertCircle,
-  Heart,
-} from "lucide-react";
-import { InstagramIcon } from "@/components/ui/Icons";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { contactData, getWhatsAppLink } from "@/data/contact";
 import { Badge } from "@/components/ui/Badge";
+import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import {
+  WhatsAppIcon,
+  EmailIcon,
+  PhoneIcon,
+  LocationIcon,
+  InstagramIcon,
+  PrivacyIcon,
+  PersonalizedCareIcon,
+} from "@/components/icons";
 
 export const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    parentName: "",
-    email: "",
-    phone: "",
-    childAge: "",
-    generalReason: "",
-    preferredContact: "whatsapp",
-    acceptPolicy: false,
-    authorizeTreatment: false,
-  });
+  const [parentName, setParentName] = useState("");
+  const [childAge, setChildAge] = useState("");
+  const [concernArea, setConcernArea] = useState("Habla");
+  const [note, setNote] = useState("");
 
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      const { checked } = e.target as HTMLInputElement;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleWhatsAppConsult = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage("");
+    const parts = [
+      `Hola, mi nombre es ${parentName.trim() || "un padre/madre de familia"}.`,
+      childAge.trim() ? `Mi hijo/a tiene ${childAge.trim()}.` : "",
+      `Quisiera consultar sobre el área de ${concernArea}.`,
+      note.trim() ? `Detalle: ${note.trim()}` : "",
+      "Agradezco su orientación para conocer los pasos de valoración en Centro Terapéutico Empiria.",
+    ].filter(Boolean);
 
-    if (!formData.parentName.trim()) {
-      setErrorMessage("Por favor, ingresa el nombre del padre, madre o cuidador.");
-      return;
-    }
-    if (!formData.phone.trim() && !formData.email.trim()) {
-      setErrorMessage("Por favor, ingresa al menos un teléfono o correo electrónico de contacto.");
-      return;
-    }
-    if (!formData.acceptPolicy) {
-      setErrorMessage("Debes aceptar la Política de Tratamiento de Datos Personales para continuar.");
-      return;
-    }
-    if (!formData.authorizeTreatment) {
-      setErrorMessage("Debes autorizar el tratamiento de tus datos para poder responderte.");
-      return;
-    }
-
-    // In production, this can send to a server action or API route.
-    // Here we provide instant feedback and offer direct WhatsApp follow-up.
-    setSubmitted(true);
+    const fullMessage = parts.join(" ");
+    window.open(getWhatsAppLink(fullMessage), "_blank", "noopener,noreferrer");
   };
+
+  const contactChannels = [
+    {
+      id: "whatsapp",
+      title: "WhatsApp",
+      value: contactData.phoneFormatted,
+      href: getWhatsAppLink(),
+      isExternal: true,
+      description: "Canal preferido para respuesta ágil, agendamiento y orientación inicial.",
+      icon: <WhatsAppIcon size={32} className="text-[#25D366]" strokeWidth={2} />,
+      bgIcon: "bg-[#25D366]/15",
+      actionLabel: "Escribir al WhatsApp",
+      highlight: true,
+    },
+    {
+      id: "email",
+      title: "Correo Electrónico",
+      value: contactData.email,
+      href: `mailto:${contactData.email}`,
+      isExternal: false,
+      description: "Consultas institucionales, documentación escolar y convenios.",
+      icon: <EmailIcon size={32} className="text-[#5B8FD4]" strokeWidth={2} />,
+      bgIcon: "bg-[#5B8FD4]/15",
+      actionLabel: "Enviar correo",
+      highlight: false,
+    },
+    {
+      id: "phone",
+      title: "Teléfono",
+      value: contactData.phoneFormatted,
+      href: `tel:${contactData.phoneRaw}`,
+      isExternal: false,
+      description: "Llamadas directas en nuestro horario habitual de atención.",
+      icon: <PhoneIcon size={32} className="text-[#8B7FD1]" strokeWidth={2} />,
+      bgIcon: "bg-[#8B7FD1]/15",
+      actionLabel: "Llamar ahora",
+      highlight: false,
+    },
+    {
+      id: "location",
+      title: "Sede Presencial",
+      value: contactData.address.full,
+      href: "https://maps.google.com/?q=Avenida+Calle+24+%2374-55+Bogota",
+      isExternal: true,
+      description: "Instalaciones cálidas, seguras y adaptadas a la infancia en Modelia.",
+      icon: <LocationIcon size={32} className="text-[#5B4B9E]" strokeWidth={2} />,
+      bgIcon: "bg-[#5B4B9E]/15",
+      actionLabel: "Ver en el mapa",
+      highlight: false,
+    },
+    {
+      id: "instagram",
+      title: "Instagram Oficial",
+      value: contactData.social.instagram,
+      href: contactData.social.instagramUrl,
+      isExternal: true,
+      description: "Comunidad, reflexiones de fonoaudiología y actividades en familia.",
+      icon: <InstagramIcon size={32} className="text-[#E1306C]" strokeWidth={2} />,
+      bgIcon: "bg-[#E1306C]/15",
+      actionLabel: "Seguir perfil",
+      highlight: false,
+    },
+  ];
 
   return (
-    <section id="contacto" className="py-16 sm:py-24 bg-white relative">
+    <section id="contacto" className="py-16 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Emotional closure quote before contact cards */}
+        {/* Section Header */}
         <div className="mb-16 text-center max-w-3xl mx-auto space-y-3">
-          <Badge variant="lavender" icon={<Heart className="w-3.5 h-3.5 text-[#8B7FD1]" />}>
+          <Badge
+            variant="lavender"
+            icon={<PersonalizedCareIcon size={14} className="text-[#8B7FD1]" />}
+          >
             Cada pequeño avance cuenta
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
             ¿Quieres conversar sobre el proceso de tu hijo o hija?
           </h2>
           <p className="text-base sm:text-lg text-[#3E3B52] leading-relaxed">
-            Escríbenos. Estamos aquí para acompañarte a comprender sus necesidades y construir juntos un camino pensado para él o ella.
+            Estamos aquí para acompañarte a comprender sus necesidades y construir juntos un camino pensado para él o ella.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
-          {/* Left Column: Direct Contact Details & Sede Info */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-3xl bg-[#F2EFFA] p-6 sm:p-8 border border-[#E8E4F7] space-y-6">
-              <h3 className="text-xl font-bold text-[#5B4B9E]">
-                Canales de Atención Directa
-              </h3>
+        {/* 5 Visual Contact Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {contactChannels.map((channel) => (
+            <Card
+              key={channel.id}
+              variant="default"
+              className={`p-6 sm:p-7 flex flex-col justify-between rounded-[24px] border transition-all duration-300 ${
+                channel.highlight
+                  ? "bg-gradient-to-br from-[#F2EFFA]/70 via-white to-[#E8E4F7]/40 border-[#8B7FD1]/40 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                  : "bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-md hover:-translate-y-1"
+              }`}
+            >
+              <div>
+                <div
+                  className={`w-14 h-14 rounded-2xl ${channel.bgIcon} flex items-center justify-center mb-5`}
+                >
+                  {channel.icon}
+                </div>
 
-              {/* Contact Item: WhatsApp */}
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
-                    WhatsApp Principal
-                  </p>
-                  <a
-                    href={getWhatsAppLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base sm:text-lg font-bold text-[#2D2D3A] hover:text-[#5B8FD4] transition-colors"
-                  >
-                    {contactData.phoneFormatted}
-                  </a>
-                  <p className="text-xs text-[#3E3B52] mt-0.5">
-                    Respuesta rápida y orientación preliminar.
-                  </p>
-                </div>
+                <span className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
+                  {channel.title}
+                </span>
+
+                <h3 className="text-lg font-bold text-[#2D2D3A] mt-1 break-words">
+                  {channel.value}
+                </h3>
+
+                <p className="mt-2 text-xs sm:text-sm text-[#3E3B52] leading-relaxed">
+                  {channel.description}
+                </p>
               </div>
 
-              {/* Contact Item: Email */}
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#5B8FD4] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
-                    Correo Electrónico
-                  </p>
-                  <a
-                    href={`mailto:${contactData.email}`}
-                    className="text-sm sm:text-base font-semibold text-[#2D2D3A] hover:text-[#5B8FD4] transition-colors break-all"
-                  >
-                    {contactData.email}
-                  </a>
-                </div>
-              </div>
-
-              {/* Contact Item: Address */}
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#8B7FD1] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
-                    Sede Presencial
-                  </p>
-                  <p className="text-sm font-semibold text-[#2D2D3A]">
-                    {contactData.address.street}
-                  </p>
-                  <p className="text-xs text-[#3E3B52]">
-                    {contactData.address.neighborhood}, {contactData.address.city}, Colombia
-                  </p>
-                </div>
-              </div>
-
-              {/* Contact Item: Schedule */}
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#5B4B9E] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
-                    Horarios de Atención
-                  </p>
-                  <div className="text-xs text-[#3E3B52] space-y-0.5 mt-0.5">
-                    <p className="font-semibold text-[#2D2D3A]">{contactData.schedule.weekdays}</p>
-                    <p>{contactData.schedule.saturdays}</p>
-                    <p className="text-gray-500">{contactData.schedule.sundays}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Item: Instagram */}
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#E1306C] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <InstagramIcon className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
-                    Instagram Oficial
-                  </p>
-                  <a
-                    href={contactData.social.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-bold text-[#2D2D3A] hover:text-[#5B4B9E] transition-colors"
-                  >
-                    {contactData.social.instagram}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Privacy notice badge */}
-            <div className="p-4 rounded-2xl bg-white border border-[#E8E4F7] text-xs text-[#3E3B52] space-y-1">
-              <p className="font-bold text-[#5B4B9E] flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#5B8FD4]" />
-                Privacidad protegida (Privacy by Design)
-              </p>
-              <p>
-                No solicitamos historias clínicas, diagnósticos ni información médica sensible en este formulario público. Tus datos se tratan bajo la Ley 1581 de 2012 de Colombia.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Column: Secure Public Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-white p-6 sm:p-10 border border-[#E8E4F7] shadow-lg">
-              <h3 className="text-2xl font-extrabold text-[#2D2D3A]">
-                Déjanos tus datos de contacto
-              </h3>
-              <p className="text-sm text-[#3E3B52] mt-1 mb-6">
-                Te contactaremos para resolver dudas y explicarte cómo agendar el primer encuentro.
-              </p>
-
-              {submitted ? (
-                <div className="p-8 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-center space-y-4 animate-in fade-in duration-300">
-                  <div className="w-14 h-14 rounded-full bg-[#5B8FD4] text-white flex items-center justify-center mx-auto shadow-md">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h4 className="text-xl font-bold text-[#5B4B9E]">
-                    ¡Mensaje recibido con éxito!
-                  </h4>
-                  <p className="text-sm text-[#3E3B52] max-w-md mx-auto">
-                    Gracias por escribirnos, <strong>{formData.parentName}</strong>. Nos comunicaremos contigo muy pronto mediante tu medio de contacto preferido.
-                  </p>
-                  <div className="pt-3">
-                    <Button
-                      variant="whatsapp"
-                      size="md"
-                      href={getWhatsAppLink(`Hola, completé el formulario en la web de Empiria a nombre de ${formData.parentName}. Quisiera agilizar la consulta.`)}
-                      isExternal
-                      leftIcon={<MessageCircle className="w-4 h-4" />}
-                    >
-                      Escribir también por WhatsApp
-                    </Button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  {errorMessage && (
-                    <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs sm:text-sm text-red-700 flex items-center gap-2">
-                      <AlertCircle className="w-4 h-4 shrink-0" />
-                      <span>{errorMessage}</span>
-                    </div>
+              <div className="mt-6 pt-4 border-t border-[#F2EFFA]">
+                <a
+                  href={channel.href}
+                  target={channel.isExternal ? "_blank" : undefined}
+                  rel={channel.isExternal ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors"
+                >
+                  <span>{channel.actionLabel}</span>
+                  {channel.isExternal ? (
+                    <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                  ) : (
+                    <ArrowRight className="w-3.5 h-3.5" />
                   )}
+                </a>
+              </div>
+            </Card>
+          ))}
 
-                  {/* Nombre del padre/madre/cuidador */}
-                  <div>
-                    <label
-                      htmlFor="parentName"
-                      className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                    >
-                      Nombre del padre, madre o cuidador *
-                    </label>
-                    <input
-                      type="text"
-                      id="parentName"
-                      name="parentName"
-                      required
-                      placeholder="Ej: Camila Restrepo"
-                      value={formData.parentName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30"
-                    />
-                  </div>
+          {/* Horarios Card to balance grid */}
+          <Card
+            variant="default"
+            className="p-6 sm:p-7 flex flex-col justify-between rounded-[24px] bg-white border border-[#E8E4F7] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+          >
+            <div>
+              <div className="w-14 h-14 rounded-2xl bg-[#5B8FD4]/15 flex items-center justify-center mb-5">
+                <LocationIcon size={32} className="text-[#5B8FD4]" strokeWidth={2} />
+              </div>
 
-                  {/* Teléfono y Correo */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                      >
-                        Teléfono / WhatsApp *
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        required
-                        placeholder="Ej: 312 000 0000"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30"
-                      />
-                    </div>
+              <span className="text-xs font-bold text-[#5B4B9E] uppercase tracking-wider">
+                Horarios de Consulta
+              </span>
 
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                      >
-                        Correo electrónico
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="ejemplo@correo.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30"
-                      />
-                    </div>
-                  </div>
+              <h3 className="text-lg font-bold text-[#2D2D3A] mt-1">
+                Lunes a Sábado
+              </h3>
 
-                  {/* Edad aproximada del niño y Medio de contacto preferido */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="childAge"
-                        className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                      >
-                        Edad aproximada del niño/a
-                      </label>
-                      <select
-                        id="childAge"
-                        name="childAge"
-                        value={formData.childAge}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30"
-                      >
-                        <option value="">Selecciona un rango...</option>
-                        <option value="0-2">0 a 2 años (Primeras palabras / Lenguaje)</option>
-                        <option value="3-5">3 a 5 años (Habla / Lenguaje infantil)</option>
-                        <option value="6-8">6 a 8 años (Lectoescritura / Escolar)</option>
-                        <option value="9-12">9 a 12 años (Comprensión / Aprendizaje)</option>
-                        <option value="mayor-12">Mayor de 12 años</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="preferredContact"
-                        className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                      >
-                        Medio preferido de contacto
-                      </label>
-                      <select
-                        id="preferredContact"
-                        name="preferredContact"
-                        value={formData.preferredContact}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30"
-                      >
-                        <option value="whatsapp">WhatsApp</option>
-                        <option value="llamada">Llamada telefónica</option>
-                        <option value="correo">Correo electrónico</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Motivo general de consulta */}
-                  <div>
-                    <label
-                      htmlFor="generalReason"
-                      className="block text-xs sm:text-sm font-bold text-[#2D2D3A] mb-1.5"
-                    >
-                      Motivo general de consulta (breve)
-                    </label>
-                    <textarea
-                      id="generalReason"
-                      name="generalReason"
-                      rows={3}
-                      placeholder="Ej: Nos gustaría orientación sobre pronunciación de algunos sonidos y sugerencias para casa."
-                      value={formData.generalReason}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:border-[#5B8FD4] focus:ring-2 focus:ring-[#5B8FD4]/20 transition-all bg-[#F2EFFA]/30 resize-none"
-                    />
-                    <p className="text-[11px] text-[#3E3B52] mt-1">
-                      * Por seguridad y privacidad, no incluyas diagnósticos médicos ni datos sensibles.
-                    </p>
-                  </div>
-
-                  {/* Mandatory Legal Checkboxes (Privacy by Design & Colombian Law) */}
-                  <div className="pt-3 space-y-3 border-t border-[#E8E4F7]">
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="acceptPolicy"
-                        checked={formData.acceptPolicy}
-                        onChange={handleChange}
-                        className="mt-1 w-4 h-4 rounded text-[#5B8FD4] focus:ring-[#5B8FD4] border-gray-300 shrink-0"
-                      />
-                      <span className="text-xs text-[#3E3B52] leading-relaxed">
-                        He leído y acepto la{" "}
-                        <Link
-                          href="/politica-tratamiento-datos"
-                          target="_blank"
-                          className="font-bold text-[#5B4B9E] underline hover:text-[#5B8FD4]"
-                        >
-                          Política de Tratamiento de Datos Personales
-                        </Link>{" "}
-                        de Centro Terapéutico Empiria. *
-                      </span>
-                    </label>
-
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="authorizeTreatment"
-                        checked={formData.authorizeTreatment}
-                        onChange={handleChange}
-                        className="mt-1 w-4 h-4 rounded text-[#5B8FD4] focus:ring-[#5B8FD4] border-gray-300 shrink-0"
-                      />
-                      <span className="text-xs text-[#3E3B52] leading-relaxed">
-                        Como representante legal, autorizo de manera libre y expresa el tratamiento de mis datos personales para la gestión de mi solicitud de orientación o valoración. *
-                      </span>
-                    </label>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-3">
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      size="lg"
-                      className="w-full"
-                      rightIcon={<Send className="w-4 h-4" />}
-                    >
-                      Enviar datos de contacto
-                    </Button>
-                  </div>
-                </form>
-              )}
+              <div className="mt-2 text-xs sm:text-sm text-[#3E3B52] space-y-1 leading-relaxed">
+                <p>
+                  <strong>Entre semana:</strong> 9:00 a.m. – 6:00 p.m.
+                </p>
+                <p>
+                  <strong>Sábados:</strong> 9:00 a.m. – 5:00 p.m.
+                </p>
+                <p className="text-[#7A788A]">Domingos y festivos: Cerrado</p>
+              </div>
             </div>
+
+            <div className="mt-6 pt-4 border-t border-[#F2EFFA]">
+              <span className="text-xs font-medium text-[#7A788A]">
+                Atención presencial previa cita
+              </span>
+            </div>
+          </Card>
+        </div>
+
+        {/* Interactive Consultation Preparer: Opens WhatsApp directly without simulating backend storage */}
+        <div className="rounded-[32px] bg-gradient-to-br from-[#F2EFFA] via-[#E8E4F7]/40 to-white p-8 sm:p-12 border border-[#E8E4F7] shadow-md max-w-4xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2D2D3A]">
+              Asistente de Consulta Directa por WhatsApp
+            </h3>
+            <p className="text-sm text-[#3E3B52]">
+              Completa estos datos básicos para que el mensaje se prepare automáticamente y puedas iniciar la conversación de inmediato con nuestro equipo.
+            </p>
           </div>
+
+          <form onSubmit={handleWhatsAppConsult} className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-[#5B4B9E] uppercase tracking-wider mb-1.5">
+                  Nombre del padre, madre o acudiente
+                </label>
+                <input
+                  type="text"
+                  value={parentName}
+                  onChange={(e) => setParentName(e.target.value)}
+                  placeholder="Ej: Carolina Morales"
+                  required
+                  className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:ring-2 focus:ring-[#8B7FD1]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-[#5B4B9E] uppercase tracking-wider mb-1.5">
+                  Edad del niño o niña
+                </label>
+                <input
+                  type="text"
+                  value={childAge}
+                  onChange={(e) => setChildAge(e.target.value)}
+                  placeholder="Ej: 4 años y medio"
+                  className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:ring-2 focus:ring-[#8B7FD1]"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-[#5B4B9E] uppercase tracking-wider mb-1.5">
+                  Área principal de acompañamiento
+                </label>
+                <select
+                  value={concernArea}
+                  onChange={(e) => setConcernArea(e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:ring-2 focus:ring-[#8B7FD1]"
+                >
+                  <option value="Habla y pronunciación">Habla y articulación de sonidos</option>
+                  <option value="Desarrollo del lenguaje">Lenguaje (comprensión y expresión)</option>
+                  <option value="Comunicación e interacción">Comunicación e interacción social</option>
+                  <option value="Lectoescritura escolar">Lectoescritura en edad escolar</option>
+                  <option value="Procesos de aprendizaje">Procesos de aprendizaje infantil</option>
+                  <option value="Orientación fonoaudiológica general">Orientación general</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-[#5B4B9E] uppercase tracking-wider mb-1.5">
+                  Comentario adicional (opcional)
+                </label>
+                <input
+                  type="text"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                  placeholder="Ej: Recomendación del colegio / dudas recientes"
+                  className="w-full px-4 py-3 rounded-2xl bg-white border border-[#E8E4F7] text-sm text-[#2D2D3A] focus:outline-none focus:ring-2 focus:ring-[#8B7FD1]"
+                />
+              </div>
+            </div>
+
+            {/* Privacy note */}
+            <div className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/80 border border-[#E8E4F7] text-xs text-[#3E3B52]">
+              <PrivacyIcon size={18} className="text-[#5B4B9E] shrink-0 mt-0.5" />
+              <p>
+                <strong>Privacidad protegida:</strong> No solicitamos historias clínicas ni información médica confidencial por este medio. La comunicación se realiza directamente en tu aplicación de WhatsApp.
+              </p>
+            </div>
+
+            <div className="text-center pt-2">
+              <Button
+                variant="whatsapp"
+                size="lg"
+                type="submit"
+                className="w-full sm:w-auto px-8 shadow-md"
+                leftIcon={<WhatsAppIcon size={20} className="text-white" />}
+              >
+                Abrir WhatsApp y Enviar Consulta
+              </Button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

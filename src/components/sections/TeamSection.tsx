@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { PlusSparkle, SoftLeaf, SparkleStar } from "@/components/ui/OrganicDecorations";
+import { OrganicLeaf, SparkleStar } from "@/components/icons";
 
 export const TeamSection: React.FC = () => {
   const therapists = [
@@ -27,10 +27,10 @@ export const TeamSection: React.FC = () => {
   ];
 
   return (
-    <section id="nosotros" className="py-16 sm:py-24 bg-[#F2EFFA]/35 relative overflow-hidden">
+    <section id="nosotros" className="py-16 sm:py-24 bg-[#F2EFFA]/40 relative overflow-hidden">
       {/* Background soft botanical accents */}
       <div className="absolute top-10 right-10 pointer-events-none opacity-70">
-        <SoftLeaf className="w-16 h-16" color="#C3B8E8" />
+        <OrganicLeaf size={56} color="#C3B8E8" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,14 +128,14 @@ export const TeamSection: React.FC = () => {
             {/* Floating Quote Card: Exactly from mockup */}
             <div className="relative bg-white/95 backdrop-blur-xs p-5 sm:p-6 rounded-3xl shadow-sm border border-[#E8E4F7] max-w-xs text-left">
               <div className="absolute -top-3 -right-2 text-[#8B7FD1]">
-                <PlusSparkle className="w-5 h-5" />
+                <SparkleStar size={20} color="#8B7FD1" />
               </div>
               <p className="font-script text-lg sm:text-xl text-[#5B4B9E] font-bold leading-snug">
                 “Más que un proceso clínico, para nosotras esto es la construcción de un vínculo.”
               </p>
-              <div className="mt-2 flex items-center justify-between">
-                <SoftLeaf className="w-6 h-6" color="#5B8FD4" />
-                <SparkleStar className="w-3.5 h-3.5" color="#8B7FD1" />
+              <div className="mt-3 flex items-center justify-between">
+                <OrganicLeaf size={24} color="#5B8FD4" />
+                <SparkleStar size={14} color="#8B7FD1" />
               </div>
             </div>
           </div>

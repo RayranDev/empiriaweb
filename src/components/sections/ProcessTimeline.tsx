@@ -1,37 +1,44 @@
 "use client";
 
 import React from "react";
-import { FileText, Video, ClipboardCheck, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
-import { SoftLeaf, LittleHeartDoodle } from "@/components/ui/OrganicDecorations";
+import {
+  DataIntakeIcon,
+  VirtualMeetingIcon,
+  AssessmentIcon,
+  InterventionIcon,
+  OrganicLeaf,
+  LittleHeartDoodle,
+} from "@/components/icons";
 
 export const ProcessTimeline: React.FC = () => {
   const steps = [
     {
       num: "1",
-      icon: <FileText className="w-5 h-5 text-[#5B8FD4]" />,
+      icon: <DataIntakeIcon size={26} className="text-[#5B8FD4]" strokeWidth={2} />,
       numBg: "bg-[#5B8FD4]",
       title: "Toma de datos",
       description: "Recopilamos información básica del niño o niña y conocemos el motivo de consulta.",
     },
     {
       num: "2",
-      icon: <Video className="w-5 h-5 text-[#8B7FD1]" />,
+      icon: <VirtualMeetingIcon size={26} className="text-[#8B7FD1]" strokeWidth={2} />,
       numBg: "bg-[#8B7FD1]",
       title: "Reunión virtual de acercamiento",
       description: "Explicamos nuestra metodología, resolvemos preguntas y conocemos a la profesional.",
     },
     {
       num: "3",
-      icon: <ClipboardCheck className="w-5 h-5 text-[#5B4B9E]" />,
+      icon: <AssessmentIcon size={26} className="text-[#5B4B9E]" strokeWidth={2} />,
       numBg: "bg-[#5B4B9E]",
       title: "Valoración presencial",
       description: "Evaluamos las habilidades comunicativas y de aprendizaje para identificar fortalezas y necesidades.",
     },
     {
       num: "4",
-      icon: <Sparkles className="w-5 h-5 text-[#8B7FD1]" />,
+      icon: <InterventionIcon size={26} className="text-[#5B8FD4]" strokeWidth={2} />,
       numBg: "bg-[#7385D6]",
       title: "Inicio del proceso de intervención",
       description: "Diseñamos un plan personalizado según los resultados de la valoración.",
@@ -42,7 +49,7 @@ export const ProcessTimeline: React.FC = () => {
     <section id="proceso" className="py-16 sm:py-24 bg-white relative overflow-hidden">
       {/* Decorative leaf accents */}
       <div className="absolute top-12 left-4 pointer-events-none opacity-60">
-        <SoftLeaf className="w-10 h-10" color="#8B7FD1" />
+        <OrganicLeaf size={38} color="#8B7FD1" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,11 +66,11 @@ export const ProcessTimeline: React.FC = () => {
           </p>
 
           {/* Floating script callout to the right */}
-          <div className="hidden md:flex items-center gap-1.5 absolute -right-20 top-4 rotate-3 bg-[#F2EFFA] px-3.5 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
+          <div className="hidden md:flex items-center gap-1.5 absolute -right-20 top-4 rotate-3 bg-[#F2EFFA] px-4 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
             <span className="font-script text-xl text-[#5B4B9E] font-bold">
               Aquí también crecen confianzas
             </span>
-            <LittleHeartDoodle className="w-3.5 h-3.5 text-[#8B7FD1]" />
+            <LittleHeartDoodle size={16} color="#8B7FD1" />
           </div>
         </div>
 
@@ -77,14 +84,14 @@ export const ProcessTimeline: React.FC = () => {
               key={idx}
               className="relative z-10 flex flex-col items-center text-center group"
             >
-              {/* Badge with step number and icon */}
-              <div className="flex items-center gap-2 mb-5">
+              {/* Badge with step number and Empiria icon */}
+              <div className="flex items-center gap-2.5 mb-5">
                 <span
                   className={`w-9 h-9 rounded-full ${step.numBg} text-white font-black text-sm flex items-center justify-center shadow-xs`}
                 >
                   {step.num}
                 </span>
-                <div className="w-12 h-12 rounded-2xl bg-white border border-[#E8E4F7] shadow-xs flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-[#E8E4F7] shadow-xs flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   {step.icon}
                 </div>
               </div>

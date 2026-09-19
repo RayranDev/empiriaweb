@@ -2,18 +2,24 @@
 
 import React from "react";
 import Link from "next/link";
-import { BookOpen, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { resourcesData } from "@/data/resources";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { ClockIcon, ArticlesIcon } from "@/components/icons";
 
 export const ResourcesPreview: React.FC = () => {
   return (
     <section id="recursos" className="py-16 sm:py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="lavender">Biblioteca Educativa</Badge>
+          <Badge
+            variant="lavender"
+            icon={<ArticlesIcon size={14} className="text-[#8B7FD1]" />}
+          >
+            Biblioteca Educativa
+          </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
             Empiria en casa
           </h2>
@@ -28,18 +34,18 @@ export const ResourcesPreview: React.FC = () => {
             <Card
               key={article.slug}
               variant="default"
-              className="flex flex-col justify-between p-6 sm:p-7 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/40 shadow-sm transition-all duration-300"
+              className="flex flex-col justify-between p-6 sm:p-7 bg-white border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="lavender">{article.category}</Badge>
                   <span className="text-xs text-[#3E3B52] flex items-center gap-1 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#8B7FD1]" />
-                    {article.readTime}
+                    <ClockIcon size={14} className="text-[#8B7FD1]" />
+                    <span>{article.readTime}</span>
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#2D2D3A] hover:text-[#5B4B9E] transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-[#2D2D3A] group-hover:text-[#5B4B9E] transition-colors leading-snug">
                   <Link href={`/recursos/${article.slug}`}>
                     {article.title}
                   </Link>
@@ -56,7 +62,7 @@ export const ResourcesPreview: React.FC = () => {
                 </span>
                 <Link
                   href={`/recursos/${article.slug}`}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors group-hover:translate-x-1 duration-200"
                 >
                   <span>Leer artículo</span>
                   <ArrowRight className="w-3.5 h-3.5" />

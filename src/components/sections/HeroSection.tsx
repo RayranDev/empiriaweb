@@ -2,40 +2,44 @@
 
 import React from "react";
 import Image from "next/image";
-import { MessageCircle, ArrowRight, Heart, Users, School, Sparkles, Sprout } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
 import {
+  PersonalizedCareIcon,
+  FamilySupportIcon,
+  SchoolCoordinationIcon,
+  HumanApproachIcon,
+  WhatsAppIcon,
+  BotanicalBranch,
+  OrganicLeaf,
   SparkleStar,
-  PlusSparkle,
-  SoftLeaf,
-  LeafBranch,
   LittleHeartDoodle,
-} from "@/components/ui/OrganicDecorations";
+} from "@/components/icons";
 
 export const HeroSection: React.FC = () => {
   const indicators = [
     {
-      icon: <Heart className="w-4 h-4 text-[#8B7FD1]" />,
+      icon: <PersonalizedCareIcon size={18} className="text-[#8B7FD1]" />,
       label: "Atención personalizada",
     },
     {
-      icon: <Users className="w-4 h-4 text-[#5B8FD4]" />,
+      icon: <FamilySupportIcon size={18} className="text-[#5B8FD4]" />,
       label: "Acompañamiento a la familia",
     },
     {
-      icon: <School className="w-4 h-4 text-[#5B4B9E]" />,
+      icon: <SchoolCoordinationIcon size={18} className="text-[#5B4B9E]" />,
       label: "Articulación con el colegio",
     },
     {
-      icon: <Sprout className="w-4 h-4 text-[#8B7FD1]" />,
+      icon: <HumanApproachIcon size={18} className="text-[#8B7FD1]" />,
       label: "Enfoque humano y profesional",
     },
   ];
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#F2EFFA]/80 via-[#F2EFFA]/30 to-white pt-8 pb-16 sm:pt-14 sm:pb-24">
-      {/* Background ambient glowing shapes */}
+      {/* Ambient background glows */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#E8E4F7]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#A8C5E8]/25 rounded-full blur-3xl -z-10 pointer-events-none" />
 
@@ -84,7 +88,7 @@ export const HeroSection: React.FC = () => {
                 href={getWhatsAppLink("Hola, quisiera recibir información sobre el proceso de valoración fonoaudiológica infantil en Centro Terapéutico Empiria.")}
                 isExternal
                 className="w-full sm:w-auto border-2 border-[#5B8FD4]/40 hover:border-[#25D366] text-[#2D2D3A] hover:text-[#25D366] bg-white shadow-xs"
-                leftIcon={<MessageCircle className="w-5 h-5 text-[#25D366] fill-[#25D366]/20" />}
+                leftIcon={<WhatsAppIcon size={20} className="text-[#25D366]" />}
               >
                 Hablar por WhatsApp
               </Button>
@@ -95,9 +99,9 @@ export const HeroSection: React.FC = () => {
               {indicators.map((ind, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-white/70 border border-[#E8E4F7]/60"
+                  className="flex items-center gap-2.5 px-3 py-2 rounded-2xl bg-white/80 border border-[#E8E4F7] shadow-xs"
                 >
-                  <span className="shrink-0 p-1.5 rounded-lg bg-[#F2EFFA]">
+                  <span className="shrink-0 p-1.5 rounded-xl bg-[#F2EFFA]">
                     {ind.icon}
                   </span>
                   <span className="text-xs font-semibold text-[#2D2D3A] leading-tight">
@@ -112,36 +116,33 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md sm:max-w-lg">
               {/* Floating script sticker: "Pequeños avances, grandes historias" */}
-              <div className="absolute -top-6 left-4 sm:-top-8 sm:left-6 z-20 bg-white/90 backdrop-blur-xs px-4 py-2 rounded-2xl shadow-sm border border-[#E8E4F7] -rotate-3 animate-soft-float">
+              <div className="absolute -top-6 left-4 sm:-top-8 sm:left-6 z-20 bg-white/95 backdrop-blur-xs px-4 py-2 rounded-2xl shadow-sm border border-[#E8E4F7] -rotate-3">
                 <div className="flex items-center gap-1.5">
                   <span className="font-script text-xl sm:text-2xl text-[#5B4B9E] font-bold">
                     Pequeños avances, grandes historias
                   </span>
-                  <LittleHeartDoodle className="w-4 h-4 text-[#8B7FD1]" />
+                  <LittleHeartDoodle size={16} color="#8B7FD1" />
                 </div>
               </div>
 
-              {/* Decorative sparkles & pluses */}
-              <div className="absolute -top-3 right-8 z-10">
-                <PlusSparkle className="w-5 h-5" color="#5B8FD4" />
+              {/* Decorative sparkles */}
+              <div className="absolute top-1/4 -left-5 z-10">
+                <SparkleStar size={18} color="#8B7FD1" />
               </div>
-              <div className="absolute top-1/3 -left-6 z-10">
-                <SparkleStar className="w-4 h-4 text-[#8B7FD1]" color="#8B7FD1" />
-              </div>
-              <div className="absolute bottom-1/4 -right-4 z-10">
-                <PlusSparkle className="w-5 h-5" color="#8B7FD1" />
+              <div className="absolute bottom-1/3 -right-4 z-10">
+                <SparkleStar size={16} color="#5B8FD4" />
               </div>
 
               {/* Botanical leaves framing the image */}
               <div className="absolute -bottom-8 -left-8 z-10 pointer-events-none">
-                <LeafBranch className="w-28 sm:w-36 h-auto text-[#8B7FD1]" />
+                <BotanicalBranch size={130} color="#8B7FD1" />
               </div>
 
               <div className="absolute -top-6 -right-6 z-0 pointer-events-none opacity-80">
-                <SoftLeaf className="w-14 h-14" color="#A8C5E8" />
+                <OrganicLeaf size={48} color="#A8C5E8" />
               </div>
               <div className="absolute -bottom-4 right-1/3 z-10 pointer-events-none">
-                <SoftLeaf className="w-10 h-10" color="#8B7FD1" flip />
+                <OrganicLeaf size={36} color="#8B7FD1" flip />
               </div>
 
               {/* Main Organic Photo Container */}
@@ -158,10 +159,11 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating speech pill: "Aquí también crecen sus palabras" */}
+              {/* Floating speech pill: "Aquí también crecen sus palabras" with SVG heart */}
               <div className="absolute -bottom-4 right-2 sm:right-4 z-20 bg-white/95 backdrop-blur-xs px-4 py-2.5 rounded-2xl shadow-md border border-[#E8E4F7] rotate-2">
-                <p className="font-script text-lg sm:text-xl text-[#5B4B9E] font-bold leading-tight">
-                  Aquí también crecen sus palabras 💜
+                <p className="font-script text-lg sm:text-xl text-[#5B4B9E] font-bold leading-tight inline-flex items-center gap-1.5">
+                  <span>Aquí también crecen sus palabras</span>
+                  <LittleHeartDoodle size={16} color="#8B7FD1" />
                 </p>
               </div>
             </div>

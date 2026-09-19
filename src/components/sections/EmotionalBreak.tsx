@@ -2,14 +2,19 @@
 
 import React from "react";
 import Image from "next/image";
-import { MessageCircle, Mail } from "lucide-react";
-import { getWhatsAppLink, contactData } from "@/data/contact";
+import { getWhatsAppLink } from "@/data/contact";
 import { Button } from "@/components/ui/Button";
-import { SoftLeaf, LittleHeartDoodle, SparkleStar } from "@/components/ui/OrganicDecorations";
+import {
+  WhatsAppIcon,
+  EmailIcon,
+  OrganicLeaf,
+  LittleHeartDoodle,
+  SparkleStar,
+} from "@/components/icons";
 
 export const EmotionalBreak: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F2EFFA]/60 via-[#E8E4F7]/40 to-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F2EFFA]/70 via-[#E8E4F7]/45 to-white relative overflow-hidden">
       {/* Background soft ambient glowing circles */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-white/70 rounded-full blur-3xl pointer-events-none" />
 
@@ -17,17 +22,17 @@ export const EmotionalBreak: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Charming Vector Children Illustration with Floating Heart */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
-            <div className="relative w-64 sm:w-72 md:w-80 aspect-[4/3] rounded-3xl overflow-hidden bg-white/80 p-3 shadow-xs border border-white">
+            <div className="relative w-full max-w-xs sm:max-w-sm rounded-3xl overflow-hidden bg-white/90 p-3 shadow-sm border border-[#E8E4F7]">
               {/* Little Floating Heart above children */}
               <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 animate-soft-float">
-                <LittleHeartDoodle className="w-5 h-5 text-[#8B7FD1]" />
+                <LittleHeartDoodle size={20} color="#8B7FD1" />
               </div>
               <Image
                 src="/images/decorative/children-playing.jpg"
                 alt="Niños interactuando y jugando en Centro Terapéutico Empiria"
-                fill
-                sizes="320px"
-                className="object-contain object-center rounded-2xl"
+                width={360}
+                height={270}
+                className="w-full h-auto object-contain rounded-2xl"
               />
             </div>
           </div>
@@ -49,7 +54,7 @@ export const EmotionalBreak: React.FC = () => {
                 href={getWhatsAppLink("Hola, deseo conversar sobre el proceso de mi hijo/a con el equipo de Empiria.")}
                 isExternal
                 className="w-full sm:w-auto shadow-sm"
-                leftIcon={<MessageCircle className="w-4 h-4 fill-white/20" />}
+                leftIcon={<WhatsAppIcon size={18} className="text-white" />}
               >
                 Conversemos por WhatsApp
               </Button>
@@ -59,7 +64,7 @@ export const EmotionalBreak: React.FC = () => {
                 size="md"
                 href="/contacto"
                 className="w-full sm:w-auto border-[#8B7FD1]/50 text-[#5B4B9E] bg-white shadow-xs"
-                leftIcon={<Mail className="w-4 h-4 text-[#5B8FD4]" />}
+                leftIcon={<EmailIcon size={16} className="text-[#5B8FD4]" />}
               >
                 Escríbenos
               </Button>
@@ -71,13 +76,13 @@ export const EmotionalBreak: React.FC = () => {
             <div className="relative">
               {/* Botanical leaves around badge */}
               <div className="absolute -top-6 -right-4 pointer-events-none opacity-80">
-                <SoftLeaf className="w-10 h-10" color="#8B7FD1" />
+                <OrganicLeaf size={36} color="#8B7FD1" />
               </div>
               <div className="absolute -bottom-6 -left-4 pointer-events-none opacity-80">
-                <SoftLeaf className="w-8 h-8" color="#5B8FD4" flip />
+                <OrganicLeaf size={32} color="#5B8FD4" flip />
               </div>
               <div className="absolute top-1/2 -right-6 pointer-events-none">
-                <SparkleStar className="w-3.5 h-3.5" color="#B4C4EA" />
+                <SparkleStar size={14} color="#B4C4EA" />
               </div>
 
               {/* Speech bubble badge */}
@@ -86,7 +91,7 @@ export const EmotionalBreak: React.FC = () => {
                   Comunicar también es crecer
                 </p>
                 <div className="mt-2 flex justify-center">
-                  <LittleHeartDoodle className="w-4 h-4 text-[#8B7FD1]" />
+                  <LittleHeartDoodle size={18} color="#8B7FD1" />
                 </div>
               </div>
             </div>

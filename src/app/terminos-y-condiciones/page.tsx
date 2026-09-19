@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { contactData } from "@/data/contact";
-import { FileText, ShieldAlert } from "lucide-react";
+import { TermsConditionsIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones de Uso | Centro Terapéutico Empiria",
@@ -9,24 +9,24 @@ export const metadata: Metadata = {
     "Términos y condiciones aplicables al acceso, navegación y uso de los contenidos del portal web de Centro Terapéutico Empiria en Bogotá.",
 };
 
-export default function TerminosCondicionesPage() {
+export default function TerminosYCondicionesPage() {
   return (
     <div className="py-12 sm:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-[#3E3B52] leading-relaxed">
         <div>
           <span className="text-xs font-bold text-[#8B7FD1] uppercase tracking-wider">
-            Términos Legales
+            Condiciones del Servicio Web
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#2D2D3A] tracking-tight mt-1">
             Términos y Condiciones de Uso
           </h1>
           <p className="text-xs text-[#3E3B52] mt-2">
-            Centro Terapéutico Empiria · Modelia, Bogotá, Colombia
+            Centro Terapéutico Empiria · Bogotá, Colombia
           </p>
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-[#8B7FD1] shrink-0 mt-0.5" />
+          <TermsConditionsIcon size={20} className="text-[#8B7FD1] shrink-0 mt-0.5" />
           <p>
             <strong>Naturaleza de la información:</strong> El contenido divulgado en este sitio web es exclusivamente orientativo y psicoeducativo para padres y cuidadores. No constituye consulta médica, diagnóstico fonoaudiológico ni prescripción clínica.
           </p>

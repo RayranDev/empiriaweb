@@ -2,8 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import { Home, BookOpen, HelpCircle, Send, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
+import {
+  FamilySupportIcon,
+  ArticlesIcon,
+  FAQIcon,
+  EmailIcon,
+} from "@/components/icons";
 
 export const FeatureHubCards: React.FC = () => {
   const hubs = [
@@ -11,45 +17,45 @@ export const FeatureHubCards: React.FC = () => {
       title: "Para familias",
       description: "Recursos y orientación para acompañar en casa.",
       href: "/para-familias",
-      icon: <Home className="w-6 h-6 text-[#5B8FD4]" />,
+      icon: <FamilySupportIcon size={26} className="text-[#5B8FD4]" strokeWidth={2} />,
       bgIcon: "bg-[#A8C5E8]/25",
     },
     {
       title: "Empiria en casa",
       description: "Artículos y recursos educativos.",
       href: "/recursos",
-      icon: <BookOpen className="w-6 h-6 text-[#8B7FD1]" />,
+      icon: <ArticlesIcon size={26} className="text-[#8B7FD1]" strokeWidth={2} />,
       bgIcon: "bg-[#E8E4F7]",
     },
     {
       title: "Preguntas frecuentes",
       description: "Resuelve tus dudas más comunes.",
       href: "/preguntas-frecuentes",
-      icon: <HelpCircle className="w-6 h-6 text-[#5B4B9E]" />,
+      icon: <FAQIcon size={26} className="text-[#5B4B9E]" strokeWidth={2} />,
       bgIcon: "bg-[#B4C4EA]/30",
     },
     {
       title: "Contáctanos",
       description: "Estamos para acompañarte.",
       href: "/contacto",
-      icon: <Send className="w-6 h-6 text-[#5B8FD4]" />,
+      icon: <EmailIcon size={26} className="text-[#5B8FD4]" strokeWidth={2} />,
       bgIcon: "bg-[#D4C9EE]/40",
     },
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-[#F2EFFA]/30 border-y border-[#E8E4F7]">
+    <section className="py-12 sm:py-16 bg-[#F2EFFA]/35 border-y border-[#E8E4F7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {hubs.map((hub, idx) => (
             <Card
               key={idx}
               variant="default"
-              className="flex flex-col justify-between p-6 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-md transition-all duration-300 rounded-3xl group"
+              className="flex flex-col justify-between p-6 bg-white border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
               <div>
                 <div
-                  className={`w-12 h-12 rounded-2xl ${hub.bgIcon} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}
+                  className={`w-14 h-14 rounded-2xl ${hub.bgIcon} flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300`}
                 >
                   {hub.icon}
                 </div>

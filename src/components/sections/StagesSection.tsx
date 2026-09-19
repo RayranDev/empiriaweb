@@ -1,22 +1,28 @@
 "use client";
 
 import React from "react";
-import { Baby, Sparkles, GraduationCap, Compass, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { stagesData } from "@/data/stages";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import {
+  InfancyIcon,
+  ChildDevelopmentIcon,
+  SchoolStageIcon,
+  YouthGroupIcon,
+} from "@/components/icons";
 
 export const StagesSection: React.FC = () => {
   const getStageIcon = (id: string) => {
     switch (id) {
       case "primera-infancia":
-        return <Baby className="w-6 h-6 text-[#5B8FD4]" />;
+        return <InfancyIcon size={30} className="text-[#5B8FD4]" strokeWidth={2.2} />;
       case "desarrollo-infantil":
-        return <Sparkles className="w-6 h-6 text-[#8B7FD1]" />;
+        return <ChildDevelopmentIcon size={30} className="text-[#8B7FD1]" strokeWidth={2.2} />;
       case "etapa-escolar":
-        return <GraduationCap className="w-6 h-6 text-[#5B4B9E]" />;
+        return <SchoolStageIcon size={30} className="text-[#5B4B9E]" strokeWidth={2.2} />;
       default:
-        return <Compass className="w-6 h-6 text-[#5B8FD4]" />;
+        return <YouthGroupIcon size={30} className="text-[#5B8FD4]" strokeWidth={2.2} />;
     }
   };
 
@@ -39,11 +45,11 @@ export const StagesSection: React.FC = () => {
             <Card
               key={stage.id}
               variant="default"
-              className="flex flex-col justify-between p-6 sm:p-7 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/40 transition-all duration-300"
+              className="flex flex-col justify-between p-6 sm:p-7 bg-white border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#F2EFFA] flex items-center justify-center border border-[#E8E4F7]">
+                  <div className="w-14 h-14 rounded-2xl bg-[#F2EFFA] flex items-center justify-center border border-[#E8E4F7] group-hover:scale-105 transition-transform duration-300">
                     {getStageIcon(stage.id)}
                   </div>
                   <span className={`text-xs font-bold px-3 py-1 rounded-full ${stage.badgeColor}`}>
@@ -51,7 +57,7 @@ export const StagesSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#2D2D3A]">
+                <h3 className="text-xl font-bold text-[#2D2D3A] group-hover:text-[#5B4B9E] transition-colors">
                   {stage.title}
                 </h3>
 

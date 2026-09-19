@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { contactData } from "@/data/contact";
+import { getSiteUrl } from "@/data/site";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -35,8 +36,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://centroterapeuticoempiria.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Centro Terapéutico Empiria | Fonoaudiología Infantil en Bogotá",
     template: "%s | Centro Terapéutico Empiria",
@@ -70,7 +73,7 @@ export const metadata: Metadata = {
     title: "Centro Terapéutico Empiria | Fonoaudiología Infantil en Bogotá",
     description:
       "Convertimos las dificultades de comunicación y aprendizaje en confianza, autonomía y éxito escolar. Atención 100% individual y personalizada.",
-    url: "https://centroterapeuticoempiria.com",
+    url: siteUrl,
     siteName: "Centro Terapéutico Empiria",
     locale: "es_CO",
     type: "website",
@@ -105,10 +108,10 @@ export default function RootLayout({
     name: contactData.name,
     description:
       "Centro terapéutico especializado en fonoaudiología infantil en Bogotá. Acompañamiento en habla, lenguaje, lectoescritura y aprendizaje.",
-    image: "https://centroterapeuticoempiria.com/logo/logo.png",
+    image: `${siteUrl}/logo/logo.png`,
     telephone: "+573127366606",
     email: contactData.email,
-    url: "https://centroterapeuticoempiria.com",
+    url: siteUrl,
     address: {
       "@type": "PostalAddress",
       streetAddress: contactData.address.street,
@@ -116,11 +119,6 @@ export default function RootLayout({
       addressRegion: "Cundinamarca",
       addressCountry: "CO",
       neighborhood: contactData.address.neighborhood,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 4.6644,
-      longitude: -74.1206,
     },
     openingHoursSpecification: [
       {
@@ -139,7 +137,6 @@ export default function RootLayout({
     medicalSpecialty: "SpeechPathology",
     sameAs: [
       contactData.social.instagramUrl,
-      contactData.whatsAppUrl,
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -197,7 +194,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-body bg-white text-[#2D2D3A] antialiased">
+      <body className="min-h-full flex flex-col font-body bg-white text-[#2D2D3A] antialiased selection:bg-[#E8E4F7] selection:text-[#5B4B9E]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

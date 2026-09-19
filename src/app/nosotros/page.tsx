@@ -5,7 +5,7 @@ import { EmotionalBreak } from "@/components/sections/EmotionalBreak";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
-import { MessageCircle, Heart, Shield, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Nosotros | Enfoque y Equipo Profesional",
@@ -43,7 +43,7 @@ export default function NosotrosPage() {
           size="lg"
           href={getWhatsAppLink("Hola, quisiera agendar una reunión virtual de acercamiento con el equipo de Empiria.")}
           isExternal
-          leftIcon={<MessageCircle className="w-5 h-5" />}
+          leftIcon={<WhatsAppIcon size={20} className="text-white" />}
         >
           Conversar con el equipo por WhatsApp
         </Button>

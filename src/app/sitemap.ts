@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "@/data/services";
 import { resourcesData } from "@/data/resources";
+import { getSiteUrl } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://centroterapeuticoempiria.com";
+  const baseUrl = getSiteUrl();
   const now = new Date();
 
   // Core static routes

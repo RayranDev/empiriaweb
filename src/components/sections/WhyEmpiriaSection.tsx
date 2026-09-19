@@ -1,25 +1,29 @@
 "use client";
 
 import React from "react";
-import { UserCheck, HeartHandshake, School, Award, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { pillarsData } from "@/data/pillars";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import {
+  PersonalizedCareIcon,
+  FamilySupportIcon,
+  SchoolCoordinationIcon,
+  TrustSafetyIcon,
+} from "@/components/icons";
 
 export const WhyEmpiriaSection: React.FC = () => {
   const getPillarIcon = (iconName: string) => {
-    const props = { className: "w-7 h-7 text-[#5B4B9E]" };
     switch (iconName) {
       case "UserCheck":
-        return <UserCheck {...props} />;
+        return <PersonalizedCareIcon size={30} className="text-[#5B4B9E]" strokeWidth={2.2} />;
       case "HeartHandshake":
-        return <HeartHandshake {...props} />;
+        return <FamilySupportIcon size={30} className="text-[#8B7FD1]" strokeWidth={2.2} />;
       case "School":
-        return <School {...props} />;
+        return <SchoolCoordinationIcon size={30} className="text-[#5B8FD4]" strokeWidth={2.2} />;
       case "Award":
-        return <Award {...props} />;
       default:
-        return <UserCheck {...props} />;
+        return <TrustSafetyIcon size={30} className="text-[#5B4B9E]" strokeWidth={2.2} />;
     }
   };
 
@@ -42,10 +46,10 @@ export const WhyEmpiriaSection: React.FC = () => {
             <Card
               key={pillar.id}
               variant="default"
-              className="flex flex-col justify-between p-6 sm:p-7 bg-white/90 backdrop-blur-sm border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-sm transition-all duration-300"
+              className="flex flex-col justify-between p-6 sm:p-7 bg-white/95 border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#E8E4F7] flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-[#E8E4F7] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
                   {getPillarIcon(pillar.iconName)}
                 </div>
 
@@ -53,7 +57,7 @@ export const WhyEmpiriaSection: React.FC = () => {
                   Pilar 0{idx + 1}
                 </span>
 
-                <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#2D2D3A] leading-snug">
+                <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#2D2D3A] leading-snug group-hover:text-[#5B4B9E] transition-colors">
                   {pillar.title}
                 </h3>
 

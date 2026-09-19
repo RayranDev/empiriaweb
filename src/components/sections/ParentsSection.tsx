@@ -1,32 +1,38 @@
 "use client";
 
 import React from "react";
-import { HeartHandshake, Home, MessageSquareQuote, School, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import {
+  ConversationIcon,
+  FamilySupportIcon,
+  PersonalizedCareIcon,
+  SchoolCoordinationIcon,
+  SparkleStar,
+} from "@/components/icons";
 
 export const ParentsSection: React.FC = () => {
   const parentalPillars = [
     {
-      icon: <MessageSquareQuote className="w-6 h-6 text-[#5B8FD4]" />,
+      icon: <ConversationIcon size={26} className="text-[#5B8FD4]" strokeWidth={2.2} />,
       title: "Retroalimentación al final de cada sesión",
       description:
         "Dedicamos un espacio reservado para dialogar sobre los descubrimientos de la sesión, resolver inquietudes y compartir logros sin prisas.",
     },
     {
-      icon: <Home className="w-6 h-6 text-[#8B7FD1]" />,
+      icon: <FamilySupportIcon size={26} className="text-[#8B7FD1]" strokeWidth={2.2} />,
       title: "Orientaciones prácticas para el hogar",
       description:
         "Brindamos pautas sencillas y respetuosas para que el juego y las rutinas cotidianas se conviertan en los mejores aliados del desarrollo comunicativo.",
     },
     {
-      icon: <HeartHandshake className="w-6 h-6 text-[#5B4B9E]" />,
+      icon: <PersonalizedCareIcon size={26} className="text-[#5B4B9E]" strokeWidth={2.2} />,
       title: "Un equipo que camina a tu lado",
       description:
         "Entendemos la incertidumbre de los cuidadores. Nuestro propósito es escucharte y construir juntos un camino de comprensión y serenidad.",
     },
     {
-      icon: <School className="w-6 h-6 text-[#5B8FD4]" />,
+      icon: <SchoolCoordinationIcon size={26} className="text-[#5B8FD4]" strokeWidth={2.2} />,
       title: "Articulación con el colegio",
       description:
         "Cuando el caso lo amerita, establecemos contacto con docentes y orientadores para alinear estrategias que favorezcan su bienestar escolar.",
@@ -37,7 +43,12 @@ export const ParentsSection: React.FC = () => {
     <section id="familias" className="py-16 sm:py-24 bg-[#F2EFFA]/40 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <Badge variant="lavender">Acompañamiento a Cuidadores</Badge>
+          <Badge
+            variant="lavender"
+            icon={<FamilySupportIcon size={14} className="text-[#8B7FD1]" />}
+          >
+            Acompañamiento a Cuidadores
+          </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
             Tu participación también hace parte del proceso
           </h2>
@@ -52,12 +63,12 @@ export const ParentsSection: React.FC = () => {
             <Card
               key={i}
               variant="default"
-              className="p-6 sm:p-7 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/40 shadow-sm transition-all duration-300"
+              className="p-6 sm:p-7 bg-white border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#F2EFFA] flex items-center justify-center mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-[#F2EFFA] flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
                 {pillar.icon}
               </div>
-              <h3 className="text-lg font-bold text-[#2D2D3A] leading-snug">
+              <h3 className="text-lg font-bold text-[#2D2D3A] group-hover:text-[#5B4B9E] transition-colors leading-snug">
                 {pillar.title}
               </h3>
               <p className="mt-3 text-xs sm:text-sm text-[#3E3B52] leading-relaxed">
@@ -68,9 +79,9 @@ export const ParentsSection: React.FC = () => {
         </div>
 
         {/* Reassurance Callout Box */}
-        <div className="mt-12 max-w-3xl mx-auto rounded-3xl bg-white p-6 sm:p-8 border border-[#D4C9EE]/60 shadow-sm flex items-start gap-4">
+        <div className="mt-12 max-w-3xl mx-auto rounded-[28px] bg-white p-6 sm:p-8 border border-[#D4C9EE]/60 shadow-sm flex items-start gap-4">
           <div className="p-3 rounded-2xl bg-[#E8E4F7] text-[#5B4B9E] shrink-0 mt-1">
-            <Sparkles className="w-5 h-5" />
+            <SparkleStar size={20} color="#5B4B9E" />
           </div>
           <div className="text-xs sm:text-sm text-[#3E3B52] leading-relaxed">
             <p className="font-bold text-[#5B4B9E] text-base">

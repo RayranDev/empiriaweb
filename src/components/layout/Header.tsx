@@ -3,9 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle, ChevronRight, Phone } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { EmpiriaLogo } from "@/components/logo/EmpiriaLogo";
 import { contactData, getWhatsAppLink } from "@/data/contact";
+import {
+  LocationIcon,
+  ClockIcon,
+  WhatsAppIcon,
+  EmailIcon,
+} from "@/components/icons";
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +26,12 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
-  useEffect(() => {
+  // Adjust menu state during render on route change (React-recommended pattern)
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setIsOpen(false);
-  }, [pathname]);
+  }
 
   // Prevent background scroll when mobile menu is open
   useEffect(() => {
@@ -52,32 +60,39 @@ export const Header: React.FC = () => {
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E8E4F7]"
-            : "bg-white/80 backdrop-blur-sm border-b border-[#E8E4F7]/60"
+            : "bg-white/85 backdrop-blur-sm border-b border-[#E8E4F7]/70"
         }`}
       >
-        {/* Top utility contact bar for trust & quick reach */}
-        <div className="hidden lg:block bg-gradient-to-r from-[#F2EFFA] via-[#E8E4F7] to-[#F2EFFA] border-b border-[#E8E4F7]/70 py-1.5 px-6 text-xs text-[#3E3B52]">
+        {/* Top utility contact bar for trust & quick reach - zero emojis */}
+        <div className="hidden lg:block bg-gradient-to-r from-[#F2EFFA] via-[#E8E4F7]/60 to-[#F2EFFA] border-b border-[#E8E4F7]/70 py-1.5 px-6 text-xs text-[#3E3B52]">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <span>📍 {contactData.address.neighborhood}, Bogotá</span>
-              <span>⏰ {contactData.schedule.weekdays}</span>
+              <span className="inline-flex items-center gap-1.5">
+                <LocationIcon size={14} className="text-[#5B8FD4]" />
+                <span>{contactData.address.neighborhood}, Bogotá</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ClockIcon size={14} className="text-[#8B7FD1]" />
+                <span>{contactData.schedule.weekdays}</span>
+              </span>
             </div>
             <div className="flex items-center gap-5 font-medium">
               <a
                 href={getWhatsAppLink("Hola, deseo solicitar orientación para mi hijo.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#5B4B9E] transition-colors flex items-center gap-1.5"
+                className="hover:text-[#5B4B9E] transition-colors inline-flex items-center gap-1.5"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#5B8FD4]" />
+                <WhatsAppIcon size={14} className="text-[#25D366]" />
                 <span>WhatsApp: {contactData.phoneFormatted}</span>
               </a>
               <span className="text-[#C3B8E8]">|</span>
               <a
                 href={`mailto:${contactData.email}`}
-                className="hover:text-[#5B4B9E] transition-colors"
+                className="hover:text-[#5B4B9E] transition-colors inline-flex items-center gap-1.5"
               >
-                {contactData.email}
+                <EmailIcon size={14} className="text-[#5B8FD4]" />
+                <span>{contactData.email}</span>
               </a>
             </div>
           </div>
@@ -119,21 +134,21 @@ export const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#5B8FD4] via-[#7385D6] to-[#8B7FD1] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
-                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <WhatsAppIcon size={16} className="text-white" />
                 <span>Escríbenos por WhatsApp</span>
               </a>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex items-center gap-2 xl:hidden">
+            {/* Mobile Menu & WhatsApp Actions */}
+            <div className="flex items-center gap-2 lg:hidden">
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="sm:hidden p-2 rounded-full text-[#5B4B9E] bg-[#E8E4F7] hover:bg-[#D4C9EE] transition-colors"
-                aria-label="Hablar por WhatsApp"
+                className="sm:hidden p-2.5 rounded-full text-white bg-[#25D366] shadow-sm hover:bg-[#20ba59] transition-colors"
+                aria-label="Hablar por WhatsApp con Empiria"
               >
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon size={20} className="text-white" />
               </a>
 
               <button
@@ -153,7 +168,7 @@ export const Header: React.FC = () => {
       {/* Mobile Drawer Navigation */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 xl:hidden bg-[#2D2D3A]/50 backdrop-blur-sm transition-opacity duration-300"
+          className="fixed inset-0 z-50 lg:hidden bg-[#2D2D3A]/50 backdrop-blur-sm transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         >
           <div
@@ -202,9 +217,9 @@ export const Header: React.FC = () => {
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-base font-bold text-white bg-gradient-to-r from-[#5B8FD4] to-[#8B7FD1] shadow-md active:scale-95 transition-all"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-full text-base font-bold text-white bg-[#25D366] shadow-md active:scale-95 transition-all"
               >
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon size={20} className="text-white" />
                 <span>Hablar por WhatsApp</span>
               </a>
 
@@ -213,8 +228,8 @@ export const Header: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-[#5B4B9E] bg-[#F2EFFA] border border-[#C3B8E8]/50 hover:bg-[#E8E4F7] transition-all"
               >
-                <Phone className="w-4 h-4" />
-                <span>Formulario y Ubicación</span>
+                <LocationIcon size={16} className="text-[#5B8FD4]" />
+                <span>Sede y Contacto Directo</span>
               </Link>
 
               <p className="text-center text-xs text-[#3E3B52] pt-2">

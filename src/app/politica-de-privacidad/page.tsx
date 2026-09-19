@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { contactData } from "@/data/contact";
-import { ShieldCheck, Mail, MapPin } from "lucide-react";
+import { PrivacyIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad | Centro Terapéutico Empiria",
@@ -15,7 +15,7 @@ export default function PoliticaPrivacidadPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-[#3E3B52] leading-relaxed">
         <div>
           <span className="text-xs font-bold text-[#8B7FD1] uppercase tracking-wider">
-            Documento Informativo y Legal
+            Compromiso con la Confianza Familiar
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#2D2D3A] tracking-tight mt-1">
             Política de Privacidad
@@ -26,7 +26,7 @@ export default function PoliticaPrivacidadPage() {
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <ShieldCheck className="w-5 h-5 text-[#5B4B9E] shrink-0 mt-0.5" />
+          <PrivacyIcon size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
           <p>
             <strong>Principio de Minimización (Privacy by Design):</strong> Este sitio web público no recolecta historias clínicas, diagnósticos médicos detallados ni datos de salud sensibles sin las garantías técnicas, presenciales y legales correspondientes.
           </p>

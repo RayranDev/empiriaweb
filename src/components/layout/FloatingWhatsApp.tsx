@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
 import { getWhatsAppLink } from "@/data/contact";
+import { WhatsAppIcon } from "@/components/icons";
 
 export const FloatingWhatsApp: React.FC = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -57,9 +58,9 @@ export const FloatingWhatsApp: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Hablar con una fonoaudióloga por WhatsApp"
-        className="pointer-events-auto group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gentle-pulse focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
+        className="pointer-events-auto group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
       >
-        <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 fill-white/20 transition-transform duration-200 group-hover:scale-110" />
+        <WhatsAppIcon size={32} className="text-white transition-transform duration-200 group-hover:scale-110" />
         <span className="sr-only">Contactar por WhatsApp al +57 312 736 6606</span>
       </a>
     </div>

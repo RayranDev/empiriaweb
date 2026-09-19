@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { contactData } from "@/data/contact";
-import { CheckSquare, ShieldCheck } from "lucide-react";
+import { CheckSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Autorización de Tratamiento de Datos | Centro Terapéutico Empiria",

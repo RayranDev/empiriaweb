@@ -1,16 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import {
-  MessageCircle,
-  Mail,
-  MapPin,
-  Clock,
-  Heart,
-  ShieldAlert,
-} from "lucide-react";
-import { InstagramIcon, FacebookIcon, XIcon } from "@/components/ui/Icons";
 import { EmpiriaLogo } from "@/components/logo/EmpiriaLogo";
 import { contactData, getWhatsAppLink } from "@/data/contact";
+import {
+  InstagramIcon,
+  WhatsAppIcon,
+  EmailIcon,
+  LocationIcon,
+  ClockIcon,
+  PersonalizedCareIcon,
+  PrivacyIcon,
+  DataTreatmentIcon,
+  TermsConditionsIcon,
+  CookieIcon,
+  OrganicLeaf,
+  LittleHeartDoodle,
+} from "@/components/icons";
 
 export const Footer: React.FC = () => {
   const navigationLinks = [
@@ -33,49 +38,70 @@ export const Footer: React.FC = () => {
   ];
 
   const legalLinks = [
-    { label: "Política de Privacidad", href: "/politica-de-privacidad" },
-    { label: "Tratamiento de Datos Personales", href: "/politica-tratamiento-datos" },
-    { label: "Autorización de Tratamiento de Datos", href: "/autorizacion-tratamiento-datos" },
-    { label: "Términos y Condiciones", href: "/terminos-y-condiciones" },
-    { label: "Política de Cookies", href: "/politica-cookies" },
+    {
+      label: "Política de Privacidad",
+      href: "/politica-de-privacidad",
+      icon: <PrivacyIcon size={14} className="text-[#8B7FD1]" />,
+    },
+    {
+      label: "Tratamiento de Datos Personales",
+      href: "/politica-tratamiento-datos",
+      icon: <DataTreatmentIcon size={14} className="text-[#5B8FD4]" />,
+    },
+    {
+      label: "Autorización de Tratamiento de Datos",
+      href: "/autorizacion-tratamiento-datos",
+      icon: <DataTreatmentIcon size={14} className="text-[#5B4B9E]" />,
+    },
+    {
+      label: "Términos y Condiciones",
+      href: "/terminos-y-condiciones",
+      icon: <TermsConditionsIcon size={14} className="text-[#8B7FD1]" />,
+    },
+    {
+      label: "Política de Cookies",
+      href: "/politica-cookies",
+      icon: <CookieIcon size={14} className="text-[#5B8FD4]" />,
+    },
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#F2EFFA]/60 via-[#E8E4F7]/40 to-[#E8E4F7]/80 text-[#2D2D3A] border-t border-[#E8E4F7]">
+    <footer className="bg-gradient-to-b from-[#F2EFFA]/70 via-[#E8E4F7]/40 to-[#E8E4F7]/80 text-[#2D2D3A] border-t border-[#E8E4F7] relative overflow-hidden">
+      {/* Decorative leaf in footer */}
+      <div className="absolute top-6 right-6 pointer-events-none opacity-60">
+        <OrganicLeaf size={48} color="#C3B8E8" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12">
         {/* Brand Quote Card matching mockup */}
-        <div className="mb-12 p-6 sm:p-8 rounded-3xl bg-white border border-[#E8E4F7] shadow-xs text-center flex flex-col items-center justify-center space-y-3">
+        <div className="mb-12 p-6 sm:p-8 rounded-[28px] bg-white border border-[#E8E4F7] shadow-xs text-center flex flex-col items-center justify-center space-y-3">
           <EmpiriaLogo size="sm" />
-          <p className="font-script text-xl sm:text-2xl font-bold text-[#5B4B9E] max-w-xl">
-            “Cada niño tiene una manera única de aprender, comunicarse y crecer.”
+          <p className="font-script text-xl sm:text-2xl font-bold text-[#5B4B9E] max-w-xl inline-flex items-center gap-2">
+            <span>“Cada niño tiene una forma única de aprender, comunicarse y crecer.”</span>
+            <LittleHeartDoodle size={18} color="#8B7FD1" />
           </p>
-          <div className="pt-2 flex items-center gap-4 text-[#8B7FD1]">
+          <div className="pt-2 flex items-center gap-3">
+            {/* Only confirmed social profile: Instagram @centrot.empiria */}
             <a
               href={contactData.social.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#E1306C] transition-colors"
-              aria-label="Instagram de Empiria"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F2EFFA] text-[#2D2D3A] hover:bg-[#E8E4F7] hover:text-[#E1306C] transition-colors text-xs font-bold"
+              aria-label="Instagram oficial de Centro Terapéutico Empiria"
             >
-              <InstagramIcon className="w-4 h-4" />
+              <InstagramIcon size={16} className="text-[#E1306C]" />
+              <span>{contactData.social.instagram}</span>
             </a>
+
             <a
-              href="https://facebook.com"
+              href={getWhatsAppLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#1877F2] transition-colors"
-              aria-label="Facebook de Empiria"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F2EFFA] text-[#2D2D3A] hover:bg-[#E8E4F7] hover:text-[#25D366] transition-colors text-xs font-bold"
+              aria-label="WhatsApp oficial de Centro Terapéutico Empiria"
             >
-              <FacebookIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full bg-[#F2EFFA] hover:bg-[#E8E4F7] hover:text-[#2D2D3A] transition-colors"
-              aria-label="X (Twitter) de Empiria"
-            >
-              <XIcon className="w-4 h-4" />
+              <WhatsAppIcon size={16} className="text-[#25D366]" />
+              <span>{contactData.phoneFormatted}</span>
             </a>
           </div>
         </div>
@@ -89,7 +115,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="p-3.5 rounded-2xl bg-white/80 border border-[#E8E4F7] text-xs text-[#3E3B52] space-y-1">
               <p className="font-bold text-[#5B4B9E] flex items-center gap-1.5">
-                <Heart className="w-3.5 h-3.5 text-[#8B7FD1]" />
+                <PersonalizedCareIcon size={14} className="text-[#8B7FD1]" />
                 Enfoque centrado en la familia
               </p>
               <p>
@@ -98,17 +124,17 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Navigation Links */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#5B4B9E]">
-              Explorar
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {navigationLinks.map((link) => (
+          {/* Column 2: Navigation */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#5B4B9E] mb-4">
+              Navegación
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#3E3B52]">
+              {navigationLinks.slice(0, 5).map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#3E3B52] hover:text-[#5B4B9E] transition-colors inline-block py-0.5"
+                    className="hover:text-[#5B4B9E] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -117,17 +143,17 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Service Areas */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#5B4B9E]">
+          {/* Column 3: Áreas */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#5B4B9E] mb-4">
               Áreas de Atención
-            </h3>
-            <ul className="space-y-2 text-sm">
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#3E3B52]">
               {serviceLinks.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-[#3E3B52] hover:text-[#5B4B9E] transition-colors inline-block py-0.5"
+                    className="hover:text-[#5B4B9E] transition-colors"
                   >
                     {service.label}
                   </Link>
@@ -136,95 +162,57 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Hours */}
-          <div className="space-y-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#5B4B9E]">
-              Contacto y Sede
-            </h3>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-[#3E3B52]">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#5B8FD4] shrink-0 mt-0.5" />
+          {/* Column 4: Contact & Legal */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#5B4B9E] mb-4">
+              Sede Presencial
+            </h4>
+            <div className="space-y-3 text-xs text-[#3E3B52]">
+              <div className="flex items-start gap-2">
+                <LocationIcon size={15} className="text-[#5B8FD4] shrink-0 mt-0.5" />
                 <span>
-                  {contactData.address.street}
-                  <br />
-                  {contactData.address.neighborhood}, {contactData.address.city}
+                  {contactData.address.street} <br />
+                  {contactData.address.neighborhood}, Bogotá
                 </span>
-              </li>
-
-              <li className="flex items-center gap-2.5">
-                <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0" />
-                <a
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#5B4B9E] font-medium transition-colors"
-                >
-                  {contactData.phoneFormatted}
-                </a>
-              </li>
-
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#8B7FD1] shrink-0" />
+              </div>
+              <div className="flex items-start gap-2">
+                <ClockIcon size={15} className="text-[#8B7FD1] shrink-0 mt-0.5" />
+                <span>
+                  {contactData.schedule.weekdays} <br />
+                  {contactData.schedule.saturdays}
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <EmailIcon size={15} className="text-[#5B4B9E] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${contactData.email}`}
                   className="hover:text-[#5B4B9E] transition-colors break-all"
                 >
                   {contactData.email}
                 </a>
-              </li>
-
-              <li className="flex items-center gap-2.5">
-                <InstagramIcon className="w-4 h-4 text-[#E1306C] shrink-0" />
-                <a
-                  href={contactData.social.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#5B4B9E] transition-colors font-medium"
-                >
-                  {contactData.social.instagram}
-                </a>
-              </li>
-
-              <li className="pt-2 border-t border-[#E8E4F7]">
-                <div className="flex items-start gap-2 text-xs text-[#3E3B52]">
-                  <Clock className="w-3.5 h-3.5 text-[#5B4B9E] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-[#2D2D3A]">Horarios de atención:</p>
-                    <p>{contactData.schedule.weekdays}</p>
-                    <p>{contactData.schedule.saturdays}</p>
-                    <p className="text-gray-500">{contactData.schedule.sundays}</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Legal and Disclaimer Notice */}
-        <div className="py-6 border-b border-[#D4C9EE]/60 text-xs text-[#3E3B52] leading-relaxed flex flex-col md:flex-row items-start md:items-center gap-3">
-          <ShieldAlert className="w-5 h-5 text-[#8B7FD1] shrink-0" />
-          <p>
-            <strong>Aviso de orientación fonoaudiológica:</strong> Los contenidos educativos y descriptivos de este sitio web tienen carácter informativo y orientativo para padres y cuidadores. No constituyen diagnósticos clínicos automáticos, los cuales requieren una valoración fonoaudiológica individual y presencial. Tratamiento de datos de menores regulado conforme a la Ley 1581 de 2012 de Colombia.
-          </p>
-        </div>
-
-        {/* Bottom Bar: Copyright & Legal Policies */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#3E3B52]">
-          <p className="text-center md:text-left">
-            © {new Date().getFullYear()} Centro Terapéutico Empiria. Todos los derechos reservados. Bogotá, Colombia.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-            {legalLinks.map((legal) => (
+        {/* Legal & Compliance Bottom Bar */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#525064]">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2">
+            {legalLinks.map((item) => (
               <Link
-                key={legal.href}
-                href={legal.href}
-                className="hover:text-[#5B4B9E] transition-colors underline-offset-4 hover:underline"
+                key={item.href}
+                href={item.href}
+                className="hover:text-[#5B4B9E] transition-colors inline-flex items-center gap-1"
               >
-                {legal.label}
+                {item.icon}
+                <span>{item.label}</span>
               </Link>
             ))}
           </div>
+
+          <p className="text-center md:text-right">
+            © {new Date().getFullYear()} {contactData.name}. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>

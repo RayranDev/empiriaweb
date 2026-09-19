@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { faqData } from "@/data/faq";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
+import { FAQIcon, WhatsAppIcon } from "@/components/icons";
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>("remision-medica");
@@ -18,7 +19,12 @@ export const FAQSection: React.FC = () => {
     <section id="faq" className="py-16 sm:py-24 bg-[#F2EFFA]/30 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4">
-          <Badge variant="lavender">Respuestas Claras</Badge>
+          <Badge
+            variant="lavender"
+            icon={<FAQIcon size={14} className="text-[#8B7FD1]" />}
+          >
+            Respuestas Claras
+          </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
             Preguntas Frecuentes
           </h2>
@@ -34,7 +40,7 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className="rounded-2xl bg-white border border-[#E8E4F7] overflow-hidden transition-all duration-200 shadow-sm"
+                className="rounded-[20px] bg-white border border-[#E8E4F7] overflow-hidden transition-all duration-200 shadow-xs hover:border-[#8B7FD1]/40"
               >
                 <button
                   type="button"
@@ -65,9 +71,9 @@ export const FAQSection: React.FC = () => {
         </div>
 
         {/* Post-FAQ WhatsApp conversion CTA */}
-        <div className="mt-14 rounded-3xl bg-white p-8 border border-[#E8E4F7] shadow-sm text-center space-y-4">
-          <div className="inline-flex p-3 rounded-full bg-[#E8E4F7] text-[#5B4B9E]">
-            <HelpCircle className="w-6 h-6" />
+        <div className="mt-14 rounded-[28px] bg-white p-8 border border-[#E8E4F7] shadow-sm text-center space-y-4">
+          <div className="inline-flex p-3 rounded-2xl bg-[#E8E4F7] text-[#5B4B9E]">
+            <FAQIcon size={30} className="text-[#5B4B9E]" strokeWidth={2.2} />
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-[#2D2D3A]">
             ¿Tienes otra pregunta sobre el proceso de tu hijo o hija?
@@ -81,7 +87,7 @@ export const FAQSection: React.FC = () => {
               size="md"
               href={getWhatsAppLink("Hola, tengo una duda específica sobre la atención fonoaudiológica en Empiria.")}
               isExternal
-              leftIcon={<MessageCircle className="w-4 h-4" />}
+              leftIcon={<WhatsAppIcon size={18} className="text-white" />}
             >
               Preguntar por WhatsApp
             </Button>

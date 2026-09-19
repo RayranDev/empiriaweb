@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Clock, ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { resourcesData } from "@/data/resources";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { ClockIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Recursos y Artículos | Empiria en Casa",
@@ -13,32 +14,32 @@ export const metadata: Metadata = {
 
 export default function RecursosPage() {
   return (
-    <div className="py-12 sm:py-20 bg-gradient-to-b from-[#F2EFFA]/40 via-white to-white">
+    <div className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <Badge variant="lavender">Biblioteca Educativa</Badge>
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <Badge variant="lavender">Biblioteca Fonoaudiológica</Badge>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">
-            Empiria en casa
+            Empiria en Casa
           </h1>
           <p className="text-base sm:text-lg text-[#3E3B52] leading-relaxed">
-            Recursos y lecturas para comprender, acompañar y potenciar el desarrollo de tu hijo con información cálida, veraz y orientada a la vida cotidiana.
+            Información rigurosa, pautas de estimulación temprana y reflexiones escritas por fonoaudiólogas para acompañar a tu hijo con serenidad y afecto.
           </p>
         </div>
 
-        {/* Grid of articles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Resources Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resourcesData.map((article) => (
             <Card
               key={article.slug}
               variant="default"
-              className="flex flex-col justify-between p-6 sm:p-8 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-sm transition-all duration-300"
+              className="flex flex-col justify-between p-6 sm:p-7 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/40 shadow-sm transition-all duration-300 rounded-3xl"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="lavender">{article.category}</Badge>
                   <span className="text-xs text-[#3E3B52] flex items-center gap-1.5 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#8B7FD1]" />
-                    {article.readTime}
+                    <ClockIcon size={14} className="text-[#8B7FD1]" />
+                    <span>{article.readTime}</span>
                   </span>
                 </div>
 

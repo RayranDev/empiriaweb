@@ -2,9 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
-import { MessageCircle, Brain, Users, BookOpen, Puzzle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
-import { SoftLeaf, SparkleStar, LittleHeartDoodle } from "@/components/ui/OrganicDecorations";
+import {
+  SpeechIcon,
+  LanguageIcon,
+  CommunicationIcon,
+  LiteracyIcon,
+  LearningIcon,
+  OrganicLeaf,
+  LittleHeartDoodle,
+} from "@/components/icons";
 
 export const ServicesSection: React.FC = () => {
   const serviceCards = [
@@ -12,47 +20,47 @@ export const ServicesSection: React.FC = () => {
       slug: "habla",
       title: "Habla",
       description: "Dificultades en la articulación y pronunciación de los sonidos del habla.",
-      icon: <MessageCircle className="w-6 h-6 text-[#5B8FD4]" />,
-      bgCircle: "bg-[#A8C5E8]/30",
+      icon: <SpeechIcon size={46} className="text-[#5B8FD4]" strokeWidth={2.2} />,
+      bgCircle: "bg-[#A8C5E8]/25",
     },
     {
       slug: "lenguaje",
       title: "Lenguaje",
       description: "Comprensión y expresión de ideas.",
-      icon: <Brain className="w-6 h-6 text-[#8B7FD1]" />,
+      icon: <LanguageIcon size={46} className="text-[#8B7FD1]" strokeWidth={2.2} />,
       bgCircle: "bg-[#E8E4F7]",
     },
     {
       slug: "comunicacion",
       title: "Comunicación",
       description: "Habilidades para interactuar y relacionarse con otros.",
-      icon: <Users className="w-6 h-6 text-[#5B4B9E]" />,
+      icon: <CommunicationIcon size={46} className="text-[#5B4B9E]" strokeWidth={2.2} />,
       bgCircle: "bg-[#B4C4EA]/30",
     },
     {
       slug: "lectoescritura",
       title: "Lectoescritura",
       description: "Procesos de lectura y escritura en edad escolar.",
-      icon: <BookOpen className="w-6 h-6 text-[#8B7FD1]" />,
+      icon: <LiteracyIcon size={46} className="text-[#8B7FD1]" strokeWidth={2.2} />,
       bgCircle: "bg-[#D4C9EE]/40",
     },
     {
       slug: "aprendizaje",
       title: "Aprendizaje",
       description: "Procesos cognitivos y escolares asociados al desarrollo.",
-      icon: <Puzzle className="w-6 h-6 text-[#5B8FD4]" />,
+      icon: <LearningIcon size={46} className="text-[#5B8FD4]" strokeWidth={2.2} />,
       bgCircle: "bg-[#F2EFFA]",
     },
   ];
 
   return (
     <section id="areas" className="py-16 sm:py-24 bg-white relative overflow-hidden">
-      {/* Decorative leaf and sparkle accents */}
+      {/* Decorative organic leaf accents */}
       <div className="absolute top-8 left-6 pointer-events-none opacity-80">
-        <SoftLeaf className="w-12 h-12" color="#8B7FD1" />
+        <OrganicLeaf size={44} color="#8B7FD1" />
       </div>
       <div className="absolute bottom-6 right-8 pointer-events-none opacity-80">
-        <SoftLeaf className="w-10 h-10" color="#5B8FD4" flip />
+        <OrganicLeaf size={40} color="#5B8FD4" flip />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,26 +74,26 @@ export const ServicesSection: React.FC = () => {
           </p>
 
           {/* Floating script callout to the right */}
-          <div className="hidden md:flex items-center gap-1.5 absolute -right-24 top-0 rotate-6 bg-[#F2EFFA] px-3.5 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
+          <div className="hidden md:flex items-center gap-1.5 absolute -right-24 top-0 rotate-6 bg-[#F2EFFA] px-4 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
             <span className="font-script text-xl text-[#5B4B9E] font-bold">
               Cada etapa también comunica
             </span>
-            <LittleHeartDoodle className="w-3.5 h-3.5 text-[#8B7FD1]" />
+            <LittleHeartDoodle size={16} color="#8B7FD1" />
           </div>
         </div>
 
-        {/* 5 Distinct Cards Grid */}
+        {/* 5 Distinct Cards Grid: 5 columns on desktop, 2-3 on tablet, 1 on mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
           {serviceCards.map((service) => (
             <Card
               key={service.slug}
               variant="default"
-              className="flex flex-col justify-between p-6 bg-white border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-md transition-all duration-300 rounded-3xl group"
+              className="flex flex-col justify-between p-6 sm:p-7 bg-white border border-[#E8E4F7] hover:border-[#8B7FD1]/50 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 rounded-[24px] group"
             >
               <div>
-                {/* Big Circular Icon */}
+                {/* Large Distinct SVG Empiria Icon */}
                 <div
-                  className={`w-14 h-14 rounded-2xl ${service.bgCircle} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}
+                  className={`w-16 h-16 rounded-2xl ${service.bgCircle} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}
                 >
                   {service.icon}
                 </div>

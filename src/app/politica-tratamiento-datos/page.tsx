@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { contactData } from "@/data/contact";
-import { Scale, FileText } from "lucide-react";
+import { DataTreatmentIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Tratamiento de Datos Personales | Ley 1581 de 2012 | Empiria",
@@ -15,18 +15,18 @@ export default function PoliticaTratamientoDatosPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-[#3E3B52] leading-relaxed">
         <div>
           <span className="text-xs font-bold text-[#8B7FD1] uppercase tracking-wider">
-            Marco Normativo Colombiano
+            Marco Normativo y Hábeas Data
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#2D2D3A] tracking-tight mt-1">
             Política de Tratamiento de Datos Personales
           </h1>
           <p className="text-xs text-[#3E3B52] mt-2">
-            En cumplimiento de la Ley 1581 de 2012 y el Decreto Reglamentario 1377 de 2013
+            Conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013 · Centro Terapéutico Empiria
           </p>
         </div>
 
         <div className="p-4 rounded-2xl bg-[#F2EFFA] border border-[#D4C9EE] text-xs sm:text-sm flex items-start gap-3">
-          <Scale className="w-5 h-5 text-[#5B4B9E] shrink-0 mt-0.5" />
+          <DataTreatmentIcon size={20} className="text-[#5B4B9E] shrink-0 mt-0.5" />
           <p>
             <strong>Aviso de cumplimiento:</strong> Este documento consagra las directrices que rigen la recolección, almacenamiento, uso y supresión de datos personales por parte de <strong>{contactData.name}</strong>, garantizando el derecho constitucional de Hábeas Data.
           </p>
