@@ -19,6 +19,38 @@ export const FloatingWhatsApp: React.FC = () => {
     return () => clearTimeout(timer);
   }, [dismissed]);
 
+  // Once the tooltip is visible, get it out of the way for good after ~8s
+  // of inactivity, or as soon as the user scrolls past the point it appeared
+  // at (so it doesn't ride along and cover content further down the page).
+  // Shows at most once per page view: whichever trigger fires first wins,
+  // and there is no logic anywhere that re-shows it afterwards.
+  useEffect(() => {
+    if (!showTooltip) return;
+
+    const scrollYAtShow = window.scrollY;
+    const SCROLL_HIDE_THRESHOLD = 400;
+    const AUTO_HIDE_DELAY = 8000;
+
+    const hideTooltip = () => {
+      setShowTooltip(false);
+      setDismissed(true);
+    };
+
+    const autoHideTimer = setTimeout(hideTooltip, AUTO_HIDE_DELAY);
+
+    const handleScroll = () => {
+      if (Math.abs(window.scrollY - scrollYAtShow) > SCROLL_HIDE_THRESHOLD) {
+        hideTooltip();
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(autoHideTimer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [showTooltip]);
+
   const handleDismiss = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
