@@ -15,6 +15,7 @@ export const Footer: React.FC = () => {
     { label: "Inicio", href: "/" },
     { label: "Nosotros", href: "/nosotros" },
     { label: "Áreas de atención", href: "/areas-de-atencion" },
+    { label: "Nuestro espacio", href: "/nuestro-espacio" },
     { label: "Nuestro proceso", href: "/nuestro-proceso" },
     { label: "Para familias", href: "/para-familias" },
     { label: "Recursos y Artículos", href: "/recursos" },

@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { TeamSection } from "@/components/sections/TeamSection";
+import { SpaceSection } from "@/components/sections/SpaceSection";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { FeatureHubCards } from "@/components/sections/FeatureHubCards";
 import { EmotionalBreak } from "@/components/sections/EmotionalBreak";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <ServicesSection />
       <TeamSection />
+      <SpaceSection />
       <ProcessTimeline />
       <FeatureHubCards />
       <EmotionalBreak />
