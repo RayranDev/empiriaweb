@@ -9,7 +9,7 @@ import { OrganicLeaf, SparkleStar } from "@/components/icons";
 
 const spacePhoto = {
   src: "/images/space/consultorio-banner.png",
-  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Modelia, Bogotá",
+  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Bogotá",
   width: 1942,
   height: 809,
 };
@@ -33,7 +33,7 @@ export const SpaceSection: React.FC = () => {
           </h2>
           <p className="mt-3 text-base sm:text-lg text-[#3E3B52]">
             Un consultorio pensado para que niños y familias se sientan cómodos desde el primer
-            momento, en Modelia, Bogotá.
+            momento, en Bogotá.
           </p>
         </div>
 

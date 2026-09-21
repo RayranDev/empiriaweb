@@ -5,12 +5,7 @@ import Image from "next/image";
 import { Mail } from "lucide-react";
 import { getWhatsAppLink } from "@/data/contact";
 import { Button } from "@/components/ui/Button";
-import {
-  WhatsAppGlyph,
-  OrganicLeaf,
-  LittleHeartDoodle,
-  SparkleStar,
-} from "@/components/icons";
+import { WhatsAppGlyph } from "@/components/icons";
 
 export const EmotionalBreak: React.FC = () => {
   return (
@@ -20,8 +15,8 @@ export const EmotionalBreak: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left: Charming Vector Children Illustration with Floating Heart */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
+          {/* Left: Children photo */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
             <div className="relative w-full h-[300px] lg:h-[400px] rounded-3xl overflow-hidden shadow-2xl">
               <Image 
                 src="/images/real_children_playing.jpg" 
@@ -35,7 +30,7 @@ export const EmotionalBreak: React.FC = () => {
           </div>
 
           {/* Center: Title, Description and Dual CTAs */}
-          <div className="lg:col-span-5 text-center space-y-4">
+          <div className="lg:col-span-7 text-center space-y-4 lg:px-8">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2D2D3A] tracking-tight leading-tight">
               Cada pequeño avance cuenta.
             </h2>
@@ -65,32 +60,6 @@ export const EmotionalBreak: React.FC = () => {
               >
                 Escríbenos
               </Button>
-            </div>
-          </div>
-
-          {/* Right: Floating Speech Bubble with Script Accent and Botanical Leaves */}
-          <div className="lg:col-span-3 flex justify-center lg:justify-end relative">
-            <div className="relative">
-              {/* Botanical leaves around badge */}
-              <div className="absolute -top-6 -right-4 pointer-events-none opacity-80">
-                <OrganicLeaf size={36} color="#8B7FD1" />
-              </div>
-              <div className="absolute -bottom-6 -left-4 pointer-events-none opacity-80">
-                <OrganicLeaf size={32} color="#5B8FD4" flip />
-              </div>
-              <div className="absolute top-1/2 -right-6 pointer-events-none">
-                <SparkleStar size={14} color="#B4C4EA" />
-              </div>
-
-              {/* Speech bubble badge */}
-              <div className="bg-white/95 backdrop-blur-xs p-5 sm:p-6 rounded-3xl shadow-sm border border-[#E8E4F7] text-center max-w-[220px]">
-                <p className="font-script text-xl sm:text-2xl text-[#5B4B9E] font-bold leading-snug">
-                  Comunicar también es crecer
-                </p>
-                <div className="mt-2 flex justify-center">
-                  <LittleHeartDoodle size={18} color="#8B7FD1" />
-                </div>
-              </div>
             </div>
           </div>
         </div>

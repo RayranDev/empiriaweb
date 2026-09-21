@@ -11,7 +11,6 @@ import {
   LiteracyIcon,
   LearningIcon,
   OrganicLeaf,
-  LittleHeartDoodle,
 } from "@/components/icons";
 
 export const ServicesSection: React.FC = () => {
@@ -64,19 +63,6 @@ export const ServicesSection: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/*
-          Floating script callout — anchored to the full-width max-w-7xl container
-          (not the narrow max-w-3xl text wrapper below) so it always has spare
-          horizontal room and can never overlap the heading, regardless of how
-          wide the h2 renders at a given viewport.
-        */}
-        <div className="hidden md:flex items-center gap-1.5 absolute right-4 lg:right-8 top-0 -translate-y-1/2 rotate-6 bg-[#F2EFFA] px-4 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
-          <span className="font-script text-xl text-[#5B4B9E] font-bold">
-            Cada etapa también comunica
-          </span>
-          <LittleHeartDoodle size={16} color="#8B7FD1" />
-        </div>
-
         {/* Header with Title */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2D2D3A] tracking-tight">

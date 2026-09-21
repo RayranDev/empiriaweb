@@ -78,7 +78,7 @@ export const ContactSection: React.FC = () => {
       value: contactData.address.full,
       href: "https://maps.google.com/?q=Avenida+Calle+24+%2374-55+Bogota",
       isExternal: true,
-      description: "Instalaciones cálidas, seguras y adaptadas a la infancia en Modelia.",
+      description: "Instalaciones cálidas, seguras y adaptadas a la infancia.",
       icon: <LocationIcon size={32} className="text-[#5B4B9E]" strokeWidth={2} />,
       bgIcon: "bg-[#5B4B9E]/15",
       actionLabel: "Ver en el mapa",

@@ -54,7 +54,7 @@ export const EmpiriaLogo: React.FC<EmpiriaLogoProps> = ({
               isWhite ? "text-white" : "text-[#5B4B9E]"
             }`}
           >
-            Bogotá · Barrio Modelia
+            Bogotá
           </span>
         </div>
       )}

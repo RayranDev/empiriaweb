@@ -10,7 +10,7 @@ import { OrganicLeaf, WhatsAppGlyph, SparkleStar } from "@/components/icons";
 export const metadata: Metadata = {
   title: "Nuestro Espacio | Centro Terapéutico Empiria",
   description:
-    "Conoce el espacio del Centro Terapéutico Empiria en Modelia, Bogotá, y el entorno donde acompañamos los procesos de fonoaudiología infantil.",
+    "Conoce el espacio del Centro Terapéutico Empiria en Bogotá, y el entorno donde acompañamos los procesos de fonoaudiología infantil.",
 };
 
 // Same Google Maps link used in ContactSection.tsx — kept in sync, not duplicated as a new URL.
@@ -18,7 +18,7 @@ const MAPS_LINK = "https://maps.google.com/?q=Avenida+Calle+24+%2374-55+Bogota";
 
 const spacePhoto = {
   src: "/images/space/consultorio-banner.png",
-  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Modelia, Bogotá",
+  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Bogotá",
   width: 1942,
   height: 809,
 };

@@ -45,7 +45,7 @@ const editorialTopics: InstagramTopicPreview[] = [
     tag: "Nuestra Sede en Bogotá",
     title: "Un entorno terapéutico diseñado para la infancia",
     excerpt:
-      "Conoce cómo organizamos nuestras sesiones presenciales en Modelia: juego guiado, calidez humana y respeto por los ritmos individuales.",
+      "Conoce cómo organizamos nuestras sesiones presenciales en Bogotá: juego guiado, calidez humana y respeto por los ritmos individuales.",
     gradientBg: "from-[#A8C5E8]/20 via-[#F2EFFA]/40 to-white",
   },
 ];

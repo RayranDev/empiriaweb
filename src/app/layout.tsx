@@ -45,12 +45,12 @@ export const metadata: Metadata = {
     template: "%s | Centro Terapéutico Empiria",
   },
   description:
-    "Centro terapéutico especializado en fonoaudiología infantil en Modelia, Bogotá. Acompañamiento profesional y humano en procesos de habla, lenguaje, lectoescritura y aprendizaje.",
+    "Centro terapéutico especializado en fonoaudiología infantil en Bogotá. Acompañamiento profesional y humano en procesos de habla, lenguaje, lectoescritura y aprendizaje.",
   keywords: [
     "fonoaudiología infantil Bogotá",
     "fonoaudióloga infantil Bogotá",
     "terapia de lenguaje niños Bogotá",
-    "fonoaudiología niños Modelia",
+    "fonoaudiología niños Bogotá",
     "dificultades del lenguaje infantil",
     "dificultades del habla",
     "pronunciación niños",

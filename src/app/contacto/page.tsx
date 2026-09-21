@@ -3,7 +3,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { Badge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = {
-  title: "Contacto y Sede | Centro Terapéutico Empiria en Modelia",
+  title: "Contacto y Sede | Centro Terapéutico Empiria en Bogotá",
   description:
     "Contáctanos para valorar a tu hijo en Bogotá. Ubicados en Avenida Calle 24 #74-55, Barrio Modelia. WhatsApp: +57 312 736 6606.",
 };

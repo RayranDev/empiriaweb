@@ -10,7 +10,6 @@ import {
   AssessmentIcon,
   InterventionIcon,
   OrganicLeaf,
-  LittleHeartDoodle,
 } from "@/components/icons";
 
 export const ProcessTimeline: React.FC = () => {
@@ -54,7 +53,7 @@ export const ProcessTimeline: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="relative text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-extrabold tracking-[0.18em] text-[#8B7FD1] uppercase">
             NUESTRO PROCESO
           </span>
@@ -64,14 +63,6 @@ export const ProcessTimeline: React.FC = () => {
           <p className="mt-3 text-base sm:text-lg text-[#3E3B52]">
             Te acompañamos paso a paso para que te sientas informado, seguro y tranquilo.
           </p>
-
-          {/* Floating script callout to the right */}
-          <div className="hidden md:flex items-center gap-1.5 absolute -right-20 top-4 rotate-3 bg-[#F2EFFA] px-4 py-1.5 rounded-full border border-[#D4C9EE] shadow-xs">
-            <span className="font-script text-xl text-[#5B4B9E] font-bold">
-              Aquí también crecen confianzas
-            </span>
-            <LittleHeartDoodle size={16} color="#8B7FD1" />
-          </div>
         </div>
 
         {/* 4 Connected Milestones with Dotted Line */}

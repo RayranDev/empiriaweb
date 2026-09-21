@@ -65,7 +65,7 @@ export const Header: React.FC = () => {
             <div className="flex items-center gap-6">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin size={14} className="text-[#5B8FD4]" />
-                <span>{contactData.address.neighborhood}, Bogotá</span>
+                <span>Bogotá</span>
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock size={14} className="text-[#8B7FD1]" />
