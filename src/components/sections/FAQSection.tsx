@@ -16,7 +16,7 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-[#F2EFFA]/30 relative">
+    <section id="faq" className="py-16 sm:py-24 bg-[#E8E4F7]/25 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4">
           <Badge

@@ -45,7 +45,7 @@ export const ProcessTimeline: React.FC = () => {
   ];
 
   return (
-    <section id="proceso" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="proceso" className="py-16 sm:py-24 relative overflow-hidden">
       {/* Decorative leaf accents */}
       <div className="absolute top-12 left-4 pointer-events-none opacity-60">
         <OrganicLeaf size={38} color="#8B7FD1" />

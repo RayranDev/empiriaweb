@@ -38,7 +38,7 @@ export const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#F2EFFA]/80 via-[#F2EFFA]/30 to-white pt-8 pb-16 sm:pt-14 sm:pb-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#E8E4F7]/30 via-white/15 to-transparent pt-8 pb-16 sm:pt-14 sm:pb-24">
       {/* Ambient background glows */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#E8E4F7]/60 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#A8C5E8]/25 rounded-full blur-3xl -z-10 pointer-events-none" />

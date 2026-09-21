@@ -53,7 +53,7 @@ export const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="areas" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="areas" className="py-16 sm:py-24 relative overflow-hidden">
       {/* Decorative organic leaf accents */}
       <div className="absolute top-8 left-6 pointer-events-none opacity-80">
         <OrganicLeaf size={44} color="#8B7FD1" />

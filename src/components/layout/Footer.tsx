@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-[#F2EFFA]/70 via-[#E8E4F7]/40 to-[#E8E4F7]/80 text-[#2D2D3A] border-t border-[#E8E4F7] relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-white/20 via-[#E8E4F7]/25 to-[#E8E4F7]/45 text-[#2D2D3A] border-t border-[#E8E4F7] relative overflow-hidden">
       {/* Decorative leaf in footer */}
       <div className="absolute top-6 right-6 pointer-events-none opacity-60">
         <OrganicLeaf size={48} color="#C3B8E8" />

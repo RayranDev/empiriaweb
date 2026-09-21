@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 
 export const ResourcesPreview: React.FC = () => {
   return (
-    <section id="recursos" className="py-16 sm:py-24 bg-white relative">
+    <section id="recursos" className="py-16 sm:py-24 bg-white/30 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <Badge

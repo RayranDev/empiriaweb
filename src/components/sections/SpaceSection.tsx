@@ -18,7 +18,7 @@ export const SpaceSection: React.FC = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   return (
-    <section className="py-16 sm:py-24 bg-[#F2EFFA]/35 relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-white/30 relative overflow-hidden">
       <div className="absolute top-10 left-8 pointer-events-none opacity-70">
         <OrganicLeaf size={44} color="#5B8FD4" />
       </div>

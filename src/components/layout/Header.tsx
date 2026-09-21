@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
         }`}
       >
         {/* Top utility contact bar for trust & quick reach - zero emojis */}
-        <div className="hidden lg:block bg-gradient-to-r from-[#F2EFFA] via-[#E8E4F7]/60 to-[#F2EFFA] border-b border-[#E8E4F7]/70 py-1.5 px-6 text-xs text-[#3E3B52]">
+        <div className="hidden lg:block bg-gradient-to-r from-[#F2EFFA]/70 via-[#E8E4F7]/50 to-[#F2EFFA]/70 border-b border-[#E8E4F7]/70 py-1.5 px-6 text-xs text-[#3E3B52]">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-6">
               <span className="inline-flex items-center gap-1.5">

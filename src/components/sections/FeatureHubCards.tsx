@@ -45,7 +45,7 @@ export const FeatureHubCards: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-[#F2EFFA]/35 border-y border-[#E8E4F7]">
+    <section className="py-12 sm:py-16 bg-white/30 border-y border-[#E8E4F7]/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Light framing so this hub grid matches the minimal heading + subtitle
             pattern used by every sibling section, instead of dropping in bare. */}

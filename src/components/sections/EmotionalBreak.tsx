@@ -9,7 +9,7 @@ import { WhatsAppGlyph } from "@/components/icons";
 
 export const EmotionalBreak: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F2EFFA]/70 via-[#E8E4F7]/45 to-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#E8E4F7]/30 via-white/20 to-transparent relative overflow-hidden">
       {/* Background soft ambient glowing circles */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-white/70 rounded-full blur-3xl pointer-events-none" />
 

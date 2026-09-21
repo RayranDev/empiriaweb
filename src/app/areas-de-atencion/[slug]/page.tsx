@@ -37,7 +37,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   return (
-    <div className="py-12 sm:py-20 bg-gradient-to-b from-[#F2EFFA]/50 via-white to-white">
+    <div className="py-12 sm:py-20 bg-gradient-to-b from-[#E8E4F7]/30 via-white/20 to-transparent">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back link */}
         <Link

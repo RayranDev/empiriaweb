@@ -27,7 +27,7 @@ export const TeamSection: React.FC = () => {
   ];
 
   return (
-    <section id="nosotros" className="py-16 sm:py-24 bg-[#F2EFFA]/40 relative overflow-hidden">
+    <section id="nosotros" className="py-16 sm:py-24 bg-[#E8E4F7]/25 relative overflow-hidden">
       {/* Background soft botanical accents */}
       <div className="absolute top-10 right-10 pointer-events-none opacity-70">
         <OrganicLeaf size={56} color="#C3B8E8" />

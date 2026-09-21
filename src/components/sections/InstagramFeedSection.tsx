@@ -52,7 +52,7 @@ const editorialTopics: InstagramTopicPreview[] = [
 
 export const InstagramFeedSection: React.FC = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-white via-[#F2EFFA]/40 to-white relative overflow-hidden">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-transparent via-white/30 to-transparent relative overflow-hidden">
       {/* Soft background accents */}
       <div className="absolute top-10 right-6 pointer-events-none opacity-60">
         <OrganicLeaf size={40} color="#8B7FD1" />
