@@ -39,7 +39,7 @@ export default function PreguntasFrecuentesPage() {
         </p>
       </div>
 
-      <FAQSection />
+      <FAQSection showHeader={false} />
     </div>
   );
 }

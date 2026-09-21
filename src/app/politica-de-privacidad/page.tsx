@@ -4,7 +4,7 @@ import { Shield } from "lucide-react";
 import { contactData } from "@/data/contact";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | Centro Terapéutico Empiria",
+  title: "Política de Privacidad",
   description:
     "Conoce cómo protegemos y gestionamos la información de las familias bajo principios de Privacy by Design y la Ley 1581 de 2012 en Colombia.",
 };
@@ -35,7 +35,7 @@ export default function PoliticaPrivacidadPage() {
         <section className="space-y-3">
           <h2 className="text-xl font-bold text-[#2D2D3A]">1. Responsable del Tratamiento</h2>
           <p>
-            El responsable del tratamiento de los datos recolectados a través de este portal web es <strong>{contactData.name}</strong>, con domicilio en {contactData.address.full}, Bogotá, Colombia. Correo electrónico de contacto para temas de privacidad y protección de datos: <a href={`mailto:${contactData.email}`} className="text-[#5B4B9E] underline">{contactData.email}</a>.
+            El responsable del tratamiento de los datos recolectados a través de este portal web es <strong>{contactData.name}</strong>, con domicilio en {contactData.address.full}. Correo electrónico de contacto para temas de privacidad y protección de datos: <a href={`mailto:${contactData.email}`} className="text-[#5B4B9E] underline">{contactData.email}</a>.
           </p>
         </section>
 

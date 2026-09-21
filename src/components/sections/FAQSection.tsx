@@ -8,7 +8,12 @@ import { Button } from "@/components/ui/Button";
 import { getWhatsAppLink } from "@/data/contact";
 import { FAQIcon, WhatsAppGlyph } from "@/components/icons";
 
-export const FAQSection: React.FC = () => {
+interface FAQSectionProps {
+  /** Hide the built-in badge/title/intro when the host page already renders its own heading. */
+  showHeader?: boolean;
+}
+
+export const FAQSection: React.FC<FAQSectionProps> = ({ showHeader = true }) => {
   const [openId, setOpenId] = useState<string | null>("remision-medica");
 
   const toggleFAQ = (id: string) => {
@@ -16,8 +21,9 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-[#E8E4F7]/25 relative">
+    <section id="faq" className={`${showHeader ? "py-16 sm:py-24" : "pb-16 sm:pb-24"} bg-[#E8E4F7]/25 relative`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {showHeader && (
         <div className="text-center space-y-4">
           <Badge
             variant="lavender"
@@ -32,9 +38,10 @@ export const FAQSection: React.FC = () => {
             Resolvemos las principales dudas sobre el inicio de las sesiones, metodología y acompañamiento familiar.
           </p>
         </div>
+        )}
 
         {/* Accordions List */}
-        <div className="mt-12 space-y-3.5">
+        <div className={`${showHeader ? "mt-12" : "mt-0"} space-y-3.5`}>
           {faqData.map((item) => {
             const isOpen = openId === item.id;
             return (

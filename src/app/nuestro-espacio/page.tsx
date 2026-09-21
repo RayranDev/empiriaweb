@@ -8,7 +8,7 @@ import { contactData, getWhatsAppLink } from "@/data/contact";
 import { OrganicLeaf, WhatsAppGlyph, SparkleStar } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Nuestro Espacio | Centro Terapéutico Empiria",
+  title: "Nuestro Espacio",
   description:
     "Conoce el espacio del Centro Terapéutico Empiria en Bogotá, y el entorno donde acompañamos los procesos de fonoaudiología infantil.",
 };

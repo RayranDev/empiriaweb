@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Cookie } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Política de Cookies | Centro Terapéutico Empiria",
+  title: "Política de Cookies",
   description:
     "Información transparente sobre el uso de cookies técnicas y analíticas en el sitio web de Centro Terapéutico Empiria.",
 };
