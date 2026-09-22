@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { SpaceGallery } from "@/components/space/SpaceGallery";
 import type { SpaceLightboxImage } from "@/components/space/SpaceLightbox";
 import { contactData, getWhatsAppLink } from "@/data/contact";
-import { OrganicLeaf, WhatsAppGlyph, SparkleStar } from "@/components/icons";
+import { OrganicLeaf, WhatsAppGlyph } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Nuestro Espacio",
@@ -80,24 +80,6 @@ export default function NuestroEspacioPage() {
       {/* Gallery */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <SpaceGallery photos={spacePhotos} />
-      </div>
-
-      {/* Detalles del espacio */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <Card variant="lavender" className="rounded-[28px]">
-          <div className="flex items-center gap-2 mb-4">
-            <SparkleStar size={18} color="#8B7FD1" />
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#2D2D3A]">
-              Detalles del espacio
-            </h2>
-          </div>
-          <p className="text-sm sm:text-base text-[#3E3B52] leading-relaxed">
-            Nuestro consultorio cuenta con luz natural, un área de trabajo organizada y mobiliario
-            infantil pensado para que los niños se sientan a gusto durante cada sesión. La sala de
-            espera está dispuesta para que las familias esperen con tranquilidad mientras
-            acompañamos el proceso de cada niño o niña.
-          </p>
-        </Card>
       </div>
 
       {/* Sede / ubicación */}

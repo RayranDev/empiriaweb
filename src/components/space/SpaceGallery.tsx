@@ -6,13 +6,19 @@ import { Camera } from "lucide-react";
 import { SpaceLightbox, type SpaceLightboxImage } from "./SpaceLightbox";
 
 interface SpaceGalleryProps {
-  /** The real photos of the office. Rendered as a featured tile + a grid, all clickable into the lightbox. */
+  /**
+   * The real photos of the office. The first one is treated as the wide
+   * banner shot and shown full-width at its own natural aspect ratio — it
+   * is not forced into a grid cell, which is what made a panoramic photo
+   * look badly cropped. The rest render below in a masonry-style layout
+   * (CSS columns) so each portrait photo keeps its own proportions instead
+   * of being cropped to a uniform tile shape.
+   */
   photos: SpaceLightboxImage[];
   /**
    * Number of "coming soon" placeholder tiles to render for gallery slots
    * not yet filled with real photos. These are NOT clickable — there is
-   * nothing to zoom into on a placeholder. Defaults to 0 now that 5 real
-   * photos exist, but the capability stays available for future use.
+   * nothing to zoom into on a placeholder. Defaults to 0.
    */
   placeholderCount?: number;
 }
@@ -31,48 +37,54 @@ export const SpaceGallery: React.FC<SpaceGalleryProps> = ({
     setIsLightboxOpen(true);
   };
 
-  const [featured, ...rest] = photos;
+  const [banner, ...rest] = photos;
 
   return (
     <div className="space-y-5 sm:space-y-6">
-      {/* Featured photo (tall, spans 2 rows on sm+) plus a grid of the remaining photos */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
-        {featured && (
-          <button
-            type="button"
-            onClick={() => openLightbox(0)}
-            className="group relative col-span-2 sm:col-span-1 sm:row-span-2 block w-full aspect-[4/3] sm:aspect-auto sm:h-full overflow-hidden rounded-[28px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
-            aria-label={`Ampliar imagen: ${featured.alt}`}
-          >
-            <Image
-              src={featured.src}
-              alt={featured.alt}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1280px) 45vw, 500px"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              priority
-            />
-          </button>
-        )}
+      {/* Wide banner photo, full width, natural aspect ratio — no crop */}
+      {banner && (
+        <button
+          type="button"
+          onClick={() => openLightbox(0)}
+          className="group relative block w-full overflow-hidden rounded-[28px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
+          aria-label={`Ampliar imagen: ${banner.alt}`}
+        >
+          <Image
+            src={banner.src}
+            alt={banner.alt}
+            width={banner.width}
+            height={banner.height}
+            sizes="(max-width: 1280px) 100vw, 1152px"
+            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            priority
+          />
+        </button>
+      )}
 
-        {rest.map((photo, index) => (
-          <button
-            key={photo.src}
-            type="button"
-            onClick={() => openLightbox(index + 1)}
-            className="group relative block w-full aspect-[4/5] overflow-hidden rounded-[24px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
-            aria-label={`Ampliar imagen: ${photo.alt}`}
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1280px) 30vw, 260px"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            />
-          </button>
-        ))}
-      </div>
+      {/* Remaining photos: CSS-columns masonry so each portrait photo keeps
+          its own natural proportions instead of a uniform forced crop. */}
+      {rest.length > 0 && (
+        <div className="columns-2 sm:columns-3 gap-4 sm:gap-5">
+          {rest.map((photo, index) => (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => openLightbox(index + 1)}
+              className="group relative block w-full mb-4 sm:mb-5 break-inside-avoid overflow-hidden rounded-[24px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
+              aria-label={`Ampliar imagen: ${photo.alt}`}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 380px"
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Placeholder tiles: gallery slots not yet filled with real photos */}
       {placeholderCount > 0 && (
