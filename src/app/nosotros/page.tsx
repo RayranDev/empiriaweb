@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { TeamSection } from "@/components/sections/TeamSection";
+import { TeamProfiles } from "@/components/sections/TeamProfiles";
 import { WhyEmpiriaSection } from "@/components/sections/WhyEmpiriaSection";
 import { EmotionalBreak } from "@/components/sections/EmotionalBreak";
 import { Badge } from "@/components/ui/Badge";
@@ -26,7 +27,8 @@ export default function NosotrosPage() {
         </p>
       </div>
 
-      <TeamSection showCandidPhoto />
+      <TeamSection />
+      <TeamProfiles />
       <WhyEmpiriaSection />
       <EmotionalBreak />
 

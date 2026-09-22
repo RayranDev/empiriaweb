@@ -10,9 +10,8 @@ interface SpaceGalleryProps {
    * The real photos of the office. The first one is treated as the wide
    * banner shot and shown full-width at its own natural aspect ratio — it
    * is not forced into a grid cell, which is what made a panoramic photo
-   * look badly cropped. The rest render below in a masonry-style layout
-   * (CSS columns) so each portrait photo keeps its own proportions instead
-   * of being cropped to a uniform tile shape.
+   * look badly cropped. The rest render below as equal square tiles with
+   * rounded corners.
    */
   photos: SpaceLightboxImage[];
   /**
@@ -61,25 +60,23 @@ export const SpaceGallery: React.FC<SpaceGalleryProps> = ({
         </button>
       )}
 
-      {/* Remaining photos: CSS-columns masonry so each portrait photo keeps
-          its own natural proportions instead of a uniform forced crop. */}
+      {/* Remaining photos: equal square tiles with rounded corners */}
       {rest.length > 0 && (
-        <div className="columns-2 sm:columns-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {rest.map((photo, index) => (
             <button
               key={photo.src}
               type="button"
               onClick={() => openLightbox(index + 1)}
-              className="group relative block w-full mb-4 sm:mb-5 break-inside-avoid overflow-hidden rounded-[24px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
+              className="group relative block w-full aspect-square overflow-hidden rounded-[28px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
               aria-label={`Ampliar imagen: ${photo.alt}`}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 380px"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 380px"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </button>
           ))}

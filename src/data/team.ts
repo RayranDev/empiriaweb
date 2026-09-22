@@ -1,56 +1,48 @@
-export interface Professional {
-  id: string;
+export interface Therapist {
+  /** Anchor id of the therapist's profile block on /nosotros. */
+  id: "johanna" | "lina";
   name: string;
   role: string;
   specialty?: string;
-  education: string[];
-  experience: string;
+  image: string;
+  /**
+   * object-position for the circular headshot crop. The source photos are
+   * portrait, so a centered crop can cut the top of the head.
+   */
+  imagePosition: string;
+  candidImage: string;
+  candidAlt: string;
+  /** Official bio, first person, as provided by the client. One string per paragraph. */
   bio: string[];
-  focusAreas: string[];
-  photoPlaceholder: string;
 }
 
-export const teamData: Professional[] = [
+export const therapists: Therapist[] = [
   {
-    id: "johanna-gomez",
+    id: "johanna",
     name: "Johanna Gómez",
     role: "Fonoaudióloga",
-    education: ["Fonoaudióloga egresada de la Corporación Universitaria Iberoamericana"],
-    experience: "Más de cinco años de experiencia en intervención y valoración fonoaudiológica con niños, jóvenes y adultos.",
+    image: "/images/team/johanna-gomez.jpg",
+    imagePosition: "center center",
+    candidImage: "/images/team/johanna-gomez-candid.jpg",
+    candidAlt: "Johanna Gómez usando tarjetas de vocabulario en una sesión",
     bio: [
-      "Soy fonoaudióloga egresada de la Corporación Universitaria Iberoamericana, con más de cinco años de experiencia en intervención y valoración fonoaudiológica con niños, jóvenes y adultos.",
-      "Mi trayectoria profesional me ha permitido desarrollar una mirada integral sobre los procesos de comunicación, con especial interés y experiencia en el abordaje del lenguaje y la lectoescritura en población infantil.",
-      "Mi práctica se caracteriza por brindar una atención cálida, cercana y respetuosa, basada en las necesidades y particularidades de cada persona. En el trabajo con niños y niñas, considero fundamental crear espacios seguros y de confianza que favorezcan su participación y aprendizaje.",
+      "Soy fonoaudióloga egresada de la Corporación Universitaria Iberoamericana, con más de cinco años de experiencia en intervención y valoración fonoaudiológica con niños, jóvenes y adultos. Mi trayectoria profesional me ha permitido desarrollar una mirada integral sobre los procesos de comunicación, con especial interés y experiencia en el abordaje del lenguaje y la lectoescritura en población infantil.",
+      "Mi práctica se caracteriza por brindar una atención cálida, cercana y respetuosa, basada en las necesidades y particularidades de cada persona. En el trabajo con niños y niñas, considero fundamental crear espacios seguros y de confianza que favorezcan su participación y aprendizaje, integrando el acompañamiento profesional con una relación terapéutica basada en la empatía y el vínculo.",
     ],
-    focusAreas: [
-      "Valoración e intervención fonoaudiológica",
-      "Abordaje del lenguaje en población infantil",
-      "Procesos de lectoescritura",
-      "Acompañamiento cálido y centrado en la familia",
-    ],
-    photoPlaceholder: "JG",
   },
   {
-    id: "lina-rodriguez",
+    id: "lina",
     name: "Lina Rodríguez",
     role: "Fonoaudióloga",
     specialty: "Especialista en Neuropsicología Escolar",
-    education: [
-      "Fonoaudióloga egresada de la Institución Universitaria Escuela Colombiana de Rehabilitación (ECR)",
-      "Especialista en Neuropsicología Escolar del Politécnico Grancolombiano",
-    ],
-    experience: "Más de tres años de experiencia en procesos de valoración e intervención dirigidos a niños y jóvenes.",
+    image: "/images/team/lina-rodriguez.jpg",
+    imagePosition: "center 15%",
+    candidImage: "/images/team/lina-rodriguez-candid.jpg",
+    candidAlt: "Lina Rodríguez con títeres de dedo, materiales de terapia infantil",
     bio: [
-      "Soy fonoaudióloga egresada de la Institución Universitaria Escuela Colombiana de Rehabilitación y especialista en Neuropsicología Escolar del Politécnico Grancolombiano.",
-      "Cuento con más de tres años de experiencia en procesos de valoración e intervención dirigidos a niños y jóvenes, con énfasis en el área de habla y lenguaje.",
-      "Mi formación en neuropsicología escolar me permite abordar cada proceso terapéutico desde una comprensión integral del desarrollo y el aprendizaje.",
+      "Soy fonoaudióloga egresada de la Institución Universitaria Escuela Colombiana de Rehabilitación y especialista en Neuropsicología Escolar del Politécnico Grancolombiano. Cuento con más de tres años de experiencia en procesos de valoración e intervención dirigidos a niños y jóvenes, con énfasis en el área de habla y lenguaje.",
+      "Mi formación en neuropsicología escolar me permite abordar cada proceso terapéutico desde una comprensión integral del desarrollo y el aprendizaje, articulando el conocimiento clínico con las necesidades particulares de cada niño y de su entorno educativo.",
+      "Mi práctica se caracteriza por ser dinámica, cercana y respetuosa, buscando que cada sesión sea una experiencia amena y significativa que favorezca la participación y el aprendizaje de los niños, sin dejar de lado el compromiso, la rigurosidad y el profesionalismo que cada proceso requiere.",
     ],
-    focusAreas: [
-      "Énfasis en el área de habla y lenguaje",
-      "Neuropsicología escolar y procesos de aprendizaje",
-      "Valoración e intervención en niños y jóvenes",
-      "Comprensión integral del desarrollo cognitivo",
-    ],
-    photoPlaceholder: "LR",
   },
 ];

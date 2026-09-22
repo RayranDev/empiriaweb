@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { OrganicLeaf, SparkleStar } from "@/components/icons";
+import { therapists } from "@/data/team";
 
 interface TeamSectionProps {
   /** Show each therapist's candid photo alongside their headshot. Used only on /nosotros. */
@@ -13,27 +14,6 @@ interface TeamSectionProps {
 }
 
 export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = false }) => {
-  const therapists = [
-    {
-      id: "johanna-gomez",
-      name: "Johanna Gómez",
-      role: "Fonoaudióloga",
-      image: "/images/team/johanna-gomez.jpg",
-      candidImage: "/images/team/johanna-gomez-candid.jpg",
-      candidAlt: "Johanna Gómez usando tarjetas de vocabulario en una sesión",
-      profileUrl: "/nosotros#johanna",
-    },
-    {
-      id: "lina-rodriguez",
-      name: "Lina Rodríguez",
-      role: "Fonoaudióloga",
-      specialty: "Especialista en Neuropsicología Escolar",
-      image: "/images/team/lina-rodriguez.jpg",
-      candidImage: "/images/team/lina-rodriguez-candid.jpg",
-      candidAlt: "Lina Rodríguez con títeres de dedo, materiales de terapia infantil",
-      profileUrl: "/nosotros#lina",
-    },
-  ];
 
   return (
     <section id="nosotros" className="py-16 sm:py-24 bg-[#E8E4F7]/25 relative overflow-hidden">
@@ -82,7 +62,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = fals
                     alt={therapists[0].name}
                     fill
                     sizes="180px"
-                    className="object-cover object-center"
+                    className="object-cover"
+                    style={{ objectPosition: therapists[0].imagePosition }}
                   />
                 </div>
                 {showCandidPhoto && (
@@ -104,7 +85,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = fals
                 {therapists[0].role}
               </p>
               <Link
-                href={therapists[0].profileUrl}
+                href={`/nosotros#${therapists[0].id}`}
                 className="mt-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors inline-flex items-center gap-1"
               >
                 <span>Ver perfil</span>
@@ -121,7 +102,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = fals
                     alt={therapists[1].name}
                     fill
                     sizes="180px"
-                    className="object-cover object-center"
+                    className="object-cover"
+                    style={{ objectPosition: therapists[1].imagePosition }}
                   />
                 </div>
                 {showCandidPhoto && (
@@ -148,7 +130,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = fals
                 </p>
               )}
               <Link
-                href={therapists[1].profileUrl}
+                href={`/nosotros#${therapists[1].id}`}
                 className="mt-1 text-xs font-bold text-[#5B4B9E] hover:text-[#5B8FD4] transition-colors inline-flex items-center gap-1"
               >
                 <span>Ver perfil</span>

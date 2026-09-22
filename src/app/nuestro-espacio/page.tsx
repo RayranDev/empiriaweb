@@ -42,18 +42,6 @@ const spacePhotos: SpaceLightboxImage[] = [
     width: 900,
     height: 1600,
   },
-  {
-    src: "/images/space/nina-actividad.jpg",
-    alt: "Niña realizando una actividad de emparejamiento con fichas de madera durante una sesión.",
-    width: 1240,
-    height: 1269,
-  },
-  {
-    src: "/images/space/nino-actividad.jpg",
-    alt: "Niño trabajando con bloques de letras en una mesa infantil durante una sesión.",
-    width: 896,
-    height: 1195,
-  },
 ];
 
 export default function NuestroEspacioPage() {
