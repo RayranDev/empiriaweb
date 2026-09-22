@@ -8,10 +8,10 @@ import { SpaceLightbox } from "@/components/space/SpaceLightbox";
 import { OrganicLeaf, SparkleStar } from "@/components/icons";
 
 const spacePhoto = {
-  src: "/images/space/consultorio-banner.png",
-  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Bogotá",
-  width: 1942,
-  height: 809,
+  src: "/images/space/sala-recepcion.jpg",
+  alt: "Sala de espera de Centro Terapéutico Empiria con sofá y el logo del centro.",
+  width: 900,
+  height: 1600,
 };
 
 export const SpaceSection: React.FC = () => {
@@ -41,16 +41,15 @@ export const SpaceSection: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsLightboxOpen(true)}
-            className="group relative block w-full overflow-hidden rounded-[28px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
+            className="group relative block w-full h-[280px] sm:h-[360px] lg:h-[420px] overflow-hidden rounded-[28px] border border-[#E8E4F7] shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5B8FD4] focus-visible:ring-offset-2"
             aria-label={`Ampliar imagen: ${spacePhoto.alt}`}
           >
             <Image
               src={spacePhoto.src}
               alt={spacePhoto.alt}
-              width={spacePhoto.width}
-              height={spacePhoto.height}
+              fill
               sizes="(max-width: 768px) 100vw, 768px"
-              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </button>
 

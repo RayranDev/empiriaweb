@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SpaceGallery } from "@/components/space/SpaceGallery";
+import type { SpaceLightboxImage } from "@/components/space/SpaceLightbox";
 import { contactData, getWhatsAppLink } from "@/data/contact";
 import { OrganicLeaf, WhatsAppGlyph, SparkleStar } from "@/components/icons";
 
@@ -16,12 +17,38 @@ export const metadata: Metadata = {
 // Same Google Maps link used in ContactSection.tsx — kept in sync, not duplicated as a new URL.
 const MAPS_LINK = "https://maps.google.com/?q=Avenida+Calle+24+%2374-55+Bogota";
 
-const spacePhoto = {
-  src: "/images/space/consultorio-banner.png",
-  alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Bogotá",
-  width: 1942,
-  height: 809,
-};
+const spacePhotos: SpaceLightboxImage[] = [
+  {
+    src: "/images/space/sala-recepcion.jpg",
+    alt: "Sala de espera de Centro Terapéutico Empiria con sofá y el logo del centro.",
+    width: 900,
+    height: 1600,
+  },
+  {
+    src: "/images/space/consultorio-1.jpg",
+    alt: "Consultorio de atención con escritorio, mesa infantil y ventana con vista de la ciudad en Centro Terapéutico Empiria.",
+    width: 900,
+    height: 1600,
+  },
+  {
+    src: "/images/space/consultorio-2.jpg",
+    alt: "Vista del consultorio con escritorio de atención y zona de juego para niños.",
+    width: 900,
+    height: 1600,
+  },
+  {
+    src: "/images/space/nina-actividad.jpg",
+    alt: "Niña realizando una actividad de emparejamiento con fichas de madera durante una sesión.",
+    width: 1240,
+    height: 1269,
+  },
+  {
+    src: "/images/space/nino-actividad.jpg",
+    alt: "Niño trabajando con bloques de letras en una mesa infantil durante una sesión.",
+    width: 896,
+    height: 1195,
+  },
+];
 
 export default function NuestroEspacioPage() {
   return (
@@ -46,7 +73,7 @@ export default function NuestroEspacioPage() {
 
       {/* Gallery */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <SpaceGallery photo={spacePhoto} placeholderCount={3} />
+        <SpaceGallery photos={spacePhotos} />
       </div>
 
       {/* Detalles del espacio */}

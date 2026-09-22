@@ -13,10 +13,8 @@ export interface SpaceLightboxImage {
 
 interface SpaceLightboxProps {
   /**
-   * The gallery this lightbox can page through. Only one real photo exists
-   * today, so `images` typically has length 1 and the prev/next controls
-   * stay hidden — but the component takes an array so future real photos
-   * can be added without changing this API.
+   * The gallery this lightbox can page through. Prev/next controls only
+   * render when there is more than one image (see `hasMultiple` below).
    */
   images: SpaceLightboxImage[];
   initialIndex?: number;

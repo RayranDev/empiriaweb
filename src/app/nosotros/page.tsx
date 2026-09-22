@@ -26,7 +26,7 @@ export default function NosotrosPage() {
         </p>
       </div>
 
-      <TeamSection />
+      <TeamSection showCandidPhoto />
       <WhyEmpiriaSection />
       <EmotionalBreak />
 

@@ -7,13 +7,20 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { OrganicLeaf, SparkleStar } from "@/components/icons";
 
-export const TeamSection: React.FC = () => {
+interface TeamSectionProps {
+  /** Show each therapist's candid photo alongside their headshot. Used only on /nosotros. */
+  showCandidPhoto?: boolean;
+}
+
+export const TeamSection: React.FC<TeamSectionProps> = ({ showCandidPhoto = false }) => {
   const therapists = [
     {
       id: "johanna-gomez",
       name: "Johanna Gómez",
       role: "Fonoaudióloga",
       image: "/images/team/johanna-gomez.jpg",
+      candidImage: "/images/team/johanna-gomez-candid.jpg",
+      candidAlt: "Johanna Gómez usando tarjetas de vocabulario en una sesión",
       profileUrl: "/nosotros#johanna",
     },
     {
@@ -22,6 +29,8 @@ export const TeamSection: React.FC = () => {
       role: "Fonoaudióloga",
       specialty: "Especialista en Neuropsicología Escolar",
       image: "/images/team/lina-rodriguez.jpg",
+      candidImage: "/images/team/lina-rodriguez-candid.jpg",
+      candidAlt: "Lina Rodríguez con títeres de dedo, materiales de terapia infantil",
       profileUrl: "/nosotros#lina",
     },
   ];
@@ -76,6 +85,17 @@ export const TeamSection: React.FC = () => {
                     className="object-cover object-center"
                   />
                 </div>
+                {showCandidPhoto && (
+                  <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 z-10 w-14 sm:w-16 aspect-[1086/1448] -rotate-6 rounded-xl overflow-hidden bg-white border-2 border-white shadow-md">
+                    <Image
+                      src={therapists[0].candidImage}
+                      alt={therapists[0].candidAlt}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
               </div>
               <h3 className="mt-4 text-lg sm:text-xl font-extrabold text-[#2D2D3A]">
                 {therapists[0].name}
@@ -104,6 +124,17 @@ export const TeamSection: React.FC = () => {
                     className="object-cover object-center"
                   />
                 </div>
+                {showCandidPhoto && (
+                  <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-10 w-14 sm:w-16 aspect-[1086/1448] rotate-6 rounded-xl overflow-hidden bg-white border-2 border-white shadow-md">
+                    <Image
+                      src={therapists[1].candidImage}
+                      alt={therapists[1].candidAlt}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
               </div>
               <h3 className="mt-4 text-lg sm:text-xl font-extrabold text-[#2D2D3A]">
                 {therapists[1].name}
