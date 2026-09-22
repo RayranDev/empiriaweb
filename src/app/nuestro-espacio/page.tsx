@@ -19,6 +19,12 @@ const MAPS_LINK = "https://maps.google.com/?q=Avenida+Calle+24+%2374-55+Bogota";
 
 const spacePhotos: SpaceLightboxImage[] = [
   {
+    src: "/images/space/consultorio-banner.png",
+    alt: "Espacio de atención y sala de espera del Centro Terapéutico Empiria en Bogotá.",
+    width: 1942,
+    height: 809,
+  },
+  {
     src: "/images/space/sala-recepcion.jpg",
     alt: "Sala de espera de Centro Terapéutico Empiria con sofá y el logo del centro.",
     width: 900,
