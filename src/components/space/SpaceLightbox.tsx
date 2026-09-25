@@ -186,7 +186,6 @@ export const SpaceLightbox: React.FC<SpaceLightboxProps> = ({
             height={activeImage.height}
             sizes="(max-width: 768px) 100vw, 900px"
             className="w-full h-auto object-contain"
-            priority
           />
         </div>
       </div>

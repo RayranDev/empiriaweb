@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Tratamiento de Datos Personales | Ley 1581 de 2012 | Empiria",
   description:
     "Manual y política para el tratamiento de datos personales conforme a la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013 de Colombia.",
+  alternates: {
+    canonical: "/politica-tratamiento-datos",
+  },
 };
 
 export default function PoliticaTratamientoDatosPage() {

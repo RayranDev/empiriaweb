@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Nuestro Espacio",
   description:
     "Conoce el espacio del Centro Terapéutico Empiria en Bogotá, y el entorno donde acompañamos los procesos de fonoaudiología infantil.",
+  alternates: {
+    canonical: "/nuestro-espacio",
+  },
 };
 
 // Same Google Maps link used in ContactSection.tsx — kept in sync, not duplicated as a new URL.

@@ -27,6 +27,12 @@
   --background: #FFFFFF;
   --foreground: #2D2D3A;
   color-scheme: light;
+  /* Live height of the cookie banner, set by CookieBanner.tsx via a
+     ResizeObserver. Bottom-fixed UI (e.g. FloatingWhatsApp) reads this to
+     stay clear of the banner while it's open, and it collapses back to 0
+     once the banner is dismissed. Defaults to 0 so nothing shifts before
+     JS runs or when the banner never mounts. */
+  --cookie-banner-height: 0px;
 }
 
 html {

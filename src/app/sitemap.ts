@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/nosotros",
     "/areas-de-atencion",
+    "/nuestro-espacio",
     "/nuestro-proceso",
     "/para-familias",
     "/recursos",

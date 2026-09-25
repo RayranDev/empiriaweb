@@ -24,7 +24,6 @@ export const EmotionalBreak: React.FC = () => {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
               />
             </div>
           </div>

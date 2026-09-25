@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Términos y Condiciones de Uso",
   description:
     "Términos y condiciones aplicables al acceso, navegación y uso de los contenidos del portal web de Centro Terapéutico Empiria en Bogotá.",
+  alternates: {
+    canonical: "/terminos-y-condiciones",
+  },
 };
 
 export default function TerminosYCondicionesPage() {

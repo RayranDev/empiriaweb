@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center justify-between h-20 sm:h-22">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <EmpiriaLogo size="md" />
+              <EmpiriaLogo size="md" priority />
             </div>
 
             {/* Desktop Navigation Links */}

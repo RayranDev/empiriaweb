@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Para Familias | Tu Participación También Hace Parte del Proceso",
   description:
     "Estrategias, retroalimentación y acompañamiento para padres en el desarrollo del habla, lenguaje y aprendizaje de sus hijos en Centro Terapéutico Empiria.",
+  alternates: {
+    canonical: "/para-familias",
+  },
 };
 
 export default function ParaFamiliasPage() {

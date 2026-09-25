@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Settings, Cookie, Shield } from "lucide-react";
 
@@ -8,6 +8,7 @@ export const CookieBanner: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
   const [analyticsAllowed, setAnalyticsAllowed] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if consent has already been registered
@@ -18,6 +19,37 @@ export const CookieBanner: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Signal the banner's open state and live height so other fixed UI (the
+  // WhatsApp floating button) can stay clear of it instead of being covered.
+  // A ResizeObserver keeps --cookie-banner-height in sync even as the
+  // "Configurar" panel expands/collapses the banner's height.
+  useEffect(() => {
+    const root = document.documentElement;
+    const el = bannerRef.current;
+
+    if (!visible || !el) {
+      root.style.setProperty("--cookie-banner-height", "0px");
+      delete root.dataset.cookieBanner;
+      return;
+    }
+
+    root.dataset.cookieBanner = "open";
+
+    const updateHeight = () => {
+      root.style.setProperty("--cookie-banner-height", `${el.offsetHeight}px`);
+    };
+    updateHeight();
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      root.style.setProperty("--cookie-banner-height", "0px");
+      delete root.dataset.cookieBanner;
+    };
+  }, [visible]);
 
   const handleAcceptAll = () => {
     localStorage.setItem(
@@ -48,6 +80,7 @@ export const CookieBanner: React.FC = () => {
 
   return (
     <div
+      ref={bannerRef}
       role="region"
       aria-label="Gestión de cookies y privacidad"
       className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-white/95 backdrop-blur-md border-t border-[#E8E4F7] shadow-2xl animate-in slide-in-from-bottom-4 duration-300"

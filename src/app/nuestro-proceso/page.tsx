@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Nuestro Proceso | 4 Pasos Hacia el Bienestar de tu Hijo",
   description:
     "Descubre cómo iniciamos en Centro Terapéutico Empiria: toma de datos, reunión virtual de acercamiento, valoración presencial e intervención fonoaudiológica personalizada.",
+  alternates: {
+    canonical: "/nuestro-proceso",
+  },
 };
 
 export default function ProcesoPage() {

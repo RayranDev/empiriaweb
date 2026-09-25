@@ -66,9 +66,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Centro Terapéutico Empiria | Fonoaudiología Infantil en Bogotá",
     description:

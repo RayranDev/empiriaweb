@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Preguntas Frecuentes | Fonoaudiología Infantil Empiria",
   description:
     "Respuestas a las preguntas más frecuentes sobre valoración fonoaudiológica, duración de sesiones, remisiones y acompañamiento familiar en Bogotá.",
+  alternates: {
+    canonical: "/preguntas-frecuentes",
+  },
 };
 
 export default function PreguntasFrecuentesPage() {

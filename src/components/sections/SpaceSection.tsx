@@ -51,7 +51,6 @@ export const SpaceSection: React.FC = () => {
               height={spacePhoto.height}
               sizes="(max-width: 768px) 100vw, 768px"
               className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              priority
             />
           </button>
 

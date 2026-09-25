@@ -100,7 +100,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#D4C9EE]/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8 pb-12 border-b border-[#D4C9EE]/60">
           {/* Column 1: Brand & Emotional statement */}
           <div className="lg:col-span-2 space-y-4">
             <EmpiriaLogo size="md" />
@@ -118,23 +118,37 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div>
+          {/* Column 2: Navigation — split into two short columns so all 9 links stay visible without a tall single list */}
+          <div className="lg:col-span-2">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#5B4B9E] mb-4">
               Navegación
             </h4>
-            <ul className="space-y-2.5 text-sm text-[#3E3B52]">
-              {navigationLinks.slice(0, 5).map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-[#5B4B9E] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4">
+              <ul className="space-y-2.5 text-sm text-[#3E3B52]">
+                {navigationLinks.slice(0, 5).map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-[#5B4B9E] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-2.5 text-sm text-[#3E3B52]">
+                {navigationLinks.slice(5).map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-[#5B4B9E] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Column 3: Áreas */}

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contacto y Sede en Bogotá",
   description:
     "Contáctanos para valorar a tu hijo en Bogotá. Ubicados en Avenida Calle 24 #74-55, Barrio Modelia. WhatsApp: +57 312 736 6606.",
+  alternates: {
+    canonical: "/contacto",
+  },
 };
 
 export default function ContactoPage() {
@@ -17,7 +20,7 @@ export default function ContactoPage() {
           Estamos aquí para escucharte
         </h1>
         <p className="text-base sm:text-lg text-[#3E3B52] mt-4 leading-relaxed">
-          Ponte en contacto con nuestro equipo por WhatsApp, correo o formulario web. Respondemos con calidez y prontitud.
+          Escríbenos por WhatsApp o por correo; también puedes preparar tu consulta aquí y enviarla por WhatsApp. Respondemos con calidez y prontitud.
         </p>
       </div>
 

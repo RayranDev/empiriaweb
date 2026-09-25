@@ -6,12 +6,19 @@ interface EmpiriaLogoProps {
   variant?: "full" | "mark-only" | "white";
   className?: string;
   size?: "sm" | "md" | "lg" | "xl";
+  /**
+   * Only the above-the-fold header instance should set this to true — it's
+   * the only EmpiriaLogo render visible without scrolling. The footer and
+   * mobile drawer instances must stay lazy (default false).
+   */
+  priority?: boolean;
 }
 
 export const EmpiriaLogo: React.FC<EmpiriaLogoProps> = ({
   variant = "full",
   className = "",
   size = "md",
+  priority = false,
 }) => {
   const sizeStyles = {
     sm: { height: 44, width: 44, imgClass: "h-11 w-auto" },
@@ -36,7 +43,7 @@ export const EmpiriaLogo: React.FC<EmpiriaLogoProps> = ({
           width={selectedSize.width * 2}
           height={selectedSize.height * 2}
           className={`${selectedSize.imgClass} object-contain transition-opacity duration-200`}
-          priority
+          priority={priority}
         />
       </div>
 

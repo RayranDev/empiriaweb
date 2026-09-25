@@ -59,7 +59,10 @@ export const FloatingWhatsApp: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none">
+    <div
+      className="fixed right-6 z-50 flex flex-col items-end pointer-events-none transition-[bottom] duration-300 ease-out"
+      style={{ bottom: "calc(1.5rem + var(--cookie-banner-height, 0px))" }}
+    >
       {/* Friendly conversational bubble */}
       {showTooltip && (
         <div className="pointer-events-auto mb-3 max-w-[260px] sm:max-w-xs bg-white text-[#2D2D3A] p-3.5 rounded-2xl shadow-xl border border-[#E8E4F7] animate-in fade-in slide-in-from-bottom-2 duration-300 relative">

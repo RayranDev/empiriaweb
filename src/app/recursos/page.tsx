@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Recursos y Artículos | Empiria en Casa",
   description:
     "Artículos educativos sobre fonoaudiología infantil, estimulación del lenguaje, pautas para el habla y lectoescritura sin frustración en Bogotá.",
+  alternates: {
+    canonical: "/recursos",
+  },
 };
 
 export default function RecursosPage() {

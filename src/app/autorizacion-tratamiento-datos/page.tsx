@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Autorización de Tratamiento de Datos",
   description:
     "Texto informativo y términos de la autorización previa, expresa e informada para el tratamiento de datos de representantes legales y menores.",
+  alternates: {
+    canonical: "/autorizacion-tratamiento-datos",
+  },
 };
 
 export default function AutorizacionTratamientoDatosPage() {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Política de Privacidad",
   description:
     "Conoce cómo protegemos y gestionamos la información de las familias bajo principios de Privacy by Design y la Ley 1581 de 2012 en Colombia.",
+  alternates: {
+    canonical: "/politica-de-privacidad",
+  },
 };
 
 export default function PoliticaPrivacidadPage() {

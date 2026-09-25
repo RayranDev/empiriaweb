@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Política de Cookies",
   description:
     "Información transparente sobre el uso de cookies técnicas y analíticas en el sitio web de Centro Terapéutico Empiria.",
+  alternates: {
+    canonical: "/politica-cookies",
+  },
 };
 
 export default function PoliticaCookiesPage() {

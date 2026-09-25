@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Áreas de Atención | Habla, Lenguaje, Comunicación y Aprendizaje",
   description:
     "Descubre nuestras 5 áreas de valoración e intervención fonoaudiológica infantil en Bogotá: Habla, Lenguaje, Comunicación, Lectoescritura y Aprendizaje.",
+  alternates: {
+    canonical: "/areas-de-atencion",
+  },
 };
 
 export default function AreasPage() {

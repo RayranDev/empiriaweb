@@ -26,10 +26,25 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
     title: `${article.title} | Empiria en Casa`,
     description: article.summary,
     keywords: article.keywords,
+    alternates: {
+      canonical: `/recursos/${slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.summary,
       type: "article",
+      // Metadata merging is shallow: defining `openGraph` here replaces the
+      // root layout's openGraph object entirely, which would otherwise drop
+      // the auto-injected opengraph-image.png. Re-declare it explicitly so
+      // article pages keep their social preview image.
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Centro Terapéutico Empiria — Fonoaudiología Infantil en Bogotá.",
+        },
+      ],
     },
   };
 }

@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: `${service.title} | Fonoaudiología Infantil Bogotá`,
     description: `${service.shortDescription} Enfoque terapéutico personalizado en Centro Terapéutico Empiria.`,
+    alternates: {
+      canonical: `/areas-de-atencion/${slug}`,
+    },
   };
 }
 

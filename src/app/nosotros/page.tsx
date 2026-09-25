@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Nosotros | Enfoque y Equipo Profesional",
   description:
     "Conoce al equipo fonoaudiológico de Centro Terapéutico Empiria en Bogotá. Fonoaudiología infantil basada en la calidez, la evidencia y el respeto al desarrollo de cada niño.",
+  alternates: {
+    canonical: "/nosotros",
+  },
 };
 
 export default function NosotrosPage() {
